@@ -1,0 +1,78 @@
+table.dk-speakup-signaturelist {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: .9em;
+	margin-bottom: 1em;
+	border-top: 1px solid #ccc;
+	border-collapse: collapse;
+	width: 100%;
+	clear: both;
+}
+h3.dk-speakup-signaturelist_header {
+	margin-top: 1em;
+}
+table.dk-speakup-signaturelist {
+	border-bottom: none;
+}
+table.dk-speakup-signaturelist td {
+	padding: 3px 10px;
+	border-bottom: 1px solid #ccc;
+}
+td.dk-speakup-signaturelist-name,
+td.dk-speakup-signaturelist-city,
+td.dk-speakup-signaturelist-state,
+td.dk-speakup-signaturelist-country {
+	text-transform: capitalize;
+}
+td.dk-speakup-signaturelist-count {
+	text-align: right;
+}
+td.dk-speakup-signaturelist-name {
+	font-weight: bold;
+}
+tr.dk-speakup-even {
+	background: #eee;
+}
+tr.dk-speakup-odd {
+	background: transparent;
+}
+
+table.dk-speakup-signaturelist tr.dk-speakup-signaturelist-pagelinks td {
+	border-bottom: none;
+	text-align: right;
+	padding: 8px 0 0 0;
+}
+a.dk-speakup-signaturelist-prev,
+a.dk-speakup-signaturelist-next {
+	cursor: pointer;
+	color: #777;
+	display: inline-block;
+	margin-left: 2px;
+	padding: 0 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	background: #dedede url(../images/bg-pagination-button.png) repeat-x top left;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 12px;
+	line-height: 22px;
+	box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.1 );
+	text-shadow: 0 1px 0 rgba( 255, 255, 255, 0.7 );
+	margin-bottom: 5px;
+}
+a.dk-speakup-signaturelist-prev:hover,
+a.dk-speakup-signaturelist-next:hover {
+	color: #444;
+}
+a.dk-speakup-signaturelist-prev:active,
+a.dk-speakup-signaturelist-next:active {
+	box-shadow: none;
+	position: relative;
+	top: 1px;
+}
+a.dk-speakup-signaturelist-prev:hover {
+	text-decoration: none;
+}
+.dk-speakup-signaturelist-disabled {
+	opacity: 0.3;
+	cursor: default !important;
+}

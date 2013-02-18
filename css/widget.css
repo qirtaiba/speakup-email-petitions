@@ -1,0 +1,333 @@
+/*
+------------------------------------------------------------
+	Sidebar Widget styles
+------------------------------------------------------------
+*/
+
+/* Sidebar widget */
+.dk-speakup-widget-wrap {
+	clear: both;
+	padding: 0;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 13px !important;
+	line-height: 1.25em !important;
+	border: 1px solid #444;
+	background-color: #eee;
+	line-height: 1.2em;
+	border-radius: 4px;
+	position: relative;
+	text-shadow: none;
+	margin-bottom: 1em;
+	box-shadow: 0 1px 3px rgba( 0, 0, 0, 0.4 );
+}
+.dk-speakup-widget-wrap a {
+	text-decoration: none !important;
+	outline: none;
+}
+.dk-speakup-widget-wrap p {
+	margin: 8px;
+}
+.dk-speakup-widget-wrap h3 {
+	border-top-right-radius: 2px;
+	border-top-left-radius: 2px;
+	border-bottom: 1px solid #fff;
+	font: bold 14px/1.2em Helvetica, Arial, sans-serif;
+	text-shadow: none;
+	color: #fff !important;
+	padding: 6px 8px 4px 8px;
+	background: #353535 url(../images/bg-petition-header.png) repeat-x top left;
+	margin: 0;
+}
+.dk-speakup-widget-button-wrap {
+	text-align: center;
+	margin: 15px 0 20px 0;
+}
+.dk-speakup-widget-button {
+	border: 1px solid #f95700;
+	padding: 7px 16px 7px 16px;
+	font-size: 14px;
+	font-weight: bold;
+	background: #f45a00 url(../images/bg-submit-button.png) repeat-x top left;
+	border-radius: 4px;
+	box-shadow: 0 1px 2px rgba( 0, 0, 0, 0.4 );
+	text-shadow: 0 -1px 0 rgba( 168, 62, 0, 0.7 );
+	cursor: pointer;
+}
+.dk-speakup-widget-button:active {
+	position: relative;
+	top: 1px;
+	box-shadow: 0 0 1px rgba( 0, 0, 0, 0.6 );
+}
+.dk-speakup-widget-button span {
+	color: #fff;
+}
+
+/*
+------------------------------------------------------------
+	Pop-up form styles
+------------------------------------------------------------
+*/
+
+/* Window shade */
+#dk-speakup-windowshade {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100000;
+	background-color: #000;
+	display: none;
+}
+
+/* Pop-up window */
+.dk-speakup-widget-popup-wrap {
+	position: fixed;
+	display: none;
+	z-index: 100002;
+	font: 14px/1.3em Helvetica, Arial, sans-serif !important;
+	border: 1px solid #333;
+	background-color: #eee;
+	width: 760px;
+	line-height: 1.2em;
+	border-radius: 4px;
+	text-shadow: none;
+}
+.dk-speakup-widget-popup-wrap a {
+	text-decoration: none !important;
+	outline: none;
+}
+.dk-speakup-widget-popup-wrap p {
+	margin: 0 0 .75em 0;
+}
+.dk-speakup-widget-popup-wrap h3 {
+	border-top-right-radius: 2px;
+	border-top-left-radius: 2px;
+	border-bottom: 1px solid #fff;
+	font: bold 16px/30px Helvetica, Arial, sans-serif !important;
+	text-shadow: none;
+	margin: 0 0 0 0 !important;
+	padding: 0 15px 0 15px;
+	color: #fff !important;
+	background: #353535 url(../images/bg-petition-header.png) repeat-x top left;
+	overflow: hidden;
+}
+
+/* Message Area (left side)
+----------------------------------*/
+.dk-speakup-widget-message-wrap {
+	float: left;
+	margin: 11px;
+	width: 430px;
+	border-right: 3px dotted #bbb;
+}
+.dk-speakup-widget-message {
+	color: #444;
+	font: 14px/1.4em Helvetica, Arial, sans-serif !important;
+	margin: 0 10px 0 0;
+	padding-right: 5px;
+	overflow: auto;
+	height: 385px;
+	width: 410px;
+	padding: 0 0 0 4px;
+}
+textarea.dk-speakup-widget-message {
+	border: none;
+	background: transparent;
+}
+textarea.dk-speakup-widget-message:focus {
+	outline: 1px solid #aaa;
+	background: #fff;
+}
+
+/* Form Area (right side)
+----------------------------------*/
+.dk-speakup-widget_form-wrap {
+	float: left;
+	margin: 15px 0 0 0;
+	width: 288px;
+}
+.dk-speakup-widget_form-wrap p {
+	width: 278px;
+	margin-bottom: .5em;
+}
+.dk-speakup-widget-popup-wrap input {
+	color: #444;
+	font: 14px/1.4em Helvetica, Arial, sans-serif !important;
+	padding: 0 0 0 2px !important;
+	margin: 0 0 6px 0;
+}
+.dk-speakup-widget-popup-wrap input[type=text] {
+	border: 1px solid #aaa;
+	background: #fff;
+	height: 22px;
+}
+.dk-speakup-widget-popup-wrap label {
+	font: normal 13px/1.4em Helvetica, Arial, sans-serif;
+	position: absolute;
+	z-index: 3;
+	margin: 2px 5px 0 5px;
+	display: block;
+	color: #999;
+}
+.dk-speakup-widget-popup-wrap label.required:after {
+	content: "*";
+}
+.dk-speakup-widget-half {
+	margin: 0 5px 0 0;
+	width: 135px;
+	display: inline-block;
+}
+.dk-speakup-widget-half input {
+	width: 135px;
+}
+.dk-speakup-widget-full {
+	margin: 0;
+	width: 278px;
+	display: inline-block;
+}
+.dk-speakup-widget-full input {
+	width: 278px;
+}
+.dk-speakup-widget-optin-wrap label {
+	color: #444;
+	position: relative;
+	display: inline;
+	line-height: 1.1em;
+	vertical-align: text-top;
+}
+.dk-speakup-widget-optin-wrap input {
+	vertical-align: text-center;
+}
+
+.dk-speakup-widget-submit-wrap {
+	text-align: center;
+	margin: 13px 0 20px 0;
+}
+.dk-speakup-widget-submit {
+	border: 1px solid #f95700;
+	padding: 8px 20px 8px 20px;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: bold;
+	background: #f45a00 url(../images/bg-submit-button.png) repeat-x top left;
+	border-radius: 4px;
+	box-shadow: 0 1px 2px rgba( 0, 0, 0, 0.4 );
+	text-shadow: 0 -1px 0 rgba( 168, 62, 0, 1 );
+	cursor: pointer;
+}
+.dk-speakup-widget-submit:active {
+	position: relative;
+	top: 1px;
+	box-shadow: 0 0 1px rgba( 0, 0, 0, 0.6 );
+}
+.dk-speakup-widget-submit span { color: #fff; }
+
+/* Progress Bar
+----------------------------------*/
+.dk-speakup-widget-progress-wrap {
+	background-color: #ddd;
+	border-top: 1px solid #ccc;
+	margin-top: 10px;
+	padding: 5px 0;
+	border-bottom-right-radius: 4px;
+	border-bottom-left-radius: 4px;
+	text-align: center;
+}
+.dk-speakup-widget-signature-count {
+	display: inline-block;
+	font-size: 12px;
+	vertical-align: 10%;
+	margin: 0 5px 0 0;
+}
+.dk-speakup-widget-signature-count span {
+	font-weight: bold;
+}
+.dk-speakup-widget-wrap .dk-speakup-progress {
+	display: inline-block;
+	border-radius: 2px;
+	background: #d7d7d7 url(../images/bg-progressbar-back.png) repeat-x top left;
+	height: 10px;
+	border: 1px solid #999;
+}
+.dk-speakup-widget-wrap .dk-speakup-progressbar {
+	height: 10px;
+	border-right: 1px solid #999;
+}
+.dk-speakup-widget-wrap .dk-speakup-progressbar-low {
+	background: #09f url(../images/bg-progressbar.png) repeat-x top left;
+}
+.dk-speakup-widget-wrap .dk-speakup-progressbar-medium {
+	background: #3c0 url(../images/bg-progressbar.png) repeat-x top left;
+}
+.dk-speakup-widget-wrap .dk-speakup-progressbar-high {
+	background: #ffad00 url(../images/bg-progressbar.png) repeat-x top left;
+}
+.dk-speakup-widget-wrap .dk-speakup-progressbar-complete {
+	background: #ff2e00 url(../images/bg-progressbar.png) repeat-x top left;
+}
+
+/* Close button */
+.dk-speakup-widget-close {
+	height: 30px;
+	width: 30px;
+	z-index: 304;
+	float: right;
+	margin: -43px -15px 0 0;
+	background: transparent url(../images/button-close.png) no-repeat top right;
+	cursor: pointer;
+}
+
+/* Sharing links
+----------------------------------*/
+.dk-speakup-widget-share {
+	margin: 1em 0 1em 0;
+	width: 100%;
+	display: none;
+}
+a.dk-speakup-widget-facebook {
+	background: url(../images/button-facebook.png);
+	display: block;
+	float: left;
+	height: 32px;
+	width: 130px;
+	margin: 1em 5px 1em 5px;
+}
+a.dk-speakup-widget-twitter {
+	background: url(../images/button-twitter.png);
+	display: block;
+	float: left;
+	height: 32px;
+	width: 130px;
+	margin: 1em 0 1em 5px;
+}
+a.dk-speakup-widget-twitter:active,
+a.dk-speakup-widget-facebook:active {
+	position: relative;
+	top: 1px;
+}
+
+/* Form validation
+----------------------------------*/
+.dk-speakup-error {
+	border: 1px solid #c00 !important;
+	background-color: #ffebe8 !important;
+}
+.dk-speakup-blur {
+	visibility: visible;
+}
+.dk-speakup-focus {
+	visibility: hidden;
+}
+.dk-speakup-clear {
+	clear: both;
+}
+
+/*
+------------------------------------------------------------
+	Small Screens
+------------------------------------------------------------
+*/
+@media only screen and ( max-device-width: 480px ) {
+	.dk-speakup-widget-popup-wrap {
+		position: absolute;
+	}
+}

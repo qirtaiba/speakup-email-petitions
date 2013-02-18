@@ -1,0 +1,132 @@
+/* custom plugin icon for h2 headers */
+#dk-speakup #icon-dk-speakup { background: transparent url(../images/icon-emailpetitions-32.png) no-repeat top left; }
+
+
+/* Settings tabs
+------------------------------------------------------------------- */
+ul#dk-speakup-tabbar {
+	border-bottom: 1px solid #aaa;
+	margin: 2em 0;
+	padding-left: 1em;
+}
+ul#dk-speakup-tabbar li {
+	display: inline-block;
+	margin: 0 0 -1px 0;
+}
+ul#dk-speakup-tabbar li a {
+	display: inline-block;
+	background: #dcdcdc url(../images/bg-tabs-off.png) repeat-x top left;
+	border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	border-bottom: 1px solid #aaa;
+	border-right: 1px solid #ccc;
+	border-collapse: collapse;
+	font-weight: bold;
+	padding: 2px 15px 0 15px;
+	line-height: 30px;
+	font-weight: bold;
+	text-shadow: 0px 1px 0 #fff;
+	color: #666;
+	cursor: pointer;
+}
+ul#dk-speakup-tabbar li a:hover { color: #21759b; }
+ul#dk-speakup-tabbar li a.dk-speakup-active {
+	background: #fff;
+	border-top: 1px solid #aaa;
+	border-left: 1px solid #aaa;
+	border-bottom: 1px solid #fff;
+	border-right: 1px solid #aaa;
+	color: #333;
+	padding: 4px 15px 0 15px;
+	font-weight: bold;
+}
+
+/* Form styles for Add New page
+------------------------------------------------------------------- */
+#dk-speakup label {
+	display: block;
+	font-weight: bold;
+}
+#dk-speakup label#title-prompt-text { font-weight: normal; }
+#dk-speakup #post-body .postbox label { margin: .5em 6px .25em 3px; }
+#dk-speakup form#dk-speakup-edit-petition textarea { width: 99%; }
+#dk-speakup form#dk-speakup-settings textarea { width: 85%; }
+#dk-speakup .dk-speakup-inline { display: inline; }
+#dk-speakup input[type=text] { margin: 0 0 .5em 0; }
+#dk-speakup .dk-speakup-hidden { display: none; }
+#dk-speakup .dk-speakup-right { text-align: right; }
+#dk-speakup .dk-speakup-subsection { margin-top: .5em; padding-bottom: 5px; }
+#dk-speakup .dk-speakup-subsection label {
+	font-weight: normal;
+	display: inline;
+}
+#dk-speakup .form-table label { font-weight: normal; }
+#dk-speakup .sends_email {
+	background-color: #f9f9f9;
+	margin: -6px -6px 0 -6px;
+	padding: 7px 0 7px 7px;
+	border-bottom: 1px solid #eee;
+}
+body.admin-color-classic .sends_email { background-color: transparent !important; }
+.dk-speakup-petition-content { padding-top: 5px; }
+#dk-speakup #twitter-counter {
+	font-size: 1.1em;
+	text-align: right;
+	padding: 3px 7px 0 0;
+}
+.dk-speakup-address input { margin-left: 1.5em !important; }
+.dk-speakup-checkbox label { vertical-align: text-top; }
+
+/* error messages for Add / Edit form */
+.dk-speakup-error-msg { display: none; }
+.dk-speakup-error {
+	border: 1px solid #c00 !important;
+	background-color: #ffebe8 !important;
+}
+#dk-speakup #target_email, #dk-speakup #email_subject, #dk-speakup #greeting { width: 60%; }
+
+/* alterations to some default WP styles */
+#dk-speakup .postbox h3 { cursor: auto; }
+#dk-speakup .misc-pub-section { font-size: 11px; }
+#dk-speakup #major-publishing-actions { border-top: 1px solid #ddd; }
+
+#dk-speakup input#goal { text-align: right; }
+
+#dk-speakup .table-label {
+	color: #000;
+	font-weight: bold;
+}
+#dk-speakup .table-label span.count {
+	color: #999;
+	font-weight: normal;
+}
+
+#dk-speakup #side-sortables .inside { padding: 0; margin: 5px 0 0 0;}
+
+/* progress bar styles */
+.dk-speakup-progress {
+	border-radius: 2px;
+	background: #e5e5e5 url(../images/bg-progressbar-back-admin.png) repeat-x top left;
+	height: 10px;
+	border: 1px solid #aaa;
+	float: right;
+}
+.dk-speakup-progressbar {
+	height: 10px;
+	border-right: 1px solid #aaa;
+}
+.dk-speakup-progressbar-low { background: #09f url(../images/bg-progressbar.png) repeat-x top left; }
+.dk-speakup-progressbar-medium { background: #3c0 url(../images/bg-progressbar.png) repeat-x top left; }
+.dk-speakup-progressbar-high { background: #ffad00 url(../images/bg-progressbar.png) repeat-x top left; }
+.dk-speakup-progressbar-complete { background: #ff2e00 url(../images/bg-progressbar.png) repeat-x top left; }
+.dk_speakup_clear { clear: both; }
+.dk-speakup-inline { display: inline; }
+.dk-speakup-red { color: #900; }
+.dk-speakup-green { color: #090; }
+
+form#dk-speakup-settings h3 { margin: 2em 0 0 0; }
+.dk-speakup-tablerow:hover { background-color: #ffd; }
+.dk-speakup-tablerow-even { background: #fff; }
+body.admin-color-classic .dk-speakup-tablerow-even { background: #f7fcfe; }

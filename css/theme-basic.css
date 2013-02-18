@@ -1,0 +1,232 @@
+.dk-speakup-petition-wrap,
+.dk-speakup-petition-wrap input,
+.dk-speakup-message {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.dk-speakup-petition-wrap {
+	margin: .5em 0 .5em 0;
+	width: 100%;
+	background: #f6f6f6;
+	font: normal 15px/1.4em Helvetica, Arial, sans-serif;
+}
+.dk-speakup-petition-wrap a {
+	outline: none;
+	text-decoration: none;
+}
+.dk-speakup-petition-wrap p {
+	margin: 0 0 .75em 0;
+}
+.dk-speakup-petition-wrap h3 {
+	margin: 0 0 .5em 0 !important;
+	padding: .5em 3% .25em 3% !important;
+	font: bold 20px/1.4em Helvetica, Arial, sans-serif;
+	text-shadow: none;
+	text-transform: none;
+	letter-spacing: 0;
+}
+
+/* Form elements
+----------------------------------*/
+.dk-speakup-petition-wrap input[type=text],
+.dk-speakup-message {
+	padding: 0 0 0 2px;
+	border: 1px solid #aaa;
+	background: #fff;
+	color: #444;
+	font: normal 15px/1.4em Helvetica, Arial, sans-serif;
+}
+.dk-speakup-petition-wrap input {
+	height: 26px;
+}
+.dk-speakup-half {
+	display: inline-block;
+	margin: 8px -4px 0 3%;
+	width: 45.5%;
+}
+.dk-speakup-half input {
+	width: 100%;
+}
+.dk-speakup-full {
+	display: inline-block;
+	margin: 8px 0 0 3%;
+	width: 94%;
+}
+.dk-speakup-full input {
+	width: 100%;
+}
+.dk-speakup-message {
+	overflow: auto;
+	margin-top: 6px;
+	padding:  0 0 0 4px;
+	height: 250px !important;
+	background: #fff;
+	font-size: 14px !important;
+}
+textarea.dk-speakup-message {
+	width: 100%;
+}
+.dk-speakup-optin-wrap input {
+	position: relative;
+	top: 1px;
+	margin: 5px 0 0 3%;
+	vertical-align: middle;
+	vertical-align: bottom;
+}
+
+/* Submit button
+----------------------------------*/
+.dk-speakup-submit-wrap {
+	margin: 30px 3% 30px 3%;
+	text-align: center;
+}
+.dk-speakup-submit {
+	padding: 10px 28px 10px 28px;
+	border: 1px solid #f95700;
+	border-radius: 4px;
+	background: #fc861d url(../images/bg-submit-button.png) repeat-x top left;
+	box-shadow: 0 1px 2px rgba( 0, 0, 0, 0.4 );
+	text-shadow: 0 -1px 0 rgba( 168, 62, 0, 1 );
+	font-weight: bold;
+	font-size: 16px;
+	font-family: Helvetica, Arial, sans-serif;
+	cursor: pointer;
+}
+.dk-speakup-submit:active {
+	position: relative;
+	top: 1px;
+	box-shadow: 0 0 1px #999;
+}
+.dk-speakup-submit span { color: #fff; }
+
+/* Form labels
+----------------------------------*/
+.dk-speakup-petition-wrap label.required:after {
+	content: "*";
+}
+.dk-speakup-petition-wrap label {
+	position: absolute;
+	z-index: 3;
+	display: block;
+	margin: 4px 5px 0 5px;
+	color: #999;
+	font: normal 13px/1.4em Helvetica, Arial, sans-serif;
+}
+.dk-speakup-optin-wrap label {
+	position: relative;
+	display: inline;
+	margin: 0;
+	padding-left: 2px;
+	color: inherit;
+}
+.dk-speakup-blur {
+	visibility: visible;
+}
+.dk-speakup-focus {
+	visibility: hidden;
+}
+
+/* Form validation highlight color
+----------------------------------*/
+.dk-speakup-error {
+	border: 1px solid #c00 !important;
+	background-color: #ffebe8 !important;
+}
+
+/* Response messages
+----------------------------------*/
+.dk-speakup-response,
+.dk-speakup-notice {
+	margin: 1em 0;
+	padding: 0 3% 0 3%;
+}
+.dk-speakup-response p:last-child,
+.dk-speakup-notice  p:last-child {
+	margin-bottom: 0;
+}
+.dk-speakup-response {
+	display: none;
+}
+
+/* Sharing Buttons and Progress bar
+----------------------------------*/
+.dk-speakup-share,
+.dk-speakup-progress-wrap {
+	background: #eee;
+}
+
+.dk-speakup-share {
+	text-align: center;
+	padding-bottom: 1em;
+	font-size: 12px;
+}
+a.dk-speakup-facebook {
+	display: inline-block;
+	margin: 5px 5px 0 5px;
+	width: 130px;
+	height: 32px;
+	background: url(../images/button-facebook.png);
+}
+a.dk-speakup-twitter {
+	display: inline-block;
+	margin: 5px 5px 0 5px;
+	width: 130px;
+	height: 32px;
+	background: url(../images/button-twitter.png);
+}
+
+.dk-speakup-progress-wrap {
+	padding: .5em 3% .5em 3%;
+	text-align: center;
+}
+.dk-speakup-progress {
+	display: inline-block;
+	margin: .25em 0 0 3%;
+	height: 16px;
+	border: 1px solid #999;
+	background: #e5e5e5 url(../images/bg-progressbar-large.png) repeat-x top left;
+}
+.dk-speakup-progressbar {
+	height: 16px;
+	border-right: 1px solid #999;
+}
+.dk-speakup-progressbar-low {
+	background: #09f url(../images/bg-progressbar-large.png) repeat-x top left;
+}
+.dk-speakup-progressbar-medium {
+	background: #3c0 url(../images/bg-progressbar-large.png) repeat-x top left;
+}
+.dk-speakup-progressbar-high {
+	background: #ffad00 url(../images/bg-progressbar-large.png) repeat-x top left;
+}
+.dk-speakup-progressbar-complete {
+	background: #ff2e00 url(../images/bg-progressbar-large.png) repeat-x top left;
+}
+.dk-speakup-signature-count {
+	display: inline-block;
+	vertical-align: 15%;
+}
+.dk-speakup-signature-count span {
+	font-weight: bold;
+}
+
+/* Expired petitions
+----------------------------------*/
+.dk-speakup-expired-deadline,
+.dk-speakup-expired-signatures,
+.dk-speakup-expired-goal {
+	margin: .25em 0 .25em 0;
+	font-size: .9em;
+}
+.dk-speakup-expired-deadline span,
+.dk-speakup-expired-signatures span,
+.dk-speakup-expired-goal span {
+	font-weight: bold;
+}
+
+/* Misc
+----------------------------------*/
+.dk-speakup-clear {
+	clear: both;
+}
