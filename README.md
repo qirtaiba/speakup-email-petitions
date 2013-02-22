@@ -23,18 +23,24 @@ The available shortcodes and their available attributes are described below:
 #### id
 The ID number of your petition (required). To display a basic petition, use this format:
 
-`[emailpetition id="1"]`
+```
+[emailpetition id="1"]
+```
 
 #### width
 This sets the width of the wrapper `<div>` that surrounds the petition form. Format as you would a width rule for any standard CSS selector. Values can be denominated in px, pt, em, % etc. The units marker (px, %) must be included.
 
 To set the petition from to display at 100% of it's container, use:
 
-`[emailpetition id="1" width="100%"]`
+```
+[emailpetition id="1" width="100%"]
+```
 
 A petition set to display at 500 pixels wide can be achieved using:
 
-`[emailpetition id="1" width="500px"]`
+```
+[emailpetition id="1" width="500px"]
+```
 
 #### height
 This sets the height of the petition message box (rather than the height of the entire form). Format as you would a height rule for any standard CSS selector. Values can be denominated in px, pt, em, % etc. The units marker (px, %) must be included.
@@ -44,38 +50,54 @@ Using a % value only works when the "Allow custom messages" feature is turned of
 
 To set the message box to scale to 100% of the height of the message it contains, use any % value (setting this to 100%, 0%, 200% or any other % value has the same result). Use px if you want the box to scale to a specific height.
 
-`[emailpetition id="1" height="500px"]`
-`[emailpetition id="1" height="100%"]`
+```
+[emailpetition id="1" height="500px"]
+```
+```
+[emailpetition id="1" height="100%"]
+```
 
 #### progresswidth
 Sets the width of the outer progress bar. The filled area of the progress bar will automatically scale proportionally with the width of the outer prgress bar. Provide a numeric value in pixels only. Do not include the px unit marker.
 
 To display the progress bar at 300 pixels wide, use:
 
-`[emailpetition id="1" progresswidth="300"]`
+```
+[emailpetition id="1" progresswidth="300"]
+```
 
 #### class
 Adds an arbitrary class name to the wrapper `<div>` that surrounds the petition form. Typically used to assign the alignright, alignleft or aligncenter classes to the petition in order to float the petition form to one side of its container. To assign multiple classes, separate the class names with spaces.
 
-`[emailpetition id="1" class="alignright"]`
-`[emailpetition id="1" class="style1 style2"]`
+```
+[emailpetition id="1" class="alignright"]
+```
+```
+[emailpetition id="1" class="style1 style2"]
+```
 
 ### [signaturelist]
 
 #### id
 The ID number of your petition (required). To display a basic signature list, use this format:
 
-`[signaturelist id="1"]`
+```
+[signaturelist id="1"]
+```
 
 #### rows
 The number of signature rows to display in the table. This will override the default value provided on the Settings page. To display 10 rows, use:
 
-`[signaturelist id="1" rows="10"]`
+```
+[signaturelist id="1" rows="10"]
+```
 
 #### dateformat
 Format of values in the date column. Use any of the standard [PHP date formating characters](http://php.net/manual/en/function.date.php). Default is 'M d, Y'. A date such as "Sunday October 14, 2012 @ 9:42 am" can be displayed using:
 
-`[signaturelist id="1" dateformat="l F d, Y @ g:i a"]`
+```
+[signaturelist id="1" dateformat="l F d, Y @ g:i a"]
+```
 
 #### prevbuttontext
 The text that displays in the previous signatures pagination button. Default is &lt;.
