@@ -19,6 +19,7 @@ Shortcodes
 The available shortcodes and their available attributes are described below:
 
 ### [emailpetition]
+Display the petition form.
 
 #### id
 The ID number of your petition (required). To display a basic petition, use this format:
@@ -77,6 +78,7 @@ Adds an arbitrary class name to the wrapper `<div>` that surrounds the petition 
 ```
 
 ### [signaturelist]
+Display a table of all signatures collected for a given petition.
 
 #### id
 The ID number of your petition (required). To display a basic signature list, use this format:
@@ -104,3 +106,14 @@ The text that displays in the previous signatures pagination button. Default is 
 
 #### nextbuttontext
 The text that displays in the next signatures pagination button. Default is &gt;.
+
+
+### [signaturecount]
+Display the number (as text) of signatures collected for a given petition:
+
+#### id
+The ID number of your petition (required).
+
+```
+[signaturecount id="3"]
+```

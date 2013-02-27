@@ -1,5 +1,27 @@
 <?php
 
+// register shortcode to display signatures count
+add_shortcode( 'signaturecount', 'dk_speakup_signaturescount_shortcode' );
+function dk_speakup_signaturescount_shortcode( $attr ) {
+
+	include_once( 'class.petition.php' );
+	$petition = new dk_speakup_Petition();
+
+	$id = 1; // default
+	if ( isset( $attr['id'] ) && is_numeric( $attr['id'] ) ) {
+		$id = $attr['id'];
+	}
+	
+	$get_petition = $petition->retrieve( $id );
+
+	if ( $get_petition ) {
+		return $petition->signatures;
+	}
+	else {
+		return '';
+	}
+}
+
 // register shortcode to display petition form
 add_shortcode( 'emailpetition', 'dk_speakup_emailpetition_shortcode' );
 function dk_speakup_emailpetition_shortcode( $attr ) {
