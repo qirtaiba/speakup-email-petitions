@@ -41,7 +41,7 @@ function dk_speakup_install() {
 			`state` VARCHAR(200) CHARACTER SET utf8 NOT NULL,
 			`postcode` VARCHAR(200) CHARACTER SET utf8 NOT NULL,
 			`country` VARCHAR(200) CHARACTER SET utf8 NOT NULL,
-			`custom_field` VARCHAR(200) CHARACTER SET utf8 NOT NULL,
+			`custom_field` VARCHAR(400) CHARACTER SET utf8 NOT NULL,
 			`optin` CHAR(1) BINARY NOT NULL,
 			`date` DATETIME NOT NULL,
 			`confirmation_code` VARCHAR(32) NOT NULL,

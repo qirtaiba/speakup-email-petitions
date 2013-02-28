@@ -269,7 +269,7 @@ class dk_speakup_petition_widget extends WP_Widget {
 					$petition_widget .= '
 							<div class="dk-speakup-widget-half">
 								<label for="dk-speakup-widget-custom-field-' . $petition->id . '">' . stripslashes( esc_html( $petition->custom_field_label ) ) . '</label>
-								<input name="dk-speakup-widget-custom-field" id="dk-speakup-widget-custom-field-' . $petition->id . '" type="text">
+								<input name="dk-speakup-widget-custom-field" id="dk-speakup-widget-custom-field-' . $petition->id . '" maxlength="400" type="text">
 							</div>
 					';
 				}

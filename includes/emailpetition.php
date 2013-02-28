@@ -135,7 +135,7 @@ function dk_speakup_emailpetition_shortcode( $attr ) {
 					$petition_form .= '
 							<div class="dk-speakup-half">
 								<label for="dk-speakup-custom-field-' . $petition->id . '">' . stripslashes( esc_html( $petition->custom_field_label ) ) . '</label>
-								<input name="dk-speakup-custom-field" id="dk-speakup-custom-field-' . $petition->id . '" maxlength="200" type="text" />
+								<input name="dk-speakup-custom-field" id="dk-speakup-custom-field-' . $petition->id . '" maxlength="400" type="text" />
 							</div>
 					';
 				}

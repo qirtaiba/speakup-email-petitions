@@ -3,8 +3,8 @@ Contributors: kreg
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ADP2TPGYEU5NU
 Tags: petition, activism, community, email, social media
 Requires at least: 3.1
-Tested up to: 3.5
-Stable tag: 2.3.2
+Tested up to: 3.5.1
+Stable tag: 2.3.3
 
 SpeakUp! Email Petitions makes it easy to add petitions to your website and rally your community to support a cause.
 
@@ -91,6 +91,11 @@ If the CSV file looks scrambled, try changing its filename extension from .csv t
 8. Email confirmation screen
 
 == Changelog ==
+
+= 2.3.3 =
+* Added [signaturecount] shortcode to display a petition's signature count
+* Improved German localization (thanks to Andreas Kumlehn)
+* Increased maximum text size allowed in custom fields to 400 characters
 
 = 2.3.2 =
 * Fixed conflict with Polylang translations plugin
@@ -279,8 +284,10 @@ If the CSV file looks scrambled, try changing its filename extension from .csv t
 
 == Upgrade Notice ==
 
-= 2.3.2 =
-* Fixes conflict with Polylang translations plugin
+= 2.3.3 =
+* Added [signaturecount] shortcode to display a petition's signature count
+* Improved German localization (thanks to Andreas Kumlehn)
+* Increased maximum text size allowed in custom fields to 400 characters
 
 [More information](http://speakup.designkode.com/2012/10/speakup-2-3/)
 
@@ -345,3 +352,10 @@ The text that displays in the previous signatures pagination button. Default is 
 
 = nextbuttontext =
 The text that displays in the next signatures pagination button. Default is &gt;.
+
+== Signaturecount Shortcode ==
+Display the number (as text) of signatures collected for a given petition:
+
+= id =
+The ID number of your petition (required).
+`[signaturecount id="3"]`

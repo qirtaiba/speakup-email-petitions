@@ -12,7 +12,7 @@ License: GPL2
 global $wpdb, $db_petitions, $db_signatures, $dk_speakup_version;
 $db_petitions  = $wpdb->prefix . 'dk_speakup_petitions';
 $db_signatures = $wpdb->prefix . 'dk_speakup_signatures';
-$dk_speakup_version = '2.3.2';
+$dk_speakup_version = '2.3.3';
 
 // enable localizations
 add_action( 'init', 'dk_speakup_translate' );
