@@ -5,46 +5,41 @@ add_shortcode( 'signaturelist', 'dk_speakup_signatures_shortcode' );
 function dk_speakup_signatures_shortcode( $attr ) {
 
 	include_once( 'class.signaturelist.php' );
+	$options = get_option( 'dk_speakup_options' );
 
-	$id = 1; // default
+	$id             = 1;
+	$rows           = $options['signaturelist_rows'];
+	$nextbuttontext = '&gt;';
+	$prevbuttontext = '&lt;';
+	$dateformat     = 'M d, Y'; 
+
 	if ( isset( $attr['id'] ) && is_numeric( $attr['id'] ) ) {
 		$id = $attr['id'];
 	}
-
 	if ( isset( $attr['rows'] ) && is_numeric( $attr['rows'] ) ) {
 		$rows = absint( $attr['rows'] );
 	}
-	else {
-		$options = get_option( 'dk_speakup_options' );
-		$rows    = $options['signaturelist_rows']; // default
-	}
-
-	$nextbuttontext = '&gt;'; // default
 	if ( isset( $attr['nextbuttontext'] ) ) {
 		$nextbuttontext = $attr['nextbuttontext'];
 	}
-
-	$prevbuttontext = '&lt;'; // default
 	if ( isset( $attr['prevbuttontext'] ) ) {
 		$prevbuttontext = $attr['prevbuttontext'];
 	}
-
-	$dateformat = 'M d, Y'; // default
 	if ( isset( $attr['dateformat'] ) ) {
 		$dateformat = $attr['dateformat'];
 	}
 
-	wp_enqueue_script( 'dk_speakup_signaturelist_js', plugins_url( 'speakup-email-petitions/js/signaturelist.js' ), array( 'jquery' ) );
-
 	// make sure ajax callback url works on both https and http
 	$protocol = isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://';
-	$params = array(
+	$params   = array(
 		'ajaxurl'    => admin_url( 'admin-ajax.php', $protocol ),
 		'dateformat' => $dateformat
 	);
+	wp_enqueue_script( 'dk_speakup_signaturelist_js', plugins_url( 'speakup-email-petitions/js/signaturelist.js' ), array( 'jquery' ) );
 	wp_localize_script( 'dk_speakup_signaturelist_js', 'dk_speakup_signaturelist_js', $params );
 
-	return dk_speakup_Signaturelist::table( $id, 0, $rows, 'shortcode', $dateformat, $nextbuttontext, $prevbuttontext );
+	$table_html = dk_speakup_Signaturelist::table( $id, 0, $rows, 'shortcode', $dateformat, $nextbuttontext, $prevbuttontext );
+	return $table_html;
 }
 
 // load CSS on pages/posts that contain the [signaturelist] shortcode
@@ -58,7 +53,6 @@ function dk_speakup_signaturelist_css( $posts ) {
 
 	// set flag to determine if post contains shortcode
 	$shortcode_found = false;
-
 	foreach ( $posts as $post ) {
 		// if post content contains the shortcode
 		if ( strstr( $post->post_content, '[signaturelist' ) ) {

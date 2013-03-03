@@ -1,6 +1,10 @@
 jQuery( document ).ready( function( $ ) {
 	'use strict';
 
+	// display required asteriscs
+	$( '.dk-speakup-petition label.required' ).append('<span> *</span>');
+
+	// handle form submission
 	$( '.dk-speakup-submit' ).click( function( e ) {
 		e.preventDefault();
 

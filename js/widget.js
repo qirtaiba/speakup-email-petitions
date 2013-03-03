@@ -1,6 +1,9 @@
 jQuery( document ).ready( function( $ ) {
 	'use strict';
 
+	// display required asteriscs
+	$( '.dk-speakup-widget-popup-wrap label.required' ).append('<span> *</span>');
+
 	// run only if widget is on the page
 	if( $( '.dk-speakup-widget-wrap' ).length ) {
 		$( '.dk-speakup-widget-button' ).click( function( e ) {
@@ -141,16 +144,16 @@ jQuery( document ).ready( function( $ ) {
 		$( '.dk-speakup-widget-popup-wrap input[type=text]' ).focus( function( e ) {
 			var label = $( this ).siblings( 'label' );
 			if ( $( this ).val() === '' ) {
-				$( this ).siblings( 'label' ).addClass( 'dk-speakup-focus' ).removeClass( 'dk-speakup-blur' );
+				$( this ).siblings( 'label' ).addClass( 'dk-speakup-widget-focus' ).removeClass( 'dk-speakup-widget-blur' );
 			}
 			$( this ).blur( function(){
 				if ( this.value === '' ) {
-					label.addClass( 'dk-speakup-blur' ).removeClass( 'dk-speakup-focus' );
+					label.addClass( 'dk-speakup-blur' ).removeClass( 'dk-speakup-widget-focus' );
 				}
 			}).focus( function() {
-				label.addClass( 'dk-speakup-focus' ).removeClass( 'dk-speakup-blur' );
+				label.addClass( 'dk-speakup-widget-focus' ).removeClass( 'dk-speakup-widget-blur' );
 			}).keydown( function( e ) {
-				label.addClass( 'dk-speakup-focus' ).removeClass( 'dk-speakup-blur' );
+				label.addClass( 'dk-speakup-widget-focus' ).removeClass( 'dk-speakup-widget-blur' );
 				$( this ).unbind( e );
 			});
 		});
@@ -158,7 +161,7 @@ jQuery( document ).ready( function( $ ) {
 		// hide labels on filled input fields when page is reloaded
 		$( '.dk-speakup-widget-popup-wrap input[type=text]' ).each( function() {
 			if ( $( this ).val() !== '' ) {
-				$( this ).siblings( 'label' ).addClass( 'dk-speakup-focus' );
+				$( this ).siblings( 'label' ).addClass( 'dk-speakup-widget-focus' );
 			}
 		});
 

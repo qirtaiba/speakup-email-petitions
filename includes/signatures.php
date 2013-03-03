@@ -23,9 +23,7 @@ function dk_speakup_signatures_page() {
 	$query_start  = ( $current_page * $query_limit ) - $query_limit;
 
 	switch ( $action ) {
-
 		case 'delete' :
-
 			// security: ensure user has intention
 			check_admin_referer( 'dk_speakup-delete_signature' . $sid );
 
@@ -53,10 +51,8 @@ function dk_speakup_signatures_page() {
 			$base_url = site_url( 'wp-admin/admin.php?page=dk_speakup_signatures&action=petition&pid=' . $pid );
 			$message_update = __( 'Signature deleted.', 'dk_speakup' );
 
-			break;
-
+		break;
 		case 'petition' :
-
 			// count number of signatures in database
 			$count = $the_signatures->count( $pid );
 
@@ -74,11 +70,8 @@ function dk_speakup_signatures_page() {
 			}
 			$base_url      = site_url( 'wp-admin/admin.php?page=dk_speakup_signatures&action=petition&pid=' . $pid );
 			$message_update = '';
-
-			break;
-
+		break;
 		case 'reconfirm' :
-
 			check_admin_referer( 'dk_speakup-resend_confirmations' . $pid );
 
 			include_once( 'class.mail.php' );
@@ -114,11 +107,8 @@ function dk_speakup_signatures_page() {
 			}
 			$base_url       = site_url( 'wp-admin/admin.php?page=dk_speakup_signatures&action=petition&pid=' . $pid );
 			$message_update = __( 'Confirmation emails sent.', 'dk_speakup' );
-
-			break;
-
+		break;
 		default :
-
 			// count number of signatures in database
 			$count = $the_signatures->count( $pid );
 

@@ -3,7 +3,6 @@
 // register shortcode to display signatures count
 add_shortcode( 'signaturecount', 'dk_speakup_signaturescount_shortcode' );
 function dk_speakup_signaturescount_shortcode( $attr ) {
-
 	include_once( 'class.petition.php' );
 	$petition = new dk_speakup_Petition();
 
@@ -49,22 +48,18 @@ function dk_speakup_emailpetition_shortcode( $attr ) {
 			$wpml_lang = ICL_LANGUAGE_CODE;
 		}
 
-		// check if petition exists...
-		// if a petition has been deleted, but its shortcode still exists in the post, don't try to display the form
+		// check if petition exists
 		if ( $get_petition ) {
 
 			$expired = ( $petition->expires == 1 && current_time( 'timestamp' ) >= strtotime( $petition->expiration_date ) ) ? 1 : 0;
 
 			// handle shortcode attributes
-			$width  = isset( $attr['width'] ) ? 'style="width: ' . $attr['width'] . ';"' : '';
-			$height = isset( $attr['height'] ) ? 'style="height: ' . $attr['height'] . ' !important;"' : '';
-			$shortcode_classes      = isset( $attr['class'] ) ? $shortcode_classes = $attr['class'] : '';
-			$progress_width         = ( $options['petition_theme'] == 'basic' ) ? 300 : 200; // defaults
-			if ( isset( $attr['progresswidth'] ) ) {
-				$progress_width = $attr['progresswidth'];
-			}
+			$width             = isset( $attr['width'] ) ? 'style="width: ' . $attr['width'] . ';"' : '';
+			$height            = isset( $attr['height'] ) ? 'style="height: ' . $attr['height'] . ' !important;"' : '';
+			$shortcode_classes = isset( $attr['class'] ) ? $shortcode_classes = $attr['class'] : '';
+			$progress_width    = ( $options['petition_theme'] == 'basic' ) ? 300 : 200; // defaults
+			$progress_width    = isset( $attr['progresswidth'] ) ? $attr['progresswidth'] : $progress_width;
 
-			// if petition has expired, display expiration notice
 			if ( ! $expired ) {
 				$userdata = dk_speakup_SpeakUp::userinfo();
 
@@ -170,53 +165,49 @@ function dk_speakup_emailpetition_shortcode( $attr ) {
 				';
 				if ( $options['display_count'] == 1 ) {
 					$petition_form .= '
-							<div class="dk-speakup-progress-wrap">
-								<div class="dk-speakup-signature-count">
-									<span>' . number_format( $petition->signatures ) . '</span> ' . _n( 'signature', 'signatures', $petition->signatures, 'dk_speakup' ) . '
-								</div>
-								' . dk_speakup_SpeakUp::progress_bar( $petition->goal, $petition->signatures, $progress_width ) . '
+						<div class="dk-speakup-progress-wrap">
+							<div class="dk-speakup-signature-count">
+								<span>' . number_format( $petition->signatures ) . '</span> ' . _n( 'signature', 'signatures', $petition->signatures, 'dk_speakup' ) . '
 							</div>
+							' . dk_speakup_SpeakUp::progress_bar( $petition->goal, $petition->signatures, $progress_width ) . '
+						</div>
 					';
 				}
 				$petition_form .= '
 						<div class="dk-speakup-share">
-							<div>' . stripslashes( esc_html( $options['share_message'] ) ) . '<br />
-							<a class="dk-speakup-facebook" href="#" title="Facebook" rel="' . $petition->id . '"></a>
-							<a class="dk-speakup-twitter" href="#" title="Twitter" rel="' . $petition->id . '"></a>
+							<div><p>' . stripslashes( esc_html( $options['share_message'] ) ) . '</p>
+							<p>
+								<a class="dk-speakup-facebook" href="#" title="Facebook" rel="' . $petition->id . '"><span>&nbsp;</span></a>
+								<a class="dk-speakup-twitter" href="#" title="Twitter" rel="' . $petition->id . '"><span>&nbsp;</span></a>
+							</p>
 						</div>
 							<div class="dk-speakup-clear"></div>
 						</div>
 					</div>
 				';
 			}
-			else { // petition has expired
-				$goal_text = ( $petition->goal != 0 ) ? '<div class="dk-speakup-expired-goal"><span>' . __( 'Signature goal', 'dk_speakup' ) . ':</span> ' . $petition->goal . '</div>' : '';
+			// if petition has expired
+			else {
+				$goal_text = ( $petition->goal != 0 ) ? '<p><strong>' . __( 'Signature goal', 'dk_speakup' ) . ':</strong> ' . $petition->goal . '</p>' : '';
 				$petition_form = '
-					<div class="dk-speakup-petition-wrap" id="dk-speakup-petition-' . $petition->id . '">
+					<div class="dk-speakup-petition-wrap dk-speakup-expired" id="dk-speakup-petition-' . $petition->id . '">
 						<h3>' . stripslashes( esc_html( $petition->title ) ) . '</h3>
-						<div class="dk-speakup-notice">
-							<p>' . stripslashes( esc_html( $options['expiration_message'] ) ) . '</p>
-							<div class="dk-speakup-expired-deadline">
-								<span>' . __( 'End date', 'dk_speakup' ) . ':</span> ' . date( 'M d, Y', strtotime( $petition->expiration_date ) ) . '
-							</div>
-							<div class="dk-speakup-expired-signatures">
-								<span>' . __( 'Signatures collected', 'dk_speakup' ) . ':</span> ' . $petition->signatures . '
-							</div>
-							' . $goal_text . '
-						</div>
+						<p>' . stripslashes( esc_html( $options['expiration_message'] ) ) . '</p>
+						<p><strong>' . __( 'End date', 'dk_speakup' ) . ':</strong> ' . date( 'M d, Y', strtotime( $petition->expiration_date ) ) . '</p>
+						<p><strong>' . __( 'Signatures collected', 'dk_speakup' ) . ':</strong> ' . $petition->signatures . '</p>
+						' . $goal_text . '
 						<div class="dk-speakup-progress-wrap">
-								<div class="dk-speakup-signature-count">
-									<span>' . number_format( $petition->signatures ) . '</span> ' . _n( 'signature', 'signatures', $petition->signatures, 'dk_speakup' ) . '
-								</div>
-								' . dk_speakup_SpeakUp::progress_bar( $petition->goal, $petition->signatures, 250 ) . '
+							<div class="dk-speakup-signature-count">
+								<span>' . number_format( $petition->signatures ) . '</span> ' . _n( 'signature', 'signatures', $petition->signatures, 'dk_speakup' ) . '
 							</div>
+							' . dk_speakup_SpeakUp::progress_bar( $petition->goal, $petition->signatures, $progress_width ) . '
+						</div>
 					</div>
 				';
 			}
 
 		}
-		// ...otherwise, display nothing
-		// most likely scenario is a user deletes an old petition, but fails to remove shortcode from their post
+		// if petition doesn't exist
 		else {
 			$petition_form = '';
 		}
@@ -225,7 +216,7 @@ function dk_speakup_emailpetition_shortcode( $attr ) {
 	// if id attribute is left out, as in [emailpetition], display error
 	else {
 		$petition_form = '
-			<div class="dk-speakup-petition-wrap dk-speakup-petition-expired">
+			<div class="dk-speakup-petition-wrap dk-speakup-expired">
 				<h3>' . __( 'Petition', 'dk_speakup' ) . '</h3>
 				<div class="dk-speakup-notice">
 					<p>' . __( 'Error: You must include a valid id.', 'dk_speakup' ) . '</p>
@@ -237,7 +228,7 @@ function dk_speakup_emailpetition_shortcode( $attr ) {
 	return $petition_form;
 }
 
-// load public CSS only on pages/posts that contain the [emailpetition] shortcode
+// load public CSS on pages/posts that contain the [emailpetition] shortcode
 add_filter( 'the_posts', 'dk_speakup_public_css_js' );
 function dk_speakup_public_css_js( $posts ) {
 
@@ -250,9 +241,7 @@ function dk_speakup_public_css_js( $posts ) {
 	$shortcode_found = false;
 
 	foreach ( $posts as $post ) {
-		// if post content contains the shortcode
 		if ( strstr( $post->post_content, '[emailpetition' ) ) {
-			// update flag
 			$shortcode_found = true;
 			break;
 		}
@@ -269,12 +258,12 @@ function dk_speakup_public_css_js( $posts ) {
 			case 'basic' :
 				wp_enqueue_style( 'dk_speakup_css', plugins_url( 'speakup-email-petitions/css/theme-basic.css' ) );
 				break;
-			case 'none' : // look for custom theme file, petition.css
+			case 'none' :
 				$parent_dir = get_template_directory_uri();
 				$parent_petition_theme_url = $parent_dir . '/petition.css';
 
 				// if a child theme is in use
-				// try to load style from child theme folder
+				// attempt to load petition.css from child theme folder
 				if ( is_child_theme() ) {
 					$child_dir = get_stylesheet_directory_uri();
 					$child_petition_theme_url = $child_dir . '/petition.css';
@@ -289,7 +278,7 @@ function dk_speakup_public_css_js( $posts ) {
 						wp_enqueue_style( 'dk_speakup_css', $parent_petition_theme_url );
 					}
 				}
-				// if not using a child theme, just try to load style from active theme folder
+				// if not using a child theme, try to load style from active theme folder
 				else {
 					wp_enqueue_style( 'dk_speakup_css', $parent_petition_theme_url );
 				}
@@ -300,9 +289,7 @@ function dk_speakup_public_css_js( $posts ) {
 
 		// make sure ajax callback url works on both https and http
 		$protocol = isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://';
-		$params = array(
-			'ajaxurl' => admin_url( 'admin-ajax.php', $protocol )
-		);
+		$params   = array( 'ajaxurl' => admin_url( 'admin-ajax.php', $protocol ) );
 		wp_localize_script( 'dk_speakup_js', 'dk_speakup_js', $params );
 	}
 

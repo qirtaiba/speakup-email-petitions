@@ -211,12 +211,11 @@ class dk_speakup_petition_widget extends WP_Widget {
 			}
 			else {
 				$petition_widget .= '
-							<p>' . stripslashes( $call_to_action ) . '</p>
-							<div class="dk-speakup-widget-half">
+							<div class="dk-speakup-widget-full">
 								<label for="dk-speakup-widget-first-name-' . $petition->id . '" class="required">' . __( 'First Name', 'dk_speakup' ) . '</label>
 								<input name="dk-speakup-widget-first-name" id="dk-speakup-widget-first-name-' . $petition->id . '" value="' . $userdata['firstname'] . '" type="text" />
 							</div>
-							<div class="dk-speakup-widget-half">
+							<div class="dk-speakup-widget-full">
 								<label for="dk-speakup-widget-last-name-' . $petition->id . '" class="required">' . __( 'Last Name', 'dk_speakup' ) . '</label>
 								<input name="dk-speakup-widget-last-name" id="dk-speakup-widget-last-name-' . $petition->id . '" value="' . $userdata['lastname'] . '" type="text" />
 							</div>
@@ -267,7 +266,7 @@ class dk_speakup_petition_widget extends WP_Widget {
 				}
 				if( $petition->displays_custom_field == 1 ) {
 					$petition_widget .= '
-							<div class="dk-speakup-widget-half">
+							<div class="dk-speakup-widget-full">
 								<label for="dk-speakup-widget-custom-field-' . $petition->id . '">' . stripslashes( esc_html( $petition->custom_field_label ) ) . '</label>
 								<input name="dk-speakup-widget-custom-field" id="dk-speakup-widget-custom-field-' . $petition->id . '" maxlength="400" type="text">
 							</div>
@@ -289,8 +288,10 @@ class dk_speakup_petition_widget extends WP_Widget {
 						</form>
 						<div class="dk-speakup-widget-share">
 							<p><strong>' . stripslashes( esc_html( $options['share_message'] ) ) . '</strong></p>
-							<a class="dk-speakup-widget-facebook" href="#" title="Facebook"></a>
-							<a class="dk-speakup-widget-twitter" href="#" title="Twitter"></a>
+							<p>
+							<a class="dk-speakup-widget-facebook" href="#" title="Facebook"><span></span></a>
+							<a class="dk-speakup-widget-twitter" href="#" title="Twitter"><span></span></a>
+							</p>
 							<div class="dk-speakup-clear"></div>
 						</div>
 					</div>
