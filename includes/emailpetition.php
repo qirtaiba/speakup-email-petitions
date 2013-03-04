@@ -39,14 +39,11 @@ function dk_speakup_emailpetition_shortcode( $attr ) {
 		// get petition data from database
 		$id = absint( $attr['id'] );
 		$get_petition = $petition->retrieve( $id );
-		$wpml->translate_petition( $petition );
-		$options = $wpml->translate_options( $options );
 
-		// get the current language for WPML
-		$wpml_lang = '';
-		if ( defined( 'ICL_LANGUAGE_CODE' ) ) {
-			$wpml_lang = ICL_LANGUAGE_CODE;
-		}
+		// attempt to translate with WPML
+		$wpml->translate_petition( $petition );
+		$options   = $wpml->translate_options( $options );
+		$wpml_lang = defined( 'ICL_LANGUAGE_CODE' ) ? ICL_LANGUAGE_CODE : '';
 
 		// check if petition exists
 		if ( $get_petition ) {
@@ -54,11 +51,11 @@ function dk_speakup_emailpetition_shortcode( $attr ) {
 			$expired = ( $petition->expires == 1 && current_time( 'timestamp' ) >= strtotime( $petition->expiration_date ) ) ? 1 : 0;
 
 			// handle shortcode attributes
-			$width             = isset( $attr['width'] ) ? 'style="width: ' . $attr['width'] . ';"' : '';
-			$height            = isset( $attr['height'] ) ? 'style="height: ' . $attr['height'] . ' !important;"' : '';
-			$shortcode_classes = isset( $attr['class'] ) ? $shortcode_classes = $attr['class'] : '';
-			$progress_width    = ( $options['petition_theme'] == 'basic' ) ? 300 : 200; // defaults
-			$progress_width    = isset( $attr['progresswidth'] ) ? $attr['progresswidth'] : $progress_width;
+			$width          = isset( $attr['width'] ) ? 'style="width: ' . $attr['width'] . ';"' : '';
+			$height         = isset( $attr['height'] ) ? 'style="height: ' . $attr['height'] . ' !important;"' : '';
+			$css_classes    = isset( $attr['class'] ) ? $css_classes = $attr['class'] : '';
+			$progress_width = ( $options['petition_theme'] == 'basic' ) ? 300 : 200; // defaults
+			$progress_width = isset( $attr['progresswidth'] ) ? $attr['progresswidth'] : $progress_width;
 
 			if ( ! $expired ) {
 				$userdata = dk_speakup_SpeakUp::userinfo();
@@ -66,7 +63,7 @@ function dk_speakup_emailpetition_shortcode( $attr ) {
 				// compose the petition form
 				$petition_form = '
 					<!-- SpeakUp! Email Petitions ' . $dk_speakup_version . ' -->
-					<div class="dk-speakup-petition-wrap ' . $shortcode_classes . '" id="dk-speakup-petition-' . $petition->id . '" ' . $width . '>
+					<div class="dk-speakup-petition-wrap ' . $css_classes . '" id="dk-speakup-petition-' . $petition->id . '" ' . $width . '>
 						<h3>' . stripslashes( esc_html( $petition->title ) ) . '</h3>
 						<div class="dk-speakup-response"></div>
 						<form class="dk-speakup-petition">
@@ -86,6 +83,14 @@ function dk_speakup_emailpetition_shortcode( $attr ) {
 								<input name="dk-speakup-email" id="dk-speakup-email-' . $petition->id . '" value="' . $userdata['email'] . '" type="text" />
 							</div>
 				';
+				if ( $petition->requires_confirmation ) {
+					$petition_form .= '
+							<div class="dk-speakup-full">
+								<label for="dk-speakup-email-confirm-' . $petition->id . '" class="required">' . __( 'Confirm Email', 'dk_speakup' ) . '</label>
+								<input name="dk-speakup-email-confirm" id="dk-speakup-email-confirm-' . $petition->id . '" value="" type="text" />
+							</div>
+					';
+				}
 				if ( in_array( 'street', $petition->address_fields ) ) {
 					$petition_form .= '
 							<div class="dk-speakup-full">

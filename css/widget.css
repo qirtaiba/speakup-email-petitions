@@ -216,7 +216,7 @@ textarea.dk-speakup-widget-message:focus {
 }
 /* Form Area (right side)
 ----------------------------------*/
-.dk-speakup-widget_form-wrap {
+.dk-speakup-widget-form-wrap {
   float: left;
   margin: .5em 0 0 4px;
   min-height: 430px;

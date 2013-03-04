@@ -1,8 +1,8 @@
 jQuery( document ).ready( function( $ ) {
 	'use strict';
 
-	// display required asteriscs
-	$( '.dk-speakup-petition label.required' ).append('<span> *</span>');
+	// display required asterisks
+	$( '.dk-speakup-petition label.required' ).append( '<span> *</span>');
 
 	// handle form submission
 	$( '.dk-speakup-submit' ).click( function( e ) {
@@ -13,6 +13,7 @@ jQuery( document ).ready( function( $ ) {
 			firstname      = $( '#dk-speakup-first-name-' + id ).val(),
 			lastname       = $( '#dk-speakup-last-name-' + id ).val(),
 			email          = $( '#dk-speakup-email-' + id ).val(),
+			email_confirm  = $( '#dk-speakup-email-confirm-' + id ).val(),
 			street         = $( '#dk-speakup-street-' + id ).val(),
 			city           = $( '#dk-speakup-city-' + id ).val(),
 			state          = $( '#dk-speakup-state-' + id ).val(),
@@ -32,7 +33,13 @@ jQuery( document ).ready( function( $ ) {
 		// validate form values
 		var errors = 0,
 			emailRegEx = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,6})?$/;
-		if ( email === '' || !emailRegEx.test( email ) ) {
+
+		if ( typeof email_confirm !== undefined && email_confirm !== email ) {
+			$( '#dk-speakup-email-' + id ).addClass( 'dk-speakup-error' );
+			$( '#dk-speakup-email-confirm-' + id ).addClass( 'dk-speakup-error' );
+			errors ++;
+		}
+		if ( email === '' || ! emailRegEx.test( email ) ) {
 			$( '#dk-speakup-email-' + id ).addClass( 'dk-speakup-error' );
 			errors ++;
 		}

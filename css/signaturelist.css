@@ -7,8 +7,10 @@ table.dk-speakup-signaturelist {
 	width: 100%;
 	clear: both;
 }
-h3.dk-speakup-signaturelist_header {
-	margin-top: 1em;
+.dk-speakup-signaturelist caption {
+	text-align: left;
+	font-weight: bold;
+	line-height: 2em;
 }
 table.dk-speakup-signaturelist {
 	border-bottom: none;

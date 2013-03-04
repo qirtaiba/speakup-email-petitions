@@ -59,6 +59,7 @@ jQuery( document ).ready( function( $ ) {
 				firstname      = $( '#dk-speakup-widget-first-name-' + id ).val(),
 				lastname       = $( '#dk-speakup-widget-last-name-' + id ).val(),
 				email          = $( '#dk-speakup-widget-email-' + id ).val(),
+				email_confirm  = $( '#dk-speakup-widget-email-confirm-' + id ).val(),
 				street         = $( '#dk-speakup-widget-street-' + id ).val(),
 				city           = $( '#dk-speakup-widget-city-' + id ).val(),
 				state          = $( '#dk-speakup-widget-state-' + id ).val(),
@@ -69,7 +70,7 @@ jQuery( document ).ready( function( $ ) {
 				optin          = '';
 
 			if ( share_url === '' ) {
-				share_url = current_url.split('#')[0]
+				share_url = current_url.split('#')[0];
 			}
 
 			if ( $( '#dk-speakup-widget-optin-' + id ).attr( 'checked' ) ) {
@@ -77,11 +78,18 @@ jQuery( document ).ready( function( $ ) {
 			}
 
 			// make sure error notices are turned off before checking for new errors
-			$( '#dk-speakup-widget-' + id + ' input' ).removeClass( 'dk-speakup-error' );
+			$( '#dk-speakup-widget-popup-wrap-' + id + ' input' ).removeClass( 'dk-speakup-error' );
 
 			// validate form values
 			var errors = 0,
 				emailRegEx = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+
+			if ( typeof email_confirm !== undefined && email_confirm !== email ) {
+				console.log('gotit');
+				$( '#dk-speakup-widget-email-' + id ).addClass( 'dk-speakup-error' );
+				$( '#dk-speakup-widget-email-confirm-' + id ).addClass( 'dk-speakup-error' );
+				errors ++;
+			}
 			if ( email === '' || !emailRegEx.test( email ) ) {
 				$( '#dk-speakup-widget-email-' + id ).addClass( 'dk-speakup-error' );
 				errors ++;

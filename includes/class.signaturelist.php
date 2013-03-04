@@ -48,8 +48,8 @@ class dk_speakup_Signaturelist
 			if ( $context !== 'ajax' ) { // only include on initial page load (not when paging)
 				$signatures_list = '
 					<!-- signaturelist -->
-					<h3 class="dk-speakup-signaturelist_header">' . $options['signaturelist_header'] . '</h3>
-					<table class="dk-speakup-signaturelist dk-speakup-signaturelist-' . $id . '">';
+					<table class="dk-speakup-signaturelist dk-speakup-signaturelist-' . $id . '">
+						<caption class="dk-speakup-signaturelist_header">' . $options['signaturelist_header'] . '</caption>';
 			}
 
 			$row_count = 0;
@@ -80,7 +80,7 @@ class dk_speakup_Signaturelist
 				if ( $display_postcode ) $signatures_list .= '<td class="dk-speakup-signaturelist-postcode">' . stripslashes( $signature->postcode ) . '</td>';
 				if ( $display_country ) $signatures_list  .= '<td class="dk-speakup-signaturelist-country">' . stripslashes( $signature->country ) . '</td>';
 				if ( $display_custom ) $signatures_list   .= '<td class="dk-speakup-signaturelist-custom">' . stripslashes( $signature->custom_field ) . '</td>';
-				if ( $display_date ) $signatures_list     .= '<td class="dk-speakup-signaturelist-date"><nobr>' . date_i18n( $dateformat, strtotime( $signature->date ) ) . '</nobr></td>';
+				if ( $display_date ) $signatures_list     .= '<td class="dk-speakup-signaturelist-date">' . date_i18n( $dateformat, strtotime( $signature->date ) ) . '</td>';
 				$signatures_list .= '</tr>';
  
 				$current_signature_number --;

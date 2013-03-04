@@ -188,7 +188,7 @@ class dk_speakup_petition_widget extends WP_Widget {
 				';
 			}
 			$petition_widget .= '
-					<div class="dk-speakup-widget_form-wrap">
+					<div class="dk-speakup-widget-form-wrap">
 						<div class="dk-speakup-widget-response"></div>
 						<form class="dk-speakup-widget-form">
 							<input type="hidden" id="dk-speakup-widget-posttitle-' . $petition->id . '" value="' . esc_attr( urlencode( stripslashes( $petition->title ) ) ) .'" />
@@ -224,6 +224,14 @@ class dk_speakup_petition_widget extends WP_Widget {
 								<input name="dk-speakup-widget-email" id="dk-speakup-widget-email-' . $petition->id . '" value="' . $userdata['email'] . '" type="text" />
 							</div>
 				';
+				if ( $petition->requires_confirmation ) {
+					$petition_widget .= '
+							<div class="dk-speakup-widget-full">
+								<label for="dk-speakup-widget-email-confirm-' . $petition->id . '" class="required">' . __( 'Confirm Email', 'dk_speakup' ) . '</label>
+								<input name="dk-speakup-widget-email-confirm" id="dk-speakup-widget-email-confirm-' . $petition->id . '" value="" type="text" />
+							</div>
+					';
+				}
 				if ( in_array( 'street', $petition->address_fields ) ) {
 					$petition_widget .= '
 							<div class="dk-speakup-widget-full">
