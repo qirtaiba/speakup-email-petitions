@@ -25,7 +25,7 @@
   padding: .5em 0 .5em 0;
 }
 .dk-speakup-petition-wrap h3 {
-  background: #353535 url(../images/bg-petition-header.png) repeat-x top left;
+  background: #262626 url(../images/bg-petition-header.png) repeat-x top left;
   background: -webkit-linear-gradient(#666666, #262626);
   background: -moz-linear-gradient(#666666, #262626);
   background: -ms-linear-gradient(#666666, #262626);
@@ -61,10 +61,14 @@
 .dk-speakup-petition label.required span {
   color: #e81e00;
 }
-.dk-speakup-petition .dk-speakup-half,
+.dk-speakup-petition .dk-speakup-half {
+  display: inline-block;
+  margin: 0 -3% 0 5%;
+  width: 43.5%;
+}
 .dk-speakup-petition .dk-speakup-full,
 .dk-speakup-petition .dk-speakup-optin-wrap {
-  display: block;
+  display: inline-block;
   margin: 0 0 0 5%;
   width: 90%;
 }
@@ -101,7 +105,7 @@
   text-align: center;
 }
 .dk-speakup-submit {
-  background: #fc861d url(../images/bg-submit-button.png) repeat-x top left;
+  background: #d94200 url(../images/bg-submit-button.png) repeat-x top left;
   background: -webkit-linear-gradient(#ff9a40, #d94200);
   background: -moz-linear-gradient(#ff9a40, #d94200);
   background: -ms-linear-gradient(#ff9a40, #d94200);
@@ -162,7 +166,7 @@
 .dk-speakup-progressbar-medium,
 .dk-speakup-progressbar-high,
 .dk-speakup-progressbar-complete {
-  background: #0099ff url(../images/bg-progressbar.png) repeat-x top left;
+  background: transparent url(../images/bg-progressbar.png) repeat-x top left;
   background: -webkit-linear-gradient(rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 51%, rgba(255, 255, 255, 0.4) 100%);
   background: -moz-linear-gradient(rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 51%, rgba(255, 255, 255, 0.4) 100%);
   background: -o-linear-gradient(rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 51%, rgba(255, 255, 255, 0.4) 100%);
@@ -187,7 +191,7 @@
   font-weight: bold;
 }
 .dk-speakup-progress {
-  background: #d7d7d7 url(../images/bg-progressbar-back.png) repeat-x top left;
+  background: #eeeeee url(../images/bg-progressbar-back.png) repeat-x top left;
   background: -webkit-linear-gradient(#bbbbbb, #eeeeee);
   background: -moz-linear-gradient(#bbbbbb, #eeeeee);
   background: -ms-linear-gradient(#bbbbbb, #eeeeee);

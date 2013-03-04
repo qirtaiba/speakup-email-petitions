@@ -200,8 +200,8 @@
   color: #444;
   font: 16px/1.4em Helvetica, Arial, sans-serif !important;
   margin: 0 10px 0 0;
-  max-height: 540px;
-  min-height: 430px;
+  max-height: 560px;
+  min-height: 480px;
   overflow: auto;
   padding: 0 5px 0 4px;
   width: 410px;
@@ -219,7 +219,7 @@ textarea.dk-speakup-widget-message:focus {
 .dk-speakup-widget-form-wrap {
   float: left;
   margin: .5em 0 0 4px;
-  min-height: 430px;
+  min-height: 480px;
   width: 300px;
 }
 .dk-speakup-widget-popup-wrap .dk-speakup-widget-half {

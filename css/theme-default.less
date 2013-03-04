@@ -12,6 +12,7 @@
 @textshadowdark  : 0 -1px 0 rgba( 0, 0 , 0, 0.5);
 @textshadowlight : 0 1px 0 rgba( 255, 255 , 255, 0.8);
 @sidepadding     : 5%;
+@marginpull      : 1.5%;
 @radius          : 4px;
 @progressheight  : 16px;
 
@@ -46,7 +47,7 @@
 	}
 
 	h3 {
-		background              : #353535 url(../images/bg-petition-header.png) repeat-x top left;
+		background              : darken( @headercolor, 25% ) url(../images/bg-petition-header.png) repeat-x top left;
 		background              : -webkit-linear-gradient( @headercolor, darken( @headercolor, 25% ) );
 		background              :    -moz-linear-gradient( @headercolor, darken( @headercolor, 25% ) );
 		background              :     -ms-linear-gradient( @headercolor, darken( @headercolor, 25% ) );
@@ -85,12 +86,16 @@
 		color : darken( @errorcolor, 50% );
 	}
 
-	.dk-speakup-half,
+	.dk-speakup-half {
+		display : inline-block;
+		margin  : 0 -3% 0 5%; // 0 ( -@marginpull * 2 ) 0 @sidepadding;
+		width   : 43.5%; // ( 50% - @sidepadding - @marginpull );
+	}
 	.dk-speakup-full,
 	.dk-speakup-optin-wrap {
-		display : block;
-		margin  : 0 0 0 @sidepadding;
-		width   : ( 100% - @sidepadding * 2 );
+		display : inline-block;
+		margin  : 0 0 0 5%; // 0 0 0 @sidepadding;
+		width   : 90%; // ( 100% - @sidepadding * 2 );
 	}
 	.dk-speakup-optin-wrap label {
 		display        : inline-block;
@@ -128,7 +133,7 @@
 	text-align : center;
 }
 .dk-speakup-submit {
-	background     : #fc861d url(../images/bg-submit-button.png) repeat-x top left;
+	background     : @buttoncolor url(../images/bg-submit-button.png) repeat-x top left;
 	background     : -webkit-linear-gradient( spin( lighten( @buttoncolor, 20% ), 10 ), @buttoncolor );
 	background     :    -moz-linear-gradient( spin( lighten( @buttoncolor, 20% ), 10 ), @buttoncolor );
 	background     :     -ms-linear-gradient( spin( lighten( @buttoncolor, 20% ), 10 ), @buttoncolor );
@@ -190,7 +195,7 @@
 .dk-speakup-progressbar-medium,
 .dk-speakup-progressbar-high,
 .dk-speakup-progressbar-complete {
-	background      : #09f url(../images/bg-progressbar.png) repeat-x top left;
+	background      : transparent url(../images/bg-progressbar.png) repeat-x top left;
 	background      : -webkit-linear-gradient( rgba( 255, 255, 255, 0.8 ) 0%, rgba( 255, 255, 255, 0.3 ) 50%, rgba( 255, 255, 255, 0.0 ) 51%, rgba( 255, 255, 255, 0.4 ) 100% );
 	background      :    -moz-linear-gradient( rgba( 255, 255, 255, 0.8 ) 0%, rgba( 255, 255, 255, 0.3 ) 50%, rgba( 255, 255, 255, 0.0 ) 51%, rgba( 255, 255, 255, 0.4 ) 100% );
 	background      :      -o-linear-gradient( rgba( 255, 255, 255, 0.8 ) 0%, rgba( 255, 255, 255, 0.3 ) 50%, rgba( 255, 255, 255, 0.0 ) 51%, rgba( 255, 255, 255, 0.4 ) 100% );
@@ -215,7 +220,7 @@
 	font-weight : bold;
 }
 .dk-speakup-progress {
-	background      : #d7d7d7 url(../images/bg-progressbar-back.png) repeat-x top left;
+	background      : #eee url(../images/bg-progressbar-back.png) repeat-x top left;
 	background      : -webkit-linear-gradient( #bbb, #eee );
 	background      :    -moz-linear-gradient( #bbb, #eee );
 	background      :     -ms-linear-gradient( #bbb, #eee );

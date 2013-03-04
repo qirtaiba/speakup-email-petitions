@@ -49,7 +49,7 @@ class dk_speakup_Signaturelist
 				$signatures_list = '
 					<!-- signaturelist -->
 					<table class="dk-speakup-signaturelist dk-speakup-signaturelist-' . $id . '">
-						<caption class="dk-speakup-signaturelist_header">' . $options['signaturelist_header'] . '</caption>';
+						<caption>' . $options['signaturelist_header'] . '</caption>';
 			}
 
 			$row_count = 0;

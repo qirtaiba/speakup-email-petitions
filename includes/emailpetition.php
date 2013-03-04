@@ -70,11 +70,11 @@ function dk_speakup_emailpetition_shortcode( $attr ) {
 							<input type="hidden" id="dk-speakup-posttitle-' . $petition->id . '" value="' . esc_attr( urlencode( stripslashes( $petition->title ) ) ) .'" />
 							<input type="hidden" id="dk-speakup-tweet-' . $petition->id . '" value="' . dk_speakup_SpeakUp::twitter_encode( $petition->twitter_message ) .'" />
 							<input type="hidden" id="dk-speakup-lang-' . $petition->id . '" value="' . $wpml_lang .'" />
-							<div class="dk-speakup-half">
+							<div class="dk-speakup-full">
 								<label for="dk-speakup-first-name-' . $petition->id . '" class="required">' . __( 'First Name', 'dk_speakup' ) . '</label>
 								<input name="dk-speakup-first-name" id="dk-speakup-first-name-' . $petition->id . '" value="' . $userdata['firstname'] . '" type="text" />
 							</div>
-							<div class="dk-speakup-half">
+							<div class="dk-speakup-full">
 								<label for="dk-speakup-last-name-' . $petition->id . '" class="required">' . __( 'Last Name', 'dk_speakup' ) . '</label>
 								<input name="dk-speakup-last-name" id="dk-speakup-last-name-' . $petition->id . '" value="' . $userdata['lastname'] . '" type="text" />
 							</div>
@@ -133,7 +133,7 @@ function dk_speakup_emailpetition_shortcode( $attr ) {
 				}
 				if ( $petition->displays_custom_field == 1 ) {
 					$petition_form .= '
-							<div class="dk-speakup-half">
+							<div class="dk-speakup-full">
 								<label for="dk-speakup-custom-field-' . $petition->id . '">' . stripslashes( esc_html( $petition->custom_field_label ) ) . '</label>
 								<input name="dk-speakup-custom-field" id="dk-speakup-custom-field-' . $petition->id . '" maxlength="400" type="text" />
 							</div>
