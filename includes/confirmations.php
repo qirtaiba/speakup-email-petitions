@@ -13,7 +13,8 @@ function dk_speakup_confirm_email() {
 	// set WPML language
 	global $sitepress;
 	$lang = isset( $_REQUEST['lang'] ) ? $_REQUEST['lang'] : '';
-	if ( function_exists( 'icl_t' ) ) {
+
+	if ( isset( $sitepress ) ) {
 		$sitepress->switch_lang( $lang, true );
 	}
 
