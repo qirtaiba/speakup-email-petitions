@@ -17,7 +17,6 @@
 @contentheight   : 480px;
 @progressheight  : 12px;
 
-
 .dk-speakup-widget-wrap {
 	background-color : lighten( @basecolor, 12% );
 	border-radius    : @radius ;
@@ -160,13 +159,13 @@
 */
 
 /* Window shade */
-#dk-speakup-windowshade {
+#dk-speakup-widget-windowshade {
 	background-color : #000;
 	display          : none;
 	left             : 0;
 	position         : fixed;
 	top              : 0;
-	z-index          : 100000;
+	z-index          : 200000;
 }
 
 /* Pop-up window */
@@ -181,7 +180,7 @@
 	position         : fixed;
 	text-shadow      : @textshadowlight;
 	width            : 760px;
-	z-index          : 100002;
+	z-index          : 200002;
 }
 .dk-speakup-widget-popup-wrap a {
 	outline         : none;
@@ -224,21 +223,22 @@
 }
 .dk-speakup-widget-message {
 	color      : #444;
-	font       : 16px/1.4em @fontstack !important;
+	font       : 15px/1.4em @fontstack !important;
 	margin     : 0 10px 0 0;
-	max-height : 560px;
+	max-height : 500px;
 	min-height : @contentheight;
 	overflow   : auto;
-	padding    : 0 5px 0 4px;
+	padding    : 0 5px 1em 4px;
 	width      : 410px;
 }
 textarea.dk-speakup-widget-message {
 	background : transparent;
 	border     : none;
+	outline    : 1px solid #aaa;
+	margin-bottom: .5em;
 }
 textarea.dk-speakup-widget-message:focus {
 	background : #fff;
-	outline    : 1px solid #aaa;
 }
 
 /* Form Area (right side)
@@ -296,7 +296,6 @@ textarea.dk-speakup-widget-message:focus {
 		margin-bottom      : .35em;
 		height             : 1.6em !important;
 		padding            : 0 0 0 .5em;
-
 	}
 	.dk-speakup-widget-optin-wrap {
 		margin-top: .2em;
@@ -418,11 +417,7 @@ a.dk-speakup-widget-facebook:active {
 	background-color : @errorcolor !important;
 	border           : 1px solid darken( @errorcolor, 50% ) !important;
 }
-// classes added / removed from labels when their corresponding input field receives focused or is blurred
-.dk-speakup-widget-blur,
-.dk-speakup-widget-focus {
-	visibility : visible;
-}
+/* Misc */
 .dk-speakup-clear {
 	clear : both;
 }

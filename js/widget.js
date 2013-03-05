@@ -13,11 +13,11 @@ jQuery( document ).ready( function( $ ) {
 				windowHeight  = $( window ).height(),
 				windowWidth   = $( window ).width();
 
-			$( '#dk-speakup-windowshade' ).css( {
-				'width' : screenWidth,
+			$( '#dk-speakup-widget-windowshade' ).css( {
+				'width'  : screenWidth,
 				'height' : screenHeight
 			});
-			$( '#dk-speakup-windowshade' ).fadeTo( 500, 0.8 );
+			$( '#dk-speakup-widget-windowshade' ).fadeTo( 500, 0.8 );
 
 			// center the pop-up window
 			$( petition_form ).css( 'top',  ( ( windowHeight / 2 ) - ( $( petition_form ).height() / 2 ) ) );
@@ -29,19 +29,19 @@ jQuery( document ).ready( function( $ ) {
 
 		/* Close the pop-up petition form */
 		// by clicking windowshade area
-		$( '#dk-speakup-windowshade' ).click( function () {
+		$( '#dk-speakup-widget-windowshade' ).click( function () {
 			$( this ).fadeOut( 'slow' );
 			$( '.dk-speakup-widget-popup-wrap' ).hide();
 		});
 		// or by clicking the close button
 		$( '.dk-speakup-widget-close' ).click( function() {
-			$( '#dk-speakup-windowshade' ).fadeOut( 'slow' );
+			$( '#dk-speakup-widget-windowshade' ).fadeOut( 'slow' );
 			$( '.dk-speakup-widget-popup-wrap' ).hide();
 		});
 		// or by pressing ESC
 		$( document ).keyup( function( e ) {
 			if ( e.keyCode === 27 ) {
-				$( '#dk-speakup-windowshade' ).fadeOut( 'slow' );
+				$( '#dk-speakup-widget-windowshade' ).fadeOut( 'slow' );
 				$( '.dk-speakup-widget-popup-wrap' ).hide();
 			}
 		});
@@ -145,31 +145,6 @@ jQuery( document ).ready( function( $ ) {
 						});
 					}
 				);
-			}
-		});
-
-		// hide or show form labels depending on input fields
-		$( '.dk-speakup-widget-popup-wrap input[type=text]' ).focus( function( e ) {
-			var label = $( this ).siblings( 'label' );
-			if ( $( this ).val() === '' ) {
-				$( this ).siblings( 'label' ).addClass( 'dk-speakup-widget-focus' ).removeClass( 'dk-speakup-widget-blur' );
-			}
-			$( this ).blur( function(){
-				if ( this.value === '' ) {
-					label.addClass( 'dk-speakup-blur' ).removeClass( 'dk-speakup-widget-focus' );
-				}
-			}).focus( function() {
-				label.addClass( 'dk-speakup-widget-focus' ).removeClass( 'dk-speakup-widget-blur' );
-			}).keydown( function( e ) {
-				label.addClass( 'dk-speakup-widget-focus' ).removeClass( 'dk-speakup-widget-blur' );
-				$( this ).unbind( e );
-			});
-		});
-
-		// hide labels on filled input fields when page is reloaded
-		$( '.dk-speakup-widget-popup-wrap input[type=text]' ).each( function() {
-			if ( $( this ).val() !== '' ) {
-				$( this ).siblings( 'label' ).addClass( 'dk-speakup-widget-focus' );
 			}
 		});
 

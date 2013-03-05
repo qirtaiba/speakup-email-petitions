@@ -168,7 +168,7 @@ class dk_speakup_petition_widget extends WP_Widget {
 			$petition_widget .= '
 				</div>
 
-				<div id="dk-speakup-windowshade"></div>
+				<div id="dk-speakup-widget-windowshade"></div>
 				<div id="dk-speakup-widget-popup-wrap-' . $petition->id . '" class="dk-speakup-widget-popup-wrap">
 					<h3>' . stripslashes( esc_html( $petition->title ) ) . '</h3>
 					<div class="dk-speakup-widget-close"></div>
@@ -176,16 +176,20 @@ class dk_speakup_petition_widget extends WP_Widget {
 			if ( $petition->is_editable == 1 ) {
 				$petition_widget .= '
 					<div class="dk-speakup-widget-message-wrap">
+						<p class="dk-speakup-greeting">' . $petition->greeting . '</p>
 						<textarea name="dk-speakup-widget-message" id="dk-speakup-widget-message-' . $petition->id . '" class="dk-speakup-widget-message">' . stripslashes( esc_textarea( $petition->petition_message ) ) . '</textarea>
-					</div>
-				';
+						<p class="dk-speakup-caps">[' . __( 'signature', 'dk-speakup' ) . ']</p>
+					</div>';
 			}
 			else {
 				$petition_widget .= '
 					<div class="dk-speakup-widget-message-wrap">
-						<div class="dk-speakup-widget-message">' . stripslashes( wpautop( $petition->petition_message ) ) . '</div>
-					</div>
-				';
+						<div class="dk-speakup-widget-message">
+							<p class="dk-speakup-greeting">' . $petition->greeting . '</p>
+							' . stripslashes( wpautop( $petition->petition_message ) ) . '
+							<p class="dk-speakup-caps">[' . __( 'signature', 'dk-speakup' ) . ']</p>
+						</div>
+					</div>';
 			}
 			$petition_widget .= '
 					<div class="dk-speakup-widget-form-wrap">

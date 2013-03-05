@@ -12,14 +12,13 @@
 @textshadowdark  : 0 -1px 0 rgba( 0, 0 , 0, 0.5);
 @textshadowlight : 0 1px 0 rgba( 255, 255 , 255, 0.8);
 @sidepadding     : 5%;
-@marginpull      : 1.5%;
+@marginpull      : 2%;
 @radius          : 4px;
 @progressheight  : 16px;
 
 // necessary to make flexible style of form elemnts with % widths work
 .dk-speakup-petition-wrap,
-.dk-speakup-petition-wrap input,
-.dk-speakup-message {
+.dk-speakup-petition-wrap input {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -53,7 +52,6 @@
 		background              :     -ms-linear-gradient( @headercolor, darken( @headercolor, 25% ) );
 		background              :      -o-linear-gradient( @headercolor, darken( @headercolor, 25% ) );
 		background              :         linear-gradient( @headercolor, darken( @headercolor, 25% ) );
-		border-bottom           : 1px solid rgba( 255, 255, 255, 0.9 );
 		border-top-left-radius  : ( @radius - 1px );
 		border-top-right-radius : ( @radius - 1px );
 		box-shadow              : @bevellight;
@@ -65,6 +63,89 @@
 		text-shadow             : @textshadowdark;
 		text-transform          : none;
 	}
+}
+
+/*
+ *	Popup petition reader
+ */
+
+/* Petion reader link */
+.dk-speakup-readme {
+	background     : #ffd;
+	border-bottom  : 1px solid darken( #ffd, 45% );
+	color          : lighten( @headercolor, 10% );
+	cursor         : pointer;
+	display        : block;
+	font-size      : .8em;
+	font-weight    : bold;
+	height         : 32px;
+	padding        : 0 @sidepadding 0 @sidepadding;
+	text-shadow    : @textshadowlight;
+	text-transform : uppercase;
+
+	span {
+		background      : url(../images/icon-readme.png) no-repeat 0 -2px;
+		background-size : 18px 18px;
+		line-height     : 32px;
+		padding-left    : 26px;
+	}
+}
+
+/* Petion reader popup */
+#dk-speakup-reader {
+	background    : #fff;
+	border-radius : @radius;
+	box-shadow    : 0 5px 20px rgba( 0, 0 , 0, 0.8);
+	font-family   : Georgia, sans-serif;
+	font-size     : 16px;
+	height        : 1px;
+	line-height   : 1.4em;
+	width         : 1px;
+}
+#dk-speakup-reader textarea {
+	border  : none;
+	font    : 16px/1.4em Georgia, sans-serif;
+	height  : 360px;
+	outline : 1px solid #ddd;
+	width   : 560px;
+}
+#dk-speakup-reader-content {
+	-moz-box-sizing    : border-box;
+	-webkit-box-sizing : border-box;
+	box-sizing         : border-box;
+	font-family        : Georgia, sans-serif;
+	font-size          : 16px;
+	height             : 100%;
+	line-height        : 1.4em;
+	overflow           : auto;
+	padding            : 20px 30px 40px 30px;
+	text-align         : left;
+
+	p {
+		margin : .5em 0 .5em 0;
+	}
+}
+
+/* Window shade */
+#dk-speakup-windowshade {
+	background-color : #000;
+	display          : none;
+	left             : 0;
+	position         : fixed;
+	top              : 0;
+	z-index          : 100000;
+}
+
+/* Close button */
+#dk-speakup-reader-close {
+	background : transparent url(../images/button-close.png) no-repeat top right;
+	cursor     : pointer;
+	height     : 30px;
+	position   : absolute;
+	right      : -15px;
+	top        : -15px;
+	width      : 30px;
+	z-index    : 305;
 }
 
 /*
@@ -88,22 +169,30 @@
 
 	.dk-speakup-half {
 		display : inline-block;
-		margin  : 0 -3% 0 5%; // 0 ( -@marginpull * 2 ) 0 @sidepadding;
-		width   : 43.5%; // ( 50% - @sidepadding - @marginpull );
+		margin  : 0 ( @marginpull * 2 ) 0 @sidepadding;
+		width   : ( 50% - @sidepadding - @marginpull );
+	}
+	.dk-speakup-half:nth-child( even ) {
+		margin  : 0 0 0 -4px;
 	}
 	.dk-speakup-full,
 	.dk-speakup-optin-wrap {
 		display : inline-block;
-		margin  : 0 0 0 5%; // 0 0 0 @sidepadding;
-		width   : 90%; // ( 100% - @sidepadding * 2 );
+		margin  : 0 0 0 @sidepadding;
+		width   : ( 100% - @sidepadding * 2 );
 	}
 	.dk-speakup-optin-wrap label {
 		display        : inline-block;
+		margin         : .6em 0 1em 0;
 		vertical-align : -1px;
 	}
+	/* petition text will be displayed in popup reader, so hide these */
+	.dk-speakup-message,
+	.dk-speakup-message-editable {
+		display : none !important;
+	}
 
-	input[type=text],
-	.dk-speakup-message {
+	input[type=text] {
 		border        : 1px solid darken( @basecolor, 10% );
 		border-radius : ( @radius - 1px );
 		color         : #333;
@@ -112,13 +201,8 @@
 		padding       : 0 0 0 .5em;
 		width         : 100%;
 	}
-	.dk-speakup-message {
-		background-color: lighten( @basecolor, 15% );
-		margin : .5em 0 1em 0;
-	}
-	input[type=text]:focus,
-	.dk-speakup-message:focus {
-		background-color: #ffc;
+	input[type=text]:focus {
+		background-color : #ffc;
 	}
 	input[type=text] {
 		height : 1.8em;
@@ -129,7 +213,7 @@
  *	Submit button
  */
 .dk-speakup-submit-wrap {
-	margin     : 1.2em 0 1.4em 0;
+	margin     : 0 0 1.5em 0;
 	text-align : center;
 }
 .dk-speakup-submit {
@@ -310,12 +394,13 @@ a.dk-speakup-facebook:active {
 	border-bottom-left-radius  : ( @radius - 1px );
 }
 
-// classes added / removed from labels when their corresponding input field receives focused or is blurred
-.dk-speakup-blur,
-.dk-speakup-focus {
-	visibility : visible;
-}
 // Misc
+.dk-speakup-greeting {
+	font-weight: bold;
+}
+.dk-speakup-caps {
+	text-transform: capitalize;
+}
 .dk-speakup-clear {
 	clear: both;
 }

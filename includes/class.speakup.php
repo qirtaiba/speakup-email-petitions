@@ -65,11 +65,9 @@ class dk_speakup_SpeakUp
 
 		// create HTML for progress bar display
 		if ( $goal > 0 ) {
-			$progressbar = '
-				<div class="dk-speakup-progress" style="width: ' . $max_width . 'px;">
-					<div class="dk-speakup-progressbar ' . $color_class . '" style="width: ' . $progressbar_width . 'px;"></div>
-				</div>
-			';
+			$progressbar = '<div class="dk-speakup-progress" style="width: ' . $max_width . 'px;">
+								<div class="dk-speakup-progressbar ' . $color_class . '" style="width: ' . $progressbar_width . 'px;"></div>
+							</div>';
 		}
 
 		return $progressbar;

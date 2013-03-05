@@ -34,10 +34,12 @@ jQuery( document ).ready( function( $ ) {
 		var errors = 0,
 			emailRegEx = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,6})?$/;
 
-		if ( typeof email_confirm !== undefined && email_confirm !== email ) {
-			$( '#dk-speakup-email-' + id ).addClass( 'dk-speakup-error' );
-			$( '#dk-speakup-email-confirm-' + id ).addClass( 'dk-speakup-error' );
-			errors ++;
+		if ( typeof email_confirm !== undefined ) {
+			if ( email_confirm !== email ) {
+				$( '#dk-speakup-email-' + id ).addClass( 'dk-speakup-error' );
+				$( '#dk-speakup-email-confirm-' + id ).addClass( 'dk-speakup-error' );
+				errors ++;
+			}
 		}
 		if ( email === '' || ! emailRegEx.test( email ) ) {
 			$( '#dk-speakup-email-' + id ).addClass( 'dk-speakup-error' );
@@ -110,28 +112,74 @@ jQuery( document ).ready( function( $ ) {
 		window.open( twitter_url, 'twitter', 'height=400,width=550,left=100,top=100,resizable=yes,location=no,status=no,toolbar=no' );
 	});
 
-	// hide or show form labels depending on input fields
-	$( '.dk-speakup-petition-wrap input[type=text]' ).focus( function( e ) {
-		var label = $( this ).siblings( 'label' );
-		if ( $( this ).val() === '' ) {
-			$( this ).siblings( 'label' ).addClass( 'dk-speakup-focus' ).removeClass( 'dk-speakup-blur' );
+	$('a.dk-speakup-readme').click( function( e ) {
+		e.preventDefault();
+
+		var id = $( this ).attr( 'rel' ),
+			sourceOffset = $(this).offset(),
+			sourceTop    = sourceOffset.top - $(window).scrollTop(),
+			sourceLeft   = sourceOffset.left - $(window).scrollLeft(),
+			screenHeight  = $( document ).height(),
+			screenWidth   = $( window ).width(),
+			windowHeight = $( window ).height(),
+			windowWidth  = $( window ).width(),
+			readerHeight = 520,
+			readerWidth  = 640,
+			readerTop    = ( ( windowHeight / 2 ) - ( readerHeight / 2 ) ),
+			readerLeft   = ( ( windowWidth / 2 ) - ( readerWidth / 2 ) ),
+			petitionText = $( 'div#dk-speakup-message-' + id ).html(),
+			reader       = '<div id="dk-speakup-reader"><div id="dk-speakup-reader-close"></div><div id="dk-speakup-reader-content"></div></div>';
+
+		if ( petitionText === undefined ) {
+			petitionText = $( '#dk-speakup-message-editable-' + id ).html();
 		}
-		$( this ).blur( function(){
-			if ( this.value === '' ) {
-				label.addClass( 'dk-speakup-blur' ).removeClass( 'dk-speakup-focus' );
-			}
-		}).focus( function() {
-			label.addClass( 'dk-speakup-focus' ).removeClass( 'dk-speakup-blur' );
-		}).keydown( function( e ) {
-			label.addClass( 'dk-speakup-focus' ).removeClass( 'dk-speakup-blur' );
-			$( this ).unbind( e );
+
+		$( '#dk-speakup-windowshade' ).css( {
+				'width'  : screenWidth,
+				'height' : screenHeight
+			});
+			$( '#dk-speakup-windowshade' ).fadeTo( 500, 0.8 );
+
+		if ( $( '#dk-speakup-reader' ).length > 0 ) {
+			$( '#dk-speakup-reader' ).remove();
+		}
+
+		$( 'body' ).append( reader );
+
+		$('#dk-speakup-reader').css({
+			background : '#fff',
+			position   : 'fixed',
+			left       : sourceLeft,
+			top        : sourceTop,
+			zIndex     : 100002
+		});
+
+		$('#dk-speakup-reader').animate({
+			width  : readerWidth,
+			height : readerHeight,
+			top    : readerTop,
+			left   : readerLeft
+		}, 500, function() {
+			$( '#dk-speakup-reader-content' ).html( petitionText );
 		});
 	});
 
-	// hide labels on filled input fields when page is reloaded
-	$( '.dk-speakup-petition-wrap input[type=text]' ).each( function() {
-		if ( $( this ).val() !== '' ) {
-			$( this ).siblings( 'label' ).addClass( 'dk-speakup-focus' );
+	/* Close the pop-up petition reader */
+	// by clicking windowshade area
+	$( '#dk-speakup-windowshade' ).click( function () {
+		$( this ).fadeOut( 'slow' );
+		$( '#dk-speakup-reader' ).hide();
+	});
+	// or by clicking the close button
+	$( '#dk-speakup-reader-close' ).live( 'click', function() {
+		$( '#dk-speakup-windowshade' ).fadeOut( 'slow' );
+		$( '#dk-speakup-reader' ).hide();
+	});
+	// or by pressing ESC
+	$( document ).keyup( function( e ) {
+		if ( e.keyCode === 27 ) {
+			$( '#dk-speakup-windowshade' ).fadeOut( 'slow' );
+			$( '#dk-speakup-reader' ).hide();
 		}
 	});
 

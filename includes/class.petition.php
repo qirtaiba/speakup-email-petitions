@@ -136,7 +136,7 @@ class dk_speakup_Petition
 	/**
 	 * Breaks expiration date into year, month, day, hour, and minute components
 	 *
-	 * @return array with keys: year, month, day, hour, and minute
+	 * @return (array) with keys: year, month, day, hour, and minute
 	 */
 	public function get_expiration_date_components()
 	{
@@ -263,7 +263,7 @@ class dk_speakup_Petition
 	 * Retrieves a list of petitions to populate select box navigation
 	 * Only queries the info needed to populate select box at head of Signatures view
 	 *
-	 * @return object query results
+	 * @return (object) query results
 	 */
 	public function quicklist()
 	{
@@ -279,10 +279,10 @@ class dk_speakup_Petition
 	}
 
 	/**
-	 * Reads a petition record from the database
+	 * Reads a petition record and it's signature count from the database
 	 * 
-	 * @param int $id value of the petition's 'id' field in the database
-	 * @return true if query returns a result, false if no results found
+	 * @param (int) $id value of the petition's 'id' field in the database
+	 * @return (bool) true if query returns a result, false if no results found
 	 */
 	public function retrieve( $id )
 	{
@@ -298,15 +298,20 @@ class dk_speakup_Petition
 			GROUP BY $db_petitions.id
 		";
 		$petition = $wpdb->get_row( $wpdb->prepare( $sql, $id ) );
-
-		$this->_poppulate_from_query( $petition );
-		return true;
+		
+		if ( count( $petition ) > 0 ) {
+			$this->_poppulate_from_query( $petition );
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	/**
 	 * Updates an existing petition record in the database
 	 * 
-	 * @param int $id value of the petition's 'id' field in the database
+	 * @param (int) $id value of the petition's 'id' field in the database
 	 */
 	public function update( $id )
 	{
@@ -343,7 +348,7 @@ class dk_speakup_Petition
 	/**
 	 * Poppulates the parameters of this object with values from the database 
 	 * 
-	 * @param object $petition database query results
+	 * @param (object) $petition database query results
 	 */
 	private function _poppulate_from_query( $petition )
 	{

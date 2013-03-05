@@ -136,13 +136,13 @@
 ------------------------------------------------------------
 */
 /* Window shade */
-#dk-speakup-windowshade {
+#dk-speakup-widget-windowshade {
   background-color: #000;
   display: none;
   left: 0;
   position: fixed;
   top: 0;
-  z-index: 100000;
+  z-index: 200000;
 }
 /* Pop-up window */
 .dk-speakup-widget-popup-wrap {
@@ -156,7 +156,7 @@
   position: fixed;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
   width: 760px;
-  z-index: 100002;
+  z-index: 200002;
 }
 .dk-speakup-widget-popup-wrap a {
   outline: none;
@@ -198,21 +198,22 @@
 }
 .dk-speakup-widget-message {
   color: #444;
-  font: 16px/1.4em Helvetica, Arial, sans-serif !important;
+  font: 15px/1.4em Helvetica, Arial, sans-serif !important;
   margin: 0 10px 0 0;
-  max-height: 560px;
+  max-height: 500px;
   min-height: 480px;
   overflow: auto;
-  padding: 0 5px 0 4px;
+  padding: 0 5px 1em 4px;
   width: 410px;
 }
 textarea.dk-speakup-widget-message {
   background: transparent;
   border: none;
+  outline: 1px solid #aaa;
+  margin-bottom: .5em;
 }
 textarea.dk-speakup-widget-message:focus {
   background: #fff;
-  outline: 1px solid #aaa;
 }
 /* Form Area (right side)
 ----------------------------------*/
@@ -381,10 +382,7 @@ a.dk-speakup-widget-facebook:active {
   background-color: #ffebe8 !important;
   border: 1px solid #e81e00 !important;
 }
-.dk-speakup-widget-blur,
-.dk-speakup-widget-focus {
-  visibility: visible;
-}
+/* Misc */
 .dk-speakup-clear {
   clear: both;
 }

@@ -11,9 +11,8 @@ function dk_speakup_signaturescount_shortcode( $attr ) {
 		$id = $attr['id'];
 	}
 	
-	$get_petition = $petition->retrieve( $id );
-
-	if ( $get_petition ) {
+	$petition_exists = $petition->retrieve( $id );
+	if ( $petition_exists ) {
 		return $petition->signatures;
 	}
 	else {
@@ -38,19 +37,18 @@ function dk_speakup_emailpetition_shortcode( $attr ) {
 
 		// get petition data from database
 		$id = absint( $attr['id'] );
-		$get_petition = $petition->retrieve( $id );
+		$petition_exists = $petition->retrieve( $id );
 
 		// attempt to translate with WPML
 		$wpml->translate_petition( $petition );
 		$options   = $wpml->translate_options( $options );
 		$wpml_lang = defined( 'ICL_LANGUAGE_CODE' ) ? ICL_LANGUAGE_CODE : '';
 
-		// check if petition exists
-		if ( $get_petition ) {
+		if ( $petition_exists ) {
 
 			$expired = ( $petition->expires == 1 && current_time( 'timestamp' ) >= strtotime( $petition->expiration_date ) ) ? 1 : 0;
 
-			// handle shortcode attributes
+			// shortcode attributes
 			$width          = isset( $attr['width'] ) ? 'style="width: ' . $attr['width'] . ';"' : '';
 			$height         = isset( $attr['height'] ) ? 'style="height: ' . $attr['height'] . ' !important;"' : '';
 			$css_classes    = isset( $attr['class'] ) ? $css_classes = $attr['class'] : '';
@@ -63,8 +61,10 @@ function dk_speakup_emailpetition_shortcode( $attr ) {
 				// compose the petition form
 				$petition_form = '
 					<!-- SpeakUp! Email Petitions ' . $dk_speakup_version . ' -->
+					<div id="dk-speakup-windowshade"></div>
 					<div class="dk-speakup-petition-wrap ' . $css_classes . '" id="dk-speakup-petition-' . $petition->id . '" ' . $width . '>
 						<h3>' . stripslashes( esc_html( $petition->title ) ) . '</h3>
+						<a id="dk-speakup-readme-' . $petition->id . '" class="dk-speakup-readme" rel="' . $petition->id . '"><span>Read the petition</span></a>
 						<div class="dk-speakup-response"></div>
 						<form class="dk-speakup-petition">
 							<input type="hidden" id="dk-speakup-posttitle-' . $petition->id . '" value="' . esc_attr( urlencode( stripslashes( $petition->title ) ) ) .'" />
@@ -81,77 +81,72 @@ function dk_speakup_emailpetition_shortcode( $attr ) {
 							<div class="dk-speakup-full">
 								<label for="dk-speakup-email-' . $petition->id . '" class="required">' . __( 'Email', 'dk_speakup' ) . '</label>
 								<input name="dk-speakup-email" id="dk-speakup-email-' . $petition->id . '" value="' . $userdata['email'] . '" type="text" />
-							</div>
-				';
+							</div>';
 				if ( $petition->requires_confirmation ) {
 					$petition_form .= '
 							<div class="dk-speakup-full">
 								<label for="dk-speakup-email-confirm-' . $petition->id . '" class="required">' . __( 'Confirm Email', 'dk_speakup' ) . '</label>
 								<input name="dk-speakup-email-confirm" id="dk-speakup-email-confirm-' . $petition->id . '" value="" type="text" />
-							</div>
-					';
+							</div>';
 				}
 				if ( in_array( 'street', $petition->address_fields ) ) {
 					$petition_form .= '
 							<div class="dk-speakup-full">
 								<label for="dk-speakup-street-' . $petition->id . '">' . __( 'Street', 'dk_speakup' ) . '</label>
 								<input name="dk-speakup-street" id="dk-speakup-street-' . $petition->id . '" maxlength="200" type="text" />
-							</div>
-					';
+							</div>';
 				}
+				$petition_form .= '<div>'; // need this div to give half-width fields a new parent - so we can style their margins differently by :nth-child
 				if ( in_array( 'city', $petition->address_fields ) ) {
 					$petition_form .= '
 							<div class="dk-speakup-half">
 								<label for="dk-speakup-city-' . $petition->id . '">' . __( 'City', 'dk_speakup' ) . '</label>
 								<input name="dk-speakup-city" id="dk-speakup-city-' . $petition->id . '" maxlength="200" type="text" />
-							</div>
-					';
+							</div>';
 				}
 				if ( in_array( 'state', $petition->address_fields ) ) {
 					$petition_form .= '
 							<div class="dk-speakup-half">
 								<label for="dk-speakup-state-' . $petition->id . '">' . __( 'State / Province', 'dk_speakup' ) . '</label>
 								<input name="dk-speakup-state" id="dk-speakup-state-' . $petition->id . '" maxlength="200" type="text" />
-							</div>
-					';
+							</div>';
 				}
 				if ( in_array( 'postcode', $petition->address_fields ) ) {
 					$petition_form .= '
 							<div class="dk-speakup-half">
 								<label for="dk-speakup-postcode-' . $petition->id . '">' . __( 'Post Code', 'dk_speakup' ) . '</label>
 								<input name="dk-speakup-postcode" id="dk-speakup-postcode-' . $petition->id . '" maxlength="200" type="text" />
-							</div>
-					';
+							</div>';
 				}
 				if ( in_array( 'country', $petition->address_fields ) ) {
 					$petition_form .= '
 							<div class="dk-speakup-half">
 								<label for="dk-speakup-country-' . $petition->id . '">' . __( 'Country', 'dk_speakup' ) . '</label>
 								<input name="dk-speakup-country" id="dk-speakup-country-' . $petition->id . '" maxlength="200" type="text" />
-							</div>
-					';
+							</div>';
 				}
+				$petition_form .= '</div>';
 				if ( $petition->displays_custom_field == 1 ) {
 					$petition_form .= '
 							<div class="dk-speakup-full">
 								<label for="dk-speakup-custom-field-' . $petition->id . '">' . stripslashes( esc_html( $petition->custom_field_label ) ) . '</label>
 								<input name="dk-speakup-custom-field" id="dk-speakup-custom-field-' . $petition->id . '" maxlength="400" type="text" />
-							</div>
-					';
+							</div>';
 				}
 				if ( $petition->is_editable == 1 ) {
 					$petition_form .= '
-							<div class="dk-speakup-full">
-								<textarea name="dk-speakup-message" id="dk-speakup-message-' . $petition->id . '" class="dk-speakup-message" ' . $height . ' rows="8">' . stripslashes( esc_textarea( $petition->petition_message ) ) . '</textarea>
-							</div>
-					';
-				}
-				else {
+							<div class="dk-speakup-full dk-speakup-message-editable" id="dk-speakup-message-editable-' . $petition->id . '">
+								<p class="dk-speakup-greeting">' . $petition->greeting . '</p>
+								<textarea name="dk-speakup-message" id="dk-speakup-message-' . $petition->id . '" ' . $height . ' rows="8">' . stripslashes( esc_textarea( $petition->petition_message ) ) . '</textarea>
+								<p class="dk-speakup-caps">[' . __( 'signature', 'dk-speakup' ) . ']</p>
+							</div>';
+				} else {
 					$petition_form .= '
-							<div class="dk-speakup-full">
-								<div class="dk-speakup-message" ' . $height . '>' . stripslashes( wpautop( $petition->petition_message ) ) . '</div>
-							</div>
-					';
+							<div class="dk-speakup-full dk-speakup-message ' . $height . '" id="dk-speakup-message-' . $petition->id . '">
+								<p class="dk-speakup-greeting">' . $petition->greeting . '</p>
+								' . stripslashes( wpautop( $petition->petition_message ) ) . '
+								<p class="dk-speakup-caps">[' . __( 'signature', 'dk-speakup' ) . ']</p>
+							</div>';
 				}
 				if ( $petition->displays_optin == 1 ) {
 					$optin_default = ( $options['optin_default'] == 'checked' ) ? ' checked="checked"' : '';
@@ -159,15 +154,13 @@ function dk_speakup_emailpetition_shortcode( $attr ) {
 							<div class="dk-speakup-optin-wrap">
 								<input type="checkbox" name="dk-speakup-optin" id="dk-speakup-optin-' . $petition->id . '"' . $optin_default . ' />
 								<label for="dk-speakup-optin-' . $petition->id . '">' . stripslashes( esc_html( $petition->optin_label ) ) . '</label>
-							</div>
-					';
+							</div>';
 				}
 				$petition_form .= '
 							<div class="dk-speakup-submit-wrap">
 								<a name="' . $petition->id . '" class="dk-speakup-submit"><span>' . stripslashes( esc_html( $options['button_text'] ) ) . '</span></a>
 							</div>
-						</form>
-				';
+						</form>';
 				if ( $options['display_count'] == 1 ) {
 					$petition_form .= '
 						<div class="dk-speakup-progress-wrap">
@@ -175,8 +168,7 @@ function dk_speakup_emailpetition_shortcode( $attr ) {
 								<span>' . number_format( $petition->signatures ) . '</span> ' . _n( 'signature', 'signatures', $petition->signatures, 'dk_speakup' ) . '
 							</div>
 							' . dk_speakup_SpeakUp::progress_bar( $petition->goal, $petition->signatures, $progress_width ) . '
-						</div>
-					';
+						</div>';
 				}
 				$petition_form .= '
 						<div class="dk-speakup-share">
@@ -188,10 +180,9 @@ function dk_speakup_emailpetition_shortcode( $attr ) {
 						</div>
 							<div class="dk-speakup-clear"></div>
 						</div>
-					</div>
-				';
+					</div>';
 			}
-			// if petition has expired
+			// petition has expired
 			else {
 				$goal_text = ( $petition->goal != 0 ) ? '<p><strong>' . __( 'Signature goal', 'dk_speakup' ) . ':</strong> ' . $petition->goal . '</p>' : '';
 				$petition_form = '
@@ -207,18 +198,17 @@ function dk_speakup_emailpetition_shortcode( $attr ) {
 							</div>
 							' . dk_speakup_SpeakUp::progress_bar( $petition->goal, $petition->signatures, $progress_width ) . '
 						</div>
-					</div>
-				';
+					</div>';
 			}
 
 		}
-		// if petition doesn't exist
+		// petition doesn't exist
 		else {
 			$petition_form = '';
 		}
 	}
 
-	// if id attribute is left out, as in [emailpetition], display error
+	// id attribute was left out, as in [emailpetition]
 	else {
 		$petition_form = '
 			<div class="dk-speakup-petition-wrap dk-speakup-expired">
@@ -226,8 +216,7 @@ function dk_speakup_emailpetition_shortcode( $attr ) {
 				<div class="dk-speakup-notice">
 					<p>' . __( 'Error: You must include a valid id.', 'dk_speakup' ) . '</p>
 				</div>
-			</div>
-		';
+			</div>';
 	}
 
 	return $petition_form;
@@ -237,12 +226,9 @@ function dk_speakup_emailpetition_shortcode( $attr ) {
 add_filter( 'the_posts', 'dk_speakup_public_css_js' );
 function dk_speakup_public_css_js( $posts ) {
 
-	// ignore if there are no posts
 	if ( empty( $posts ) ) return $posts;
 
 	$options = get_option( 'dk_speakup_options' );
-
-	// set flag to determine if post contains shortcode
 	$shortcode_found = false;
 
 	foreach ( $posts as $post ) {
@@ -252,7 +238,7 @@ function dk_speakup_public_css_js( $posts ) {
 		}
 	}
 
-	// if flag is now true, load the CSS and JavaScript
+	// load the CSS and JavaScript
 	if ( $shortcode_found ) {
 		$theme = $options['petition_theme'];
 
@@ -283,18 +269,17 @@ function dk_speakup_public_css_js( $posts ) {
 						wp_enqueue_style( 'dk_speakup_css', $parent_petition_theme_url );
 					}
 				}
-				// if not using a child theme, try to load style from active theme folder
+				// try to load style from active theme folder
 				else {
 					wp_enqueue_style( 'dk_speakup_css', $parent_petition_theme_url );
 				}
 				break;
 		}
 
-		wp_enqueue_script( 'dk_speakup_js', plugins_url( 'speakup-email-petitions/js/public.js' ), array( 'jquery' ) );
-
-		// make sure ajax callback url works on both https and http
+		// ensure ajax callback url works on both https and http
 		$protocol = isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://';
 		$params   = array( 'ajaxurl' => admin_url( 'admin-ajax.php', $protocol ) );
+		wp_enqueue_script( 'dk_speakup_js', plugins_url( 'speakup-email-petitions/js/public.js' ), array( 'jquery' ) );
 		wp_localize_script( 'dk_speakup_js', 'dk_speakup_js', $params );
 	}
 

@@ -1,6 +1,7 @@
 .dk-speakup-petition-wrap,
 .dk-speakup-petition-wrap input,
-.dk-speakup-message {
+.dk-speakup-message,
+.dk-speakup-message-editable textarea {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -21,16 +22,21 @@
 .dk-speakup-petition-wrap h3 {
   font: bold 20px/1.4em Helvetica, Arial, sans-serif;
   letter-spacing: 0;
-  margin: 0 0 .5em 0 !important;
+  line-height: 2em;
+  margin: 0 0 0 0 !important;
   padding: 0.5em 3% 0.25em 3% !important;
   text-shadow: none;
   text-transform: none;
+}
+.dk-speakup-readme {
+  display: none;
 }
 /*
  *	Form elements
  */
 .dk-speakup-petition-wrap input[type=text],
-.dk-speakup-message {
+.dk-speakup-message,
+.dk-speakup-message-editable textarea {
   background: #fff;
   border: 1px solid #c3c3c3;
   color: #444;
@@ -45,26 +51,25 @@
   margin: 8px -4px 0 3%;
   width: 45.5%;
 }
-.dk-speakup-half input {
-  width: 100%;
-}
 .dk-speakup-full {
   display: inline-block;
   margin: 8px 0 0 3%;
   width: 94%;
 }
+.dk-speakup-half input,
 .dk-speakup-full input {
   width: 100%;
 }
-.dk-speakup-message {
+.dk-speakup-message,
+.dk-speakup-message-editable textarea {
   background: #fff;
   font-size: 14px !important;
   height: 250px !important;
-  margin-top: 6px;
+  margin-top: 16px;
   overflow: auto;
   padding: .3em 0 0 .5em;
 }
-textarea.dk-speakup-message {
+.dk-speakup-message-editable textarea {
   width: 100%;
 }
 .dk-speakup-optin-wrap input {
@@ -126,10 +131,6 @@ textarea.dk-speakup-message {
   margin-left: 2px;
   position: relative;
   top: 2px;
-}
-.dk-speakup-blur,
-.dk-speakup-focus {
-  visibility: visible;
 }
 .dk-speakup-error {
   background-color: #ffebe8 !important;
@@ -275,6 +276,13 @@ a.dk-speakup-twitter span {
 .dk-speakup-expired .dk-speakup-progress-wrap {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
+}
+.dk-speakup-message-editable .dk-speakup-greeting,
+.dk-speakup-message-editable .dk-speakup-caps {
+  display: none;
+}
+.dk-speakup-caps {
+  text-transform: capitalize;
 }
 .dk-speakup-clear {
   clear: both;

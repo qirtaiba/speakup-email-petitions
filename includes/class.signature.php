@@ -27,11 +27,11 @@ class dk_speakup_Signature
 	/**
 	 * Retrieves a selection of signature records from the database
 	 * 
-	 * @param int $petition_id (optional) the id of the petition whose signature should be retrieved
-	 * @param int $start (optional) the first record to be retrieved
-	 * @param int $limit (optional) the maximum number of records to be retrieved
-	 * @param string $context (optional) context the method is being called from ('csv' or 'signaturelist')
-	 * @return object query results
+	 * @param $petition_id (int) optional: the id of the petition whose signature should be retrieved
+	 * @param $start (int) optional: the first record to be retrieved
+	 * @param $limit (int) optional: the maximum number of records to be retrieved
+	 * @param $context (string) optional: context the method is being called from ('csv' or 'signaturelist')
+	 * @return (object) query results
 	 */
 	public function all( $petition_id, $start = 0, $limit = 0, $context = '' )
 	{
@@ -82,8 +82,8 @@ class dk_speakup_Signature
 	/**
 	 * Checks if a signature has been confirmed by matching a provided confirmation code with one in the database
 	 * 
-	 * @param string $confirmation_code the confirmation code to check
-	 * @return true if match is found, false if no match is found
+	 * @param $confirmation_code (string) the confirmation code to check
+	 * @return (bool) true if match is found, false if no match is found
 	 */
 	public function check_confirmation( $confirmation_code )
 	{
@@ -107,8 +107,8 @@ class dk_speakup_Signature
 	/**
 	 * Attempts to confirm an email address by matching the confirmation code provided with one in the database
 	 * 
-	 * @param string $confirmation_code variable sent through link in confirmation email
-	 * @return true if confirmation status was updated, false if confirmation code was not found or the signature was already confirmed
+	 * @param $confirmation_code (string) variable sent through link in confirmation email
+	 * @return (bool) true if confirmation status was updated, false if confirmation code was not found or the signature was already confirmed
 	 */
 	public function confirm( $confirmation_code )
 	{
@@ -130,8 +130,8 @@ class dk_speakup_Signature
 	/**
 	 * Counts the number of signatures in the database
 	 * 
-	 * @param int $petition_id [optional] unique 'id' of a petition, used to limit results to a single petition
-	 * @return int the number of signatures found in the database
+	 * @param $petition_id (int) optional: unique 'id' of a petition, used to limit results to a single petition
+	 * @return (int) the number of signatures found in the database
 	 */
 	public function count( $petition_id, $context = '' )
 	{
@@ -164,7 +164,7 @@ class dk_speakup_Signature
 	/**
 	 * Creates a new signature record in the database
 	 * 
-	 * @param int $petition_id the unique id of the petition we are signing
+	 * @param $petition_id (int) the unique id of the petition we are signing
 	 */
 	public function create( $petition_id )
 	{
@@ -310,7 +310,7 @@ class dk_speakup_Signature
 	 * Retrieves a confirmed signature via its confirmation_code
 	 * and populates this object with the result
 	 * 
-	 * @param string $confirmation_code the signature's confirmation_code
+	 * @param $confirmation_code (string) the signature's confirmation_code
 	 */
 	public function retrieve_confirmed( $confirmation_code )
 	{
@@ -330,8 +330,8 @@ class dk_speakup_Signature
 	 * Retrieves unconfirmed signatures from the database
 	 * Used to re-send confirmation emails from signatures admin screen
 	 * 
-	 * @param int $petition_id unique 'id' of the petition whose signatures we are searching
-	 * @return object query results
+	 * @param $petition_id (int) unique 'id' of the petition whose signatures we are searching
+	 * @return (object) query results
 	 */
 	public function unconfirmed( $petition_id )
 	{
@@ -354,7 +354,7 @@ class dk_speakup_Signature
 	/**
 	 * Poppulates the parameters of this object with values from the database
 	 * 
-	 * @param object $signature database query results
+	 * @param $signature (object) database query results
 	 */
 	private function _poppulate_from_query( $signature )
 	{
