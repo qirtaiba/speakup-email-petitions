@@ -34,7 +34,7 @@ jQuery( document ).ready( function( $ ) {
 		var errors = 0,
 			emailRegEx = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,6})?$/;
 
-		if ( typeof email_confirm !== undefined ) {
+		if ( email_confirm !== undefined ) {
 			if ( email_confirm !== email ) {
 				$( '#dk-speakup-email-' + id ).addClass( 'dk-speakup-error' );
 				$( '#dk-speakup-email-confirm-' + id ).addClass( 'dk-speakup-error' );
@@ -80,9 +80,14 @@ jQuery( document ).ready( function( $ ) {
 			// submit form data and handle ajax response
 			$.post( dk_speakup_js.ajaxurl, data,
 				function( response ) {
+					var response_class = 'dk-speakup-response-success';
+					if ( response.status === 'error' ) {
+						response_class = 'dk-speakup-response-error';
+					}
 					$( '#dk-speakup-petition-' + id + ' .dk-speakup-petition' ).fadeTo( 400, 0.35 );
-					$( '#dk-speakup-petition-' + id + ' .dk-speakup-response' ).fadeIn().html( response );
-				}
+					$( '#dk-speakup-petition-' + id + ' .dk-speakup-response' ).addClass( response_class );
+					$( '#dk-speakup-petition-' + id + ' .dk-speakup-response' ).fadeIn().html( response.message );
+				}, 'json'
 			);
 		}
 	});

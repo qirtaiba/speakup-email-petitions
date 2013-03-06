@@ -117,10 +117,28 @@ body.admin-color-classic .sends_email { background-color: transparent !important
 	height: 10px;
 	border-right: 1px solid #aaa;
 }
-.dk-speakup-progressbar-low { background: #09f url(../images/bg-progressbar.png) repeat-x top left; }
-.dk-speakup-progressbar-medium { background: #3c0 url(../images/bg-progressbar.png) repeat-x top left; }
-.dk-speakup-progressbar-high { background: #ffad00 url(../images/bg-progressbar.png) repeat-x top left; }
-.dk-speakup-progressbar-complete { background: #ff2e00 url(../images/bg-progressbar.png) repeat-x top left; }
+.dk-speakup-progressbar-low,
+.dk-speakup-progressbar-medium,
+.dk-speakup-progressbar-high,
+.dk-speakup-progressbar-complete {
+	background      : transparent url(../images/bg-progressbar.png) repeat-x top left;
+	background-size : 10px 10px;
+}
+.dk-speakup-progressbar-low {
+	background-color : #3c0;
+}
+.dk-speakup-progressbar-medium {
+	background-color : #09f;
+}
+.dk-speakup-progressbar-high {
+	background-color : #9f07ed;
+}
+.dk-speakup-progressbar-complete {
+	background-color           : #f00;
+	border-bottom-right-radius : ( @radius - 2px );
+	border-top-right-radius    : ( @radius - 2px );
+}
+
 .dk_speakup_clear { clear: both; }
 .dk-speakup-inline { display: inline; }
 .dk-speakup-red { color: #900; }

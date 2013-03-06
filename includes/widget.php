@@ -153,8 +153,7 @@ class dk_speakup_petition_widget extends WP_Widget {
 					<p>' . stripslashes( esc_html( $call_to_action ) ) . '</p>
 					<div class="dk-speakup-widget-button-wrap">
 						<a rel="dk-speakup-widget-popup-wrap-' . $petition->id . '" class="dk-speakup-widget-button"><span>' . $options['button_text'] . '</span></a>
-					</div>
-			';
+					</div>';
 			if ( $options['display_count'] == 1 ) {
 				$petition_widget .= '
 					<div class="dk-speakup-widget-progress-wrap">
@@ -162,8 +161,7 @@ class dk_speakup_petition_widget extends WP_Widget {
 							<span>' . number_format( $petition->signatures ) . '</span> ' . _n( 'signature', 'signatures', $petition->signatures, 'dk_speakup' ) . '
 						</div>
 						' . dk_speakup_SpeakUp::progress_bar( $petition->goal, $petition->signatures, 150 ) . '
-					</div>
-				';
+					</div>';
 			}
 			$petition_widget .= '
 				</div>
@@ -171,8 +169,7 @@ class dk_speakup_petition_widget extends WP_Widget {
 				<div id="dk-speakup-widget-windowshade"></div>
 				<div id="dk-speakup-widget-popup-wrap-' . $petition->id . '" class="dk-speakup-widget-popup-wrap">
 					<h3>' . stripslashes( esc_html( $petition->title ) ) . '</h3>
-					<div class="dk-speakup-widget-close"></div>
-			';
+					<div class="dk-speakup-widget-close"></div>';
 			if ( $petition->is_editable == 1 ) {
 				$petition_widget .= '
 					<div class="dk-speakup-widget-message-wrap">
@@ -198,19 +195,16 @@ class dk_speakup_petition_widget extends WP_Widget {
 							<input type="hidden" id="dk-speakup-widget-posttitle-' . $petition->id . '" value="' . esc_attr( urlencode( stripslashes( $petition->title ) ) ) .'" />
 							<input type="hidden" id="dk-speakup-widget-shareurl-' . $petition->id . '" value="' . esc_attr( urlencode( stripslashes( $instance['sharing_url'] ) ) ) .'" />
 							<input type="hidden" id="dk-speakup-widget-tweet-' . $petition->id . '" value="' . dk_speakup_SpeakUp::twitter_encode( $petition->twitter_message ) .'" />
-							<input type="hidden" id="dk-speakup-widget-lang-' . $petition->id . '" value="' . $wpml_lang .'" />
-			';
+							<input type="hidden" id="dk-speakup-widget-lang-' . $petition->id . '" value="' . $wpml_lang .'" />';
 
 			if ( $expired ) {
 				$petition_widget .= '
 							<p><strong>' . $options['expiration_message'] . '</strong></p>
 							<p>' . __( 'End date', 'dk_speakup' ) . ': ' . date( 'M d, Y', strtotime( $petition->expiration_date ) ) . '</p>
-							<p>' . __( 'Signatures collected', 'dk_speakup' ) . ': ' . $petition->signatures . '</p>
-				';
+							<p>' . __( 'Signatures collected', 'dk_speakup' ) . ': ' . $petition->signatures . '</p>';
 				if ( $petition->goal != 0 ) {
 					$petition_widget .= '
-							<p><div class="dk-speakup-expired-goal"><span>' . __( 'Signature goal', 'dk_speakup' ) . ':</span> ' . $petition->goal . '</div></p>
-					';
+							<p><div class="dk-speakup-expired-goal"><span>' . __( 'Signature goal', 'dk_speakup' ) . ':</span> ' . $petition->goal . '</div></p>';
 				}
 			}
 			else {
@@ -226,31 +220,27 @@ class dk_speakup_petition_widget extends WP_Widget {
 							<div class="dk-speakup-widget-full">
 								<label for="dk-speakup-widget-email-' . $petition->id . '" class="required">' . __( 'Email', 'dk_speakup' ) . '</label>
 								<input name="dk-speakup-widget-email" id="dk-speakup-widget-email-' . $petition->id . '" value="' . $userdata['email'] . '" type="text" />
-							</div>
-				';
+							</div>';
 				if ( $petition->requires_confirmation ) {
 					$petition_widget .= '
 							<div class="dk-speakup-widget-full">
 								<label for="dk-speakup-widget-email-confirm-' . $petition->id . '" class="required">' . __( 'Confirm Email', 'dk_speakup' ) . '</label>
 								<input name="dk-speakup-widget-email-confirm" id="dk-speakup-widget-email-confirm-' . $petition->id . '" value="" type="text" />
-							</div>
-					';
+							</div>';
 				}
 				if ( in_array( 'street', $petition->address_fields ) ) {
 					$petition_widget .= '
 							<div class="dk-speakup-widget-full">
 								<label for="dk-speakup-widget-street-' . $petition->id . '">' . __( 'Street', 'dk_speakup' ) . '</label>
 								<input name="dk-speakup-widget-street" id="dk-speakup-widget-street-' . $petition->id . '" maxlength="200" type="text" />
-							</div>
-					';
+							</div>';
 				}
 				if ( in_array( 'city', $petition->address_fields ) ) {
 					$petition_widget .= '
 							<div class="dk-speakup-widget-half">
 								<label for="dk-speakup-widget-city-' . $petition->id . '">' . __( 'City', 'dk_speakup' ) . '</label>
 								<input name="dk-speakup-widget-city" id="dk-speakup-widget-city-' . $petition->id . '" maxlength="200" type="text">
-							</div>
-					';
+							</div>';
 				}
 				if ( in_array( 'state', $petition->address_fields ) ) {
 					$petition_widget .= '
@@ -258,18 +248,16 @@ class dk_speakup_petition_widget extends WP_Widget {
 								<label for="dk-speakup-widget-state-' . $petition->id . '">' . __( 'State / Province', 'dk_speakup' ) . '</label>
 								<input name="dk-speakup-widget-state" id="dk-speakup-widget-state-' . $petition->id . '" maxlength="200" type="text" list="dk-speakup-states" />
 								<datalist id="dk-speakup-states">
-									<option value="Alabama"><option value="Alaska"><option value="Arizona"><option value="Arkansas"><option value="California"><option value="Colorado"><option value="Connecticut"><option value="Washington DC"><option value="Delaware"><option value="Florida"><option value="Georgia"><option value="Hawaii"><option value="Idaho"><option value="Illinois"><option value="Indiana"><option value="Iowa"><option value="Kansas"><option value="Kentucky"><option value="Louisiana"><option value="Maine"><option value="Maryland"><option value="Massachusetts"><option value="Michigan"><option value="Minnesota"><option value="Mississippi"><option value="Missouri"><option value="Montana"><option value="Nebraska"><option value="Nevada"><option value="New Hampshire"><option value="New Jersey"><option value="New Mexico"><option value="New York"><option value="North Carolina"><option value="North Dakota"><option value="Ohio"><option value="Oklahoma"><option value="Oregon"><option value="Pennsylvania"><option value="Rhode Island"><option value="South Carolina"><option value="South Dakota"><option value="Tennessee"><option value="Texas"><option value="Utah"><option value="Vermont"><option value="Virginia"><option value="Washington"><option value="West Virginia"><option value="Wisconsin"><option value="Wyoming"><option value="Alberta"><option value="British Columbia"><option value="Labrador"><option value="Manitoba"><option value="New Brunswick"><option value="Newfoundland"><option value="Nova Scotia"><option value="Nunavut"><option value="North West Territory"><option value="Ontario"><option value="Prince Edward Island"><option value="Quebec"><option value="Saskatchewen"><option value="Yukon">
+									<option value="Alabama"><option value="Alaska"><option value="Alberta"><option value="Arizona"><option value="Arkansas"><option value="British Columbia"><option value="California"><option value="Colorado"><option value="Connecticut"><option value="Washington DC"><option value="Delaware"><option value="Florida"><option value="Georgia"><option value="Hawaii"><option value="Idaho"><option value="Illinois"><option value="Indiana"><option value="Iowa"><option value="Kansas"><option value="Kentucky"><option value="Labrador"><option value="Louisiana"><option value="Maine"><option value="Manitoba"><option value="Maryland"><option value="Massachusetts"><option value="Michigan"><option value="Minnesota"><option value="Mississippi"><option value="Missouri"><option value="Montana"><option value="Nebraska"><option value="Nevada"><option value="New Brunswick"><option value="Newfoundland"><option value="New Hampshire"><option value="New Jersey"><option value="New Mexico"><option value="New York"><option value="North Carolina"><option value="North Dakota"><option value="North West Territory"><option value="Nova Scotia"><option value="Nunavut"><option value="Ohio"><option value="Oklahoma"><option value="Ontario"><option value="Oregon"><option value="Pennsylvania"><option value="Prince Edward Island"><option value="Quebec"><option value="Rhode Island"><option value="Saskatchewen"><option value="South Carolina"><option value="South Dakota"><option value="Tennessee"><option value="Texas"><option value="Utah"><option value="Vermont"><option value="Virginia"><option value="Washington"><option value="West Virginia"><option value="Wisconsin"><option value="Wyoming"><option value="Yukon">
 								</datalist>
-							</div>
-					';
+							</div>';
 				}
 				if ( in_array( 'postcode', $petition->address_fields ) ) {
 					$petition_widget .= '
 							<div class="dk-speakup-widget-half">
 								<label for="dk-speakup-widget-postcode-' . $petition->id . '">' . __( 'Post Code', 'dk_speakup' ) . '</label>
 								<input name="dk-speakup-widget-postcode" id="dk-speakup-widget-postcode-' . $petition->id . '" maxlength="200" type="text">
-							</div>
-					';
+							</div>';
 				}
 				if ( in_array( 'country', $petition->address_fields ) ) {
 					$petition_widget .= '
@@ -279,16 +267,14 @@ class dk_speakup_petition_widget extends WP_Widget {
 								<datalist id="dk-speakup-widget-countries">
 									<option value="Afghanistan"><option value="Albania"><option value="Algeria"><option value="American Samoa"><option value="Andorra"><option value="Angola"><option value="Anguilla"><option value="Antarctica"><option value="Antigua and Barbuda"><option value="Argentina"><option value="Armenia"><option value="Aruba"><option value="Australia"><option value="Austria"><option value="Azerbaijan"><option value="Bahrain"><option value="Bangladesh"><option value="Barbados"><option value="Belarus"><option value="Belgium"><option value="Belize"><option value="Benin"><option value="Bermuda"><option value="Bhutan"><option value="Bolivia"><option value="Bosnia and Herzegovina"><option value="Botswana"><option value="Bouvet Island"><option value="Brazil"><option value="British Indian Ocean Territory"><option value="British Virgin Islands"><option value="Brunei"><option value="Bulgaria"><option value="Burkina Faso"><option value="Burundi"><option value="Côte d\'Ivoire"><option value="Cambodia"><option value="Cameroon"><option value="Canada"><option value="Cape Verde"><option value="Cayman Islands"><option value="Central African Republic"><option value="Chad"><option value="Chile"><option value="China"><option value="Christmas Island"><option value="Cocos (Keeling) Islands"><option value="Colombia"><option value="Comoros"><option value="Congo"><option value="Cook Islands"><option value="Costa Rica"><option value="Croatia"><option value="Cuba"><option value="Cyprus"><option value="Czech Republic"><option value="Democratic Republic of the Congo"><option value="Denmark"><option value="Djibouti"><option value="Dominica"><option value="Dominican Republic"><option value="East Timor"><option value="Ecuador"><option value="Egypt"><option value="El Salvador"><option value="Equatorial Guinea"><option value="Eritrea"><option value="Estonia"><option value="Ethiopia"><option value="Faeroe Islands"><option value="Falkland Islands"><option value="Fiji"><option value="Finland"><option value="Former Yugoslav Republic of Macedonia"><option value="France"><option value="French Guiana"><option value="French Polynesia"><option value="French Southern Territories"><option value="Gabon"><option value="Georgia"><option value="Germany"><option value="Ghana"><option value="Gibraltar"><option value="Greece"><option value="Greenland"><option value="Grenada"><option value="Guadeloupe"><option value="Guam"><option value="Guatemala"><option value="Guinea"><option value="Guinea-Bissau"><option value="Guyana"><option value="Haiti"><option value="Heard Island and McDonald Islands"><option value="Honduras"><option value="Hong Kong"><option value="Hungary"><option value="Iceland"><option value="India"><option value="Indonesia"><option value="Iran"><option value="Iraq"><option value="Ireland"><option value="Israel"><option value="Italy"><option value="Jamaica"><option value="Japan"><option value="Jordan"><option value="Kazakhstan"><option value="Kenya"><option value="Kiribati"><option value="Kuwait"><option value="Kyrgyzstan"><option value="Laos"><option value="Latvia"><option value="Lebanon"><option value="Lesotho"><option value="Liberia"><option value="Libya"><option value="Liechtenstein"><option value="Lithuania"><option value="Luxembourg"><option value="Macau"><option value="Madagascar"><option value="Malawi"><option value="Malaysia"><option value="Maldives"><option value="Mali"><option value="Malta"><option value="Marshall Islands"><option value="Martinique"><option value="Mauritania"><option value="Mauritius"><option value="Mayotte"><option value="Mexico"><option value="Micronesia"><option value="Moldova"><option value="Monaco"><option value="Mongolia"><option value="Montserrat"><option value="Morocco"><option value="Mozambique"><option value="Myanmar"><option value="Namibia"><option value="Nauru"><option value="Nepal"><option value="Netherlands"><option value="Netherlands Antilles"><option value="New Caledonia"><option value="New Zealand"><option value="Nicaragua"><option value="Niger"><option value="Nigeria"><option value="Niue"><option value="Norfolk Island"><option value="North Korea"><option value="Northern Marianas"><option value="Norway"><option value="Oman"><option value="Pakistan"><option value="Palau"><option value="Panama"><option value="Papua New Guinea"><option value="Paraguay"><option value="Peru"><option value="Philippines"><option value="Pitcairn Islands"><option value="Poland"><option value="Portugal"><option value="Puerto Rico"><option value="Qatar"><option value="Réunion"><option value="Romania"><option value="Russia"><option value="Rwanda"><option value="São Tomé and Príncipe"><option value="Saint Helena"><option value="Saint Kitts and Nevis"><option value="Saint Lucia"><option value="Saint Pierre and Miquelon"><option value="Saint Vincent and the Grenadines"><option value="Samoa"><option value="San Marino"><option value="Saudi Arabia"><option value="Senegal"><option value="Seychelles"><option value="Sierra Leone"><option value="Singapore"><option value="Slovakia"><option value="Slovenia"><option value="Solomon Islands"><option value="Somalia"><option value="South Africa"><option value="South Georgia and the South Sandwich Islands"><option value="South Korea"><option value="Spain"><option value="Sri Lanka"><option value="Sudan"><option value="Suriname"><option value="Svalbard and Jan Mayen"><option value="Swaziland"><option value="Sweden"><option value="Switzerland"><option value="Syria"><option value="Taiwan"><option value="Tajikistan"><option value="Tanzania"><option value="Thailand"><option value="The Bahamas"><option value="The Gambia"><option value="Togo"><option value="Tokelau"><option value="Tonga"><option value="Trinidad and Tobago"><option value="Tunisia"><option value="Turkey"><option value="Turkmenistan"><option value="Turks and Caicos Islands"><option value="Tuvalu"><option value="US Virgin Islands"><option value="Uganda"><option value="Ukraine"><option value="United Arab Emirates"><option value="United Kingdom"><option value="United States"><option value="United States Minor Outlying Islands"><option value="Uruguay"><option value="Uzbekistan"><option value="Vanuatu"><option value="Vatican City"><option value="Venezuela"><option value="Vietnam"><option value="Wallis and Futuna"><option value="Western Sahara"><option value="Yemen"><option value="Yugoslavia"><option value="Zambia"><option value="Zimbabwe">
 								</datalist>
-							</div>
-					';
+							</div>';
 				}
 				if( $petition->displays_custom_field == 1 ) {
 					$petition_widget .= '
 							<div class="dk-speakup-widget-full">
 								<label for="dk-speakup-widget-custom-field-' . $petition->id . '">' . stripslashes( esc_html( $petition->custom_field_label ) ) . '</label>
 								<input name="dk-speakup-widget-custom-field" id="dk-speakup-widget-custom-field-' . $petition->id . '" maxlength="400" type="text">
-							</div>
-					';
+							</div>';
 				}
 				if( $petition->displays_optin == 1 ) {
 					$optin_default = ( $options['optin_default'] == 'checked' ) ? ' checked="checked"' : '';
@@ -296,8 +282,7 @@ class dk_speakup_petition_widget extends WP_Widget {
 							<div class="dk-speakup-widget-optin-wrap">
 								<input type="checkbox" name="dk-speakup-widget-optin" id="dk-speakup-widget-optin-' . $petition->id . '"' . $optin_default . ' />
 								<label for="dk-speakup-widget-optin-' . $petition->id . '">' . stripslashes( esc_html( $petition->optin_label ) ) . '</label>
-							</div>
-					';
+							</div>';
 				}
 				$petition_widget .= '
 							<div class="dk-speakup-widget-submit-wrap">
@@ -313,8 +298,7 @@ class dk_speakup_petition_widget extends WP_Widget {
 							<div class="dk-speakup-clear"></div>
 						</div>
 					</div>
-				</div>
-				';
+				</div>';
 			}
 
 			echo $petition_widget;

@@ -59,11 +59,24 @@ function dk_speakup_sendmail() {
 		$success_message = $options['success_message'];
 		$success_message = str_replace( '%first_name%', $the_signature->first_name, $success_message );
 		$success_message = str_replace( '%last_name%', $the_signature->last_name, $success_message );
-		echo $success_message;
+
+		$json_response = array(
+			'status'  => 'success',
+			'message' => $success_message
+		);
+		$json_response = json_encode( $json_response );
+
+		echo $json_response;
 	}
 	else {
-		// display error message
-		echo $options['already_signed_message'];
+		
+		$json_response = array(
+			'status'  => 'error',
+			'message' => $options['already_signed_message']
+		);
+		$json_response = json_encode( $json_response );
+
+		echo $json_response;
 	}
 
 	// end AJAX processing

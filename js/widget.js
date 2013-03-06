@@ -78,28 +78,29 @@ jQuery( document ).ready( function( $ ) {
 			}
 
 			// make sure error notices are turned off before checking for new errors
-			$( '#dk-speakup-widget-popup-wrap-' + id + ' input' ).removeClass( 'dk-speakup-error' );
+			$( '#dk-speakup-widget-popup-wrap-' + id + ' input' ).removeClass( 'dk-speakup-widget-error' );
 
 			// validate form values
 			var errors = 0,
 				emailRegEx = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 
-			if ( typeof email_confirm !== undefined && email_confirm !== email ) {
-				console.log('gotit');
-				$( '#dk-speakup-widget-email-' + id ).addClass( 'dk-speakup-error' );
-				$( '#dk-speakup-widget-email-confirm-' + id ).addClass( 'dk-speakup-error' );
-				errors ++;
+			if ( email_confirm !== undefined && email_confirm !== email ) {
+				if ( email_confirm !== email ) {
+					$( '#dk-speakup-widget-email-' + id ).addClass( 'dk-speakup-widget-error' );
+					$( '#dk-speakup-widget-email-confirm-' + id ).addClass( 'dk-speakup-widget-error' );
+					errors ++;
+				}
 			}
 			if ( email === '' || !emailRegEx.test( email ) ) {
-				$( '#dk-speakup-widget-email-' + id ).addClass( 'dk-speakup-error' );
+				$( '#dk-speakup-widget-email-' + id ).addClass( 'dk-speakup-widget-error' );
 				errors ++;
 			}
 			if ( firstname === '' ) {
-				$( '#dk-speakup-widget-first-name-' + id ).addClass( 'dk-speakup-error' );
+				$( '#dk-speakup-widget-first-name-' + id ).addClass( 'dk-speakup-widget-error' );
 				errors ++;
 			}
 			if ( lastname === '' ) {
-				$( '#dk-speakup-widget-last-name-' + id ).addClass( 'dk-speakup-error' );
+				$( '#dk-speakup-widget-last-name-' + id ).addClass( 'dk-speakup-widget-error' );
 				errors ++;
 			}
 
@@ -129,8 +130,13 @@ jQuery( document ).ready( function( $ ) {
 				// submit form data and handle ajax response
 				$.post( dk_speakup_widget_js.ajaxurl, data,
 					function( response ) {
+						var response_class = 'dk-speakup-widget-response-success';
+						if ( response.status === 'error' ) {
+							response_class = 'dk-speakup-widget-response-error';
+						}
 						$( '#dk-speakup-widget-popup-wrap-' + id + ' .dk-speakup-widget-form' ).hide();
-						$( '#dk-speakup-widget-popup-wrap-' + id + ' .dk-speakup-widget-response' ).fadeIn().html( response );
+						$( '.dk-speakup-widget-response' ).addClass( response_class );
+						$( '#dk-speakup-widget-popup-wrap-' + id + ' .dk-speakup-widget-response' ).fadeIn().html( response.message );
 						$( '#dk-speakup-widget-popup-wrap-' + id + ' .dk-speakup-widget-share' ).fadeIn();
 
 						// launch Facebook sharing window
@@ -143,7 +149,7 @@ jQuery( document ).ready( function( $ ) {
 							var url = 'http://twitter.com/share?url=' + share_url + '&text=' + tweet;
 							window.open( url, 'twitter', 'height=420,width=550,left=100,top=100,resizable=yes,location=no,status=no,toolbar=no' );
 						});
-					}
+					}, 'json'
 				);
 			}
 		});
