@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SpeakUp! Email Petitions\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-14 09:32-0700\n"
-"PO-Revision-Date: 2012-10-14 09:33-0700\n"
+"POT-Creation-Date: 2013-03-05 21:39-0700\n"
+"PO-Revision-Date: 2013-03-05 21:41-0700\n"
 "Last-Translator: Kreg <Wallace>\n"
 "Language-Team: Marko Žagar <info@ma-seo.com>\n"
 "Language: sl_SI\n"
@@ -14,7 +14,7 @@ msgstr ""
 "_ex;esc_attr_x;_n;_nx;_n_noop\n"
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.5.5\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: speakup-email-petitions.php:61
@@ -70,10 +70,10 @@ msgstr "Napaka: Popravite označena polja"
 msgid "Enter title here"
 msgstr "Vpišite naslov"
 
-#: includes/addnew.view.php:71 includes/emailpetition.php:207
+#: includes/addnew.view.php:71 includes/emailpetition.php:221
 #: includes/help.php:33 includes/petitions.view.php:17
-#: includes/petitions.view.php:26 includes/signatures.php:73
-#: includes/signatures.php:113 includes/signatures.view.php:46
+#: includes/petitions.view.php:26 includes/signatures.php:69
+#: includes/signatures.php:106 includes/signatures.view.php:46
 #: includes/signatures.view.php:58 includes/widget.php:86
 msgid "Petition"
 msgstr "Peticija"
@@ -196,31 +196,31 @@ msgstr "Prikažite možnosti"
 msgid "Display address fields"
 msgstr "Prikažite polja naslova"
 
-#: includes/addnew.view.php:199 includes/emailpetition.php:75
-#: includes/widget.php:231
+#: includes/addnew.view.php:199 includes/emailpetition.php:95
+#: includes/widget.php:234
 msgid "Street"
 msgstr "Ulica"
 
 #: includes/addnew.view.php:202 includes/csv.php:47
-#: includes/emailpetition.php:83 includes/settings.view.php:98
-#: includes/widget.php:239
+#: includes/emailpetition.php:103 includes/settings.view.php:98
+#: includes/widget.php:241
 msgid "City"
 msgstr "Mesto"
 
-#: includes/addnew.view.php:205 includes/emailpetition.php:91
-#: includes/settings.view.php:101 includes/widget.php:247
+#: includes/addnew.view.php:205 includes/emailpetition.php:110
+#: includes/settings.view.php:101 includes/widget.php:248
 msgid "State / Province"
 msgstr "Država/Pokrajina"
 
 #: includes/addnew.view.php:208 includes/csv.php:49
-#: includes/emailpetition.php:99 includes/settings.view.php:104
-#: includes/widget.php:255
+#: includes/emailpetition.php:120 includes/settings.view.php:104
+#: includes/widget.php:258
 msgid "Post Code"
 msgstr "Pošta"
 
 #: includes/addnew.view.php:211 includes/csv.php:50
-#: includes/emailpetition.php:107 includes/settings.view.php:107
-#: includes/widget.php:263
+#: includes/emailpetition.php:127 includes/settings.view.php:107
+#: includes/widget.php:265
 msgid "Country"
 msgstr "Država"
 
@@ -262,31 +262,31 @@ msgstr "Nastavitve"
 msgid "No Title"
 msgstr "Nobenega imena"
 
-#: includes/class.speakup.php:119
+#: includes/class.speakup.php:117
 msgid "items"
 msgstr "predmeti"
 
-#: includes/class.speakup.php:133 includes/class.speakup.php:136
+#: includes/class.speakup.php:131 includes/class.speakup.php:134
 msgid "of"
 msgstr "od"
 
-#: includes/confirmations.php:51
+#: includes/confirmations.php:52
 msgid "Thank you. Your signature has been added to the petition."
 msgstr "Hvala. Podpis je bil dodan k peticiji."
 
-#: includes/confirmations.php:56
+#: includes/confirmations.php:57
 msgid "Your signature has already been confirmed."
 msgstr "Vaš podpis je že bil potrjen."
 
-#: includes/confirmations.php:60
+#: includes/confirmations.php:61
 msgid "The confirmation code you provided is invalid."
 msgstr "Koda za potrditev ni pravilna."
 
-#: includes/confirmations.php:95
+#: includes/confirmations.php:96
 msgid "Email Confirmation"
 msgstr "Potrditev elektronskega naslova"
 
-#: includes/confirmations.php:97
+#: includes/confirmations.php:98
 msgid "You will be redirected momentarily."
 msgstr "Preusmerjam vas,,,,,,,"
 
@@ -298,11 +298,11 @@ msgstr "Nimate dovolj pravic. Za to morate biti urednik."
 msgid "No signatures found."
 msgstr "Nobenega podpisa še ni."
 
-#: includes/csv.php:43 includes/emailpetition.php:60 includes/widget.php:216
+#: includes/csv.php:43 includes/emailpetition.php:74 includes/widget.php:213
 msgid "First Name"
 msgstr "Ime"
 
-#: includes/csv.php:44 includes/emailpetition.php:64 includes/widget.php:220
+#: includes/csv.php:44 includes/emailpetition.php:78 includes/widget.php:217
 msgid "Last Name"
 msgstr "Priimek"
 
@@ -367,29 +367,38 @@ msgstr "da"
 msgid "no"
 msgstr "ne"
 
-#: includes/emailpetition.php:68 includes/signatures.view.php:45
-#: includes/signatures.view.php:57 includes/widget.php:224
+#: includes/emailpetition.php:67
+msgid "Read the petition"
+msgstr "Preberite si to peticijo"
+
+#: includes/emailpetition.php:82 includes/signatures.view.php:45
+#: includes/signatures.view.php:57 includes/widget.php:221
 msgid "Email"
 msgstr "Elektronski naslov"
 
-#: includes/emailpetition.php:153 includes/emailpetition.php:187
-#: includes/widget.php:162
+#: includes/emailpetition.php:88 includes/widget.php:227
+msgid "Confirm Email"
+msgstr "Potrdite Email"
+
+#: includes/emailpetition.php:147 includes/emailpetition.php:154
+#: includes/emailpetition.php:174 includes/emailpetition.php:203
+#: includes/widget.php:161 includes/widget.php:178 includes/widget.php:187
 msgid "signature"
 msgstr "podpis"
 
-#: includes/emailpetition.php:171 includes/widget.php:208
+#: includes/emailpetition.php:193 includes/widget.php:207
 msgid "Signature goal"
 msgstr "Cilj podpisa"
 
-#: includes/emailpetition.php:178 includes/widget.php:203
+#: includes/emailpetition.php:198 includes/widget.php:203
 msgid "End date"
 msgstr "Datum zaključka"
 
-#: includes/emailpetition.php:181 includes/widget.php:204
+#: includes/emailpetition.php:199 includes/widget.php:204
 msgid "Signatures collected"
 msgstr "Zbranih podpisov"
 
-#: includes/emailpetition.php:209
+#: includes/emailpetition.php:223
 msgid "Error: You must include a valid id."
 msgstr "Napaka: Vključite veljaven ID"
 
@@ -852,15 +861,15 @@ msgstr "označeni + potrjeni"
 msgid "Save Changes"
 msgstr "Shrani spremembe"
 
-#: includes/signatures.php:50 includes/signatures.php:129
+#: includes/signatures.php:48 includes/signatures.php:119
 msgid "All Signatures"
 msgstr "Vsi podpisi"
 
-#: includes/signatures.php:54
+#: includes/signatures.php:52
 msgid "Signature deleted."
 msgstr "Podpis izbrisan."
 
-#: includes/signatures.php:116
+#: includes/signatures.php:109
 msgid "Confirmation emails sent."
 msgstr "Sporočilo za potrditev poslano."
 

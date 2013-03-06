@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SpeakUp! Email Petitions\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-14 09:37-0700\n"
-"PO-Revision-Date: 2012-10-14 09:38-0700\n"
+"POT-Creation-Date: 2013-03-05 21:45-0700\n"
+"PO-Revision-Date: 2013-03-05 21:46-0700\n"
 "Last-Translator: Kreg <Wallace>\n"
 "Language-Team: Oren <oren@windowslive.com>\n"
 "Language: he_IL\n"
@@ -14,7 +14,7 @@ msgstr ""
 "_ex;esc_attr_x;_n;_nx;_n_noop\n"
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.5.5\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: speakup-email-petitions.php:61
@@ -71,10 +71,10 @@ msgstr "יש למלא את הפרטים בתיבות המודגשות."
 msgid "Enter title here"
 msgstr "מלא כאן את הכותרת הרצויה"
 
-#: includes/addnew.view.php:71 includes/emailpetition.php:207
+#: includes/addnew.view.php:71 includes/emailpetition.php:221
 #: includes/help.php:33 includes/petitions.view.php:17
-#: includes/petitions.view.php:26 includes/signatures.php:73
-#: includes/signatures.php:113 includes/signatures.view.php:46
+#: includes/petitions.view.php:26 includes/signatures.php:69
+#: includes/signatures.php:106 includes/signatures.view.php:46
 #: includes/signatures.view.php:58 includes/widget.php:86
 msgid "Petition"
 msgstr "עצומה"
@@ -185,31 +185,31 @@ msgstr "אפשרויות תצוגה"
 msgid "Display address fields"
 msgstr "הצגת שדות כתובת"
 
-#: includes/addnew.view.php:199 includes/emailpetition.php:75
-#: includes/widget.php:231
+#: includes/addnew.view.php:199 includes/emailpetition.php:95
+#: includes/widget.php:234
 msgid "Street"
 msgstr "רחוב"
 
 #: includes/addnew.view.php:202 includes/csv.php:47
-#: includes/emailpetition.php:83 includes/settings.view.php:98
-#: includes/widget.php:239
+#: includes/emailpetition.php:103 includes/settings.view.php:98
+#: includes/widget.php:241
 msgid "City"
 msgstr "עיר"
 
-#: includes/addnew.view.php:205 includes/emailpetition.php:91
-#: includes/settings.view.php:101 includes/widget.php:247
+#: includes/addnew.view.php:205 includes/emailpetition.php:110
+#: includes/settings.view.php:101 includes/widget.php:248
 msgid "State / Province"
 msgstr "מדינה / מחוז"
 
 #: includes/addnew.view.php:208 includes/csv.php:49
-#: includes/emailpetition.php:99 includes/settings.view.php:104
-#: includes/widget.php:255
+#: includes/emailpetition.php:120 includes/settings.view.php:104
+#: includes/widget.php:258
 msgid "Post Code"
 msgstr "מקוד"
 
 #: includes/addnew.view.php:211 includes/csv.php:50
-#: includes/emailpetition.php:107 includes/settings.view.php:107
-#: includes/widget.php:263
+#: includes/emailpetition.php:127 includes/settings.view.php:107
+#: includes/widget.php:265
 msgid "Country"
 msgstr "מדינה"
 
@@ -251,31 +251,31 @@ msgstr "הגדרות"
 msgid "No Title"
 msgstr "ללא כותרת"
 
-#: includes/class.speakup.php:119
+#: includes/class.speakup.php:117
 msgid "items"
 msgstr "מרכיבים"
 
-#: includes/class.speakup.php:133 includes/class.speakup.php:136
+#: includes/class.speakup.php:131 includes/class.speakup.php:134
 msgid "of"
 msgstr "של"
 
-#: includes/confirmations.php:51
+#: includes/confirmations.php:52
 msgid "Thank you. Your signature has been added to the petition."
 msgstr "תודה לך. חתימתך נוספה לעצומה"
 
-#: includes/confirmations.php:56
+#: includes/confirmations.php:57
 msgid "Your signature has already been confirmed."
 msgstr "חתימתך כבר מאושרת"
 
-#: includes/confirmations.php:60
+#: includes/confirmations.php:61
 msgid "The confirmation code you provided is invalid."
 msgstr "הקוד לאישור שסיפקת איננו נכון"
 
-#: includes/confirmations.php:95
+#: includes/confirmations.php:96
 msgid "Email Confirmation"
 msgstr "אישור באימייל"
 
-#: includes/confirmations.php:97
+#: includes/confirmations.php:98
 msgid "You will be redirected momentarily."
 msgstr "בעוד מספר שניות תועבר הלאה"
 
@@ -287,11 +287,11 @@ msgstr "אין הרשאות מתאימות. עליך להיות עורך בכד�
 msgid "No signatures found."
 msgstr "לא נמצאו חתימות"
 
-#: includes/csv.php:43 includes/emailpetition.php:60 includes/widget.php:216
+#: includes/csv.php:43 includes/emailpetition.php:74 includes/widget.php:213
 msgid "First Name"
 msgstr "שם פרטי"
 
-#: includes/csv.php:44 includes/emailpetition.php:64 includes/widget.php:220
+#: includes/csv.php:44 includes/emailpetition.php:78 includes/widget.php:217
 msgid "Last Name"
 msgstr "שם משפחה"
 
@@ -356,29 +356,38 @@ msgstr "כן"
 msgid "no"
 msgstr "לא"
 
-#: includes/emailpetition.php:68 includes/signatures.view.php:45
-#: includes/signatures.view.php:57 includes/widget.php:224
+#: includes/emailpetition.php:67
+msgid "Read the petition"
+msgstr "קראו את העתירה"
+
+#: includes/emailpetition.php:82 includes/signatures.view.php:45
+#: includes/signatures.view.php:57 includes/widget.php:221
 msgid "Email"
 msgstr "אימייל"
 
-#: includes/emailpetition.php:153 includes/emailpetition.php:187
-#: includes/widget.php:162
+#: includes/emailpetition.php:88 includes/widget.php:227
+msgid "Confirm Email"
+msgstr "אשר דוא\"ל"
+
+#: includes/emailpetition.php:147 includes/emailpetition.php:154
+#: includes/emailpetition.php:174 includes/emailpetition.php:203
+#: includes/widget.php:161 includes/widget.php:178 includes/widget.php:187
 msgid "signature"
 msgstr "חתימה"
 
-#: includes/emailpetition.php:171 includes/widget.php:208
+#: includes/emailpetition.php:193 includes/widget.php:207
 msgid "Signature goal"
 msgstr "יעד חתימות"
 
-#: includes/emailpetition.php:178 includes/widget.php:203
+#: includes/emailpetition.php:198 includes/widget.php:203
 msgid "End date"
 msgstr "תאריך סיום"
 
-#: includes/emailpetition.php:181 includes/widget.php:204
+#: includes/emailpetition.php:199 includes/widget.php:204
 msgid "Signatures collected"
 msgstr "חתימות שנאספו"
 
-#: includes/emailpetition.php:209
+#: includes/emailpetition.php:223
 msgid "Error: You must include a valid id."
 msgstr "עליך לרשום מספר קביל"
 
@@ -829,15 +838,15 @@ msgstr "אישור + אישרור במייל"
 msgid "Save Changes"
 msgstr "שמור את השינויים"
 
-#: includes/signatures.php:50 includes/signatures.php:129
+#: includes/signatures.php:48 includes/signatures.php:119
 msgid "All Signatures"
 msgstr "כל החתימות"
 
-#: includes/signatures.php:54
+#: includes/signatures.php:52
 msgid "Signature deleted."
 msgstr "חתימה נמחקה"
 
-#: includes/signatures.php:116
+#: includes/signatures.php:109
 msgid "Confirmation emails sent."
 msgstr "דוא\"ל אישור נשלחו."
 
