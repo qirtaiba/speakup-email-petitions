@@ -4,7 +4,11 @@ jQuery( document ).ready( function( $ ) {
 	// display required asterisks
 	$( '.dk-speakup-petition label.required' ).append( '<span> *</span>');
 
-	// handle form submission
+/*
+-------------------------------
+	Form submission
+-------------------------------
+*/
 	$( '.dk-speakup-submit' ).click( function( e ) {
 		e.preventDefault();
 
@@ -20,8 +24,13 @@ jQuery( document ).ready( function( $ ) {
 			postcode       = $( '#dk-speakup-postcode-' + id ).val(),
 			country        = $( '#dk-speakup-country-' + id ).val(),
 			custom_field   = $( '#dk-speakup-custom-field-' + id ).val(),
-			custom_message = $( 'textarea#dk-speakup-message-' + id ).val(),
+			custom_message = $( '.dk-speakup-message-' + id ).val(),
 			optin          = '';
+
+		// toggle use of .text() / .val() to read from edited textarea properly on Firefox
+		if ( $( '#dk-speakup-textval-' + id ).val() === 'text' ) {
+			custom_message = $( '.dk-speakup-message-' + id ).text();
+		}
 
 		if ( $( '#dk-speakup-optin-' + id ).attr( 'checked' ) ) {
 			optin = 'on';
@@ -117,6 +126,11 @@ jQuery( document ).ready( function( $ ) {
 		window.open( twitter_url, 'twitter', 'height=400,width=550,left=100,top=100,resizable=yes,location=no,status=no,toolbar=no' );
 	});
 
+/*
+-------------------------------
+	Petition reader popup
+-------------------------------
+ */
 	$('a.dk-speakup-readme').click( function( e ) {
 		e.preventDefault();
 
@@ -124,8 +138,8 @@ jQuery( document ).ready( function( $ ) {
 			sourceOffset = $(this).offset(),
 			sourceTop    = sourceOffset.top - $(window).scrollTop(),
 			sourceLeft   = sourceOffset.left - $(window).scrollLeft(),
-			screenHeight  = $( document ).height(),
-			screenWidth   = $( window ).width(),
+			screenHeight = $( document ).height(),
+			screenWidth  = $( window ).width(),
 			windowHeight = $( window ).height(),
 			windowWidth  = $( window ).width(),
 			readerHeight = 520,
@@ -135,6 +149,10 @@ jQuery( document ).ready( function( $ ) {
 			petitionText = $( 'div#dk-speakup-message-' + id ).html(),
 			reader       = '<div id="dk-speakup-reader"><div id="dk-speakup-reader-close"></div><div id="dk-speakup-reader-content"></div></div>';
 
+		// set this to toggle use of .val() / .text() so that Firefox  will read from editable-message textarea as expected
+		$( '#dk-speakup-textval-' + id ).val('text');
+
+		// use textarea for editable petition messages
 		if ( petitionText === undefined ) {
 			petitionText = $( '#dk-speakup-message-editable-' + id ).html();
 		}
@@ -152,7 +170,6 @@ jQuery( document ).ready( function( $ ) {
 		$( 'body' ).append( reader );
 
 		$('#dk-speakup-reader').css({
-			background : '#fff',
 			position   : 'fixed',
 			left       : sourceLeft,
 			top        : sourceTop,
@@ -167,25 +184,32 @@ jQuery( document ).ready( function( $ ) {
 		}, 500, function() {
 			$( '#dk-speakup-reader-content' ).html( petitionText );
 		});
-	});
 
-	/* Close the pop-up petition reader */
-	// by clicking windowshade area
-	$( '#dk-speakup-windowshade' ).click( function () {
-		$( this ).fadeOut( 'slow' );
-		$( '#dk-speakup-reader' ).hide();
-	});
-	// or by clicking the close button
-	$( '#dk-speakup-reader-close' ).live( 'click', function() {
-		$( '#dk-speakup-windowshade' ).fadeOut( 'slow' );
-		$( '#dk-speakup-reader' ).hide();
-	});
-	// or by pressing ESC
-	$( document ).keyup( function( e ) {
-		if ( e.keyCode === 27 ) {
+		/* Close the pop-up petition reader */
+		// by clicking windowshade area
+		$( '#dk-speakup-windowshade' ).click( function () {
+			$( this ).fadeOut( 'slow' );
+			// write edited text to form - using .text() because target textarea has display: none
+			$( '.dk-speakup-message-' + id ).text( $( '#dk-speakup-reader textarea' ).val() );
+			$( '#dk-speakup-reader' ).remove();
+		});
+		// or by clicking the close button
+		$( '#dk-speakup-reader-close' ).live( 'click', function() {
 			$( '#dk-speakup-windowshade' ).fadeOut( 'slow' );
-			$( '#dk-speakup-reader' ).hide();
-		}
+			// write edited text to form - using .text() because target textarea has display: none
+			$( '.dk-speakup-message-' + id ).text( $( '#dk-speakup-reader textarea' ).val() );
+			$( '#dk-speakup-reader' ).remove();
+		});
+		// or by pressing ESC
+		$( document ).keyup( function( e ) {
+			if ( e.keyCode === 27 ) {
+				$( '#dk-speakup-windowshade' ).fadeOut( 'slow' );
+				// write edited text to form - using .text() because target textarea has display: none
+				$( '.dk-speakup-message-' + id ).text( $( '#dk-speakup-reader textarea' ).val() );
+				$( '#dk-speakup-reader' ).remove();
+			}
+		});
+
 	});
 
 });

@@ -57,20 +57,17 @@
   width: 94%;
 }
 .dk-speakup-half input,
-.dk-speakup-full input {
+.dk-speakup-full input,
+.dk-speakup-message-editable textarea {
   width: 100%;
 }
 .dk-speakup-message,
 .dk-speakup-message-editable textarea {
-  background: #fff;
   font-size: 14px !important;
   height: 250px !important;
   margin-top: 16px;
   overflow: auto;
   padding: .3em 0 0 .5em;
-}
-.dk-speakup-message-editable textarea {
-  width: 100%;
 }
 .dk-speakup-optin-wrap input {
   margin: 5px 0 0 3%;

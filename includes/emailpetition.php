@@ -64,12 +64,13 @@ function dk_speakup_emailpetition_shortcode( $attr ) {
 					<div id="dk-speakup-windowshade"></div>
 					<div class="dk-speakup-petition-wrap ' . $css_classes . '" id="dk-speakup-petition-' . $petition->id . '" ' . $width . '>
 						<h3>' . stripslashes( esc_html( $petition->title ) ) . '</h3>
-						<a id="dk-speakup-readme-' . $petition->id . '" class="dk-speakup-readme" rel="' . $petition->id . '"><span>Read the petition</span></a>
+						<a id="dk-speakup-readme-' . $petition->id . '" class="dk-speakup-readme" rel="' . $petition->id . '"><span>' . __( 'Read the petition', 'dk-speakup' ) . '</span></a>
 						<div class="dk-speakup-response"></div>
 						<form class="dk-speakup-petition">
 							<input type="hidden" id="dk-speakup-posttitle-' . $petition->id . '" value="' . esc_attr( urlencode( stripslashes( $petition->title ) ) ) .'" />
 							<input type="hidden" id="dk-speakup-tweet-' . $petition->id . '" value="' . dk_speakup_SpeakUp::twitter_encode( $petition->twitter_message ) .'" />
 							<input type="hidden" id="dk-speakup-lang-' . $petition->id . '" value="' . $wpml_lang .'" />
+							<input type="hidden" id="dk-speakup-textval-' . $petition->id . '" value="val" />
 							<div class="dk-speakup-full">
 								<label for="dk-speakup-first-name-' . $petition->id . '" class="required">' . __( 'First Name', 'dk_speakup' ) . '</label>
 								<input name="dk-speakup-first-name" id="dk-speakup-first-name-' . $petition->id . '" value="' . $userdata['firstname'] . '" type="text" />
@@ -110,7 +111,7 @@ function dk_speakup_emailpetition_shortcode( $attr ) {
 								<label for="dk-speakup-state-' . $petition->id . '">' . __( 'State / Province', 'dk_speakup' ) . '</label>
 								<input name="dk-speakup-state" id="dk-speakup-state-' . $petition->id . '" maxlength="200" type="text" list="dk-speakup-states" />
 								<datalist id="dk-speakup-states">
-									<option value="Alabama"><option value="Alaska"><option value="Alberta"><option value="Arizona"><option value="Arkansas"><option value="British Columbia"><option value="California"><option value="Colorado"><option value="Connecticut"><option value="Washington DC"><option value="Delaware"><option value="Florida"><option value="Georgia"><option value="Hawaii"><option value="Idaho"><option value="Illinois"><option value="Indiana"><option value="Iowa"><option value="Kansas"><option value="Kentucky"><option value="Labrador"><option value="Louisiana"><option value="Maine"><option value="Manitoba"><option value="Maryland"><option value="Massachusetts"><option value="Michigan"><option value="Minnesota"><option value="Mississippi"><option value="Missouri"><option value="Montana"><option value="Nebraska"><option value="Nevada"><option value="New Brunswick"><option value="Newfoundland"><option value="New Hampshire"><option value="New Jersey"><option value="New Mexico"><option value="New York"><option value="North Carolina"><option value="North Dakota"><option value="North West Territory"><option value="Nova Scotia"><option value="Nunavut"><option value="Ohio"><option value="Oklahoma"><option value="Ontario"><option value="Oregon"><option value="Pennsylvania"><option value="Prince Edward Island"><option value="Quebec"><option value="Rhode Island"><option value="Saskatchewen"><option value="South Carolina"><option value="South Dakota"><option value="Tennessee"><option value="Texas"><option value="Utah"><option value="Vermont"><option value="Virginia"><option value="Washington"><option value="West Virginia"><option value="Wisconsin"><option value="Wyoming"><option value="Yukon">
+									<option value="Alabama"><option value="Alaska"><option value="Alberta"><option value="Arizona"><option value="Arkansas"><option value="British Columbia"><option value="California"><option value="Colorado"><option value="Connecticut"><option value="Washington DC"><option value="Delaware"><option value="Florida"><option value="Georgia"><option value="Hawaii"><option value="Idaho"><option value="Illinois"><option value="Indiana"><option value="Iowa"><option value="Kansas"><option value="Kentucky"><option value="Labrador"><option value="Louisiana"><option value="Maine"><option value="Manitoba"><option value="Maryland"><option value="Massachusetts"><option value="Michigan"><option value="Minnesota"><option value="Mississippi"><option value="Missouri"><option value="Montana"><option value="Nebraska"><option value="Nevada"><option value="New Brunswick"><option value="Newfoundland"><option value="New Hampshire"><option value="New Jersey"><option value="New Mexico"><option value="New York"><option value="North Carolina"><option value="North Dakota"><option value="North West Territory"><option value="Nova Scotia"><option value="Nunavut"><option value="Ohio"><option value="Oklahoma"><option value="Ontario"><option value="Oregon"><option value="Pennsylvania"><option value="Prince Edward Island"><option value="Quebec"><option value="Rhode Island"><option value="Saskatchewan"><option value="South Carolina"><option value="South Dakota"><option value="Tennessee"><option value="Texas"><option value="Utah"><option value="Vermont"><option value="Virginia"><option value="Washington"><option value="West Virginia"><option value="Wisconsin"><option value="Wyoming"><option value="Yukon">
 								</datalist>
 							</div>';
 				}
@@ -143,7 +144,7 @@ function dk_speakup_emailpetition_shortcode( $attr ) {
 					$petition_form .= '
 							<div class="dk-speakup-full dk-speakup-message-editable" id="dk-speakup-message-editable-' . $petition->id . '">
 								<p class="dk-speakup-greeting">' . $petition->greeting . '</p>
-								<textarea name="dk-speakup-message" id="dk-speakup-message-' . $petition->id . '" ' . $height . ' rows="8">' . stripslashes( esc_textarea( $petition->petition_message ) ) . '</textarea>
+								<textarea name="dk-speakup-message" class="dk-speakup-message-' . $petition->id . '" ' . $height . ' rows="8">' . stripslashes( esc_textarea( $petition->petition_message ) ) . '</textarea>
 								<p class="dk-speakup-caps">[' . __( 'signature', 'dk-speakup' ) . ']</p>
 							</div>';
 				} else {
