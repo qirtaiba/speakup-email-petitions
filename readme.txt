@@ -4,13 +4,13 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: petition, activism, community, email, social media
 Requires at least: 3.1
 Tested up to: 3.5.1
-Stable tag: 2.3.3
+Stable tag: 2.4
 
 SpeakUp! Email Petitions makes it easy to add petitions to your website and rally your community to support a cause.
 
 == Description ==
 
-SpeakUp! Email Petitions allows you to easily create petition forms on your WordPress site.
+SpeakUp! Email Petitions allows you to easily create petition forms on your site.
 
 When visitors to your site submit the petition form, a copy of your message will be sent to the email address you selected. The petition message will be signed with the contact information provided by the form submitter. After signing the petition, visitors will have the option of sharing your petition page with their followers on Facebook or Twitter.
 
@@ -20,13 +20,15 @@ Signatures are stored in the database and can be easily exported to CSV format f
 
 * Italian **it_IT** ([MacItaly](http://wordpress.org/support/profile/macitaly))
 * Slovenian **sl_SI** ([MA-SEO](http://ma-seo.com))
-* German **de_DE** (Hannes Heller, Armin Vasilico)
+* German **de_DE** (Hannes Heller, Armin Vasilico, Andreas Kumlehn)
 * Dutch **nl_NL** (Kris Zanders)
 * Hebrew **he_IL** (Oren L)
 * Polish **pl_PL** (Damian Dzieduch)
 * Romanian **ro_RO** ([Web Hosting Geeks](http://webhostinggeeks.com))
 * French **fr_FR**
 * Spanish **es_ES**
+
+The development version of this plugin is now on [GitHub](https://github.com/kregwallace/speakup-email-petitions).
 
 Visit the [SpeakUp! Email Petitions website](http://speakup.designkode.com/) to learn more.
 
@@ -91,6 +93,16 @@ If the CSV file looks scrambled, try changing its filename extension from .csv t
 8. Email confirmation screen
 
 == Changelog ==
+
+= 2.4 =
+* Reworked the CSS themes (if you're using a custom theme, check to ensure that it still works as expected)
+* Added pop-up petition reader to default theme
+* Provided LESS sources for editing theme CSS files
+* Added AJAX loading animation on form submission
+* Moved form labels out of the input boxes
+* Added second email field to validate spelling (appears when "Confirm signatures" option is turned on)
+* Fixed bug with email confirmations that occurred when Polylang plugin is installed and WPML plugin is not
+* Added datalists to provide easier completion of Country and State/Province fields
 
 = 2.3.3 =
 * Added [signaturecount] shortcode to display a petition's signature count
@@ -284,10 +296,8 @@ If the CSV file looks scrambled, try changing its filename extension from .csv t
 
 == Upgrade Notice ==
 
-= 2.3.3 =
-* Added [signaturecount] shortcode to display a petition's signature count
-* Improved German localization (thanks to Andreas Kumlehn)
-* Increased maximum text size allowed in custom fields to 400 characters
+= 2.4 =
+* This update includes several changes that affect CSS theming. If you are using a custom theme, please test to ensure that it is still displaying as expected after update.
 
 [More information](http://speakup.designkode.com/2012/10/speakup-2-3/)
 
