@@ -64,7 +64,7 @@ function dk_speakup_emailpetition_shortcode( $attr ) {
 					<div id="dk-speakup-windowshade"></div>
 					<div class="dk-speakup-petition-wrap ' . $css_classes . '" id="dk-speakup-petition-' . $petition->id . '" ' . $width . '>
 						<h3>' . stripslashes( esc_html( $petition->title ) ) . '</h3>
-						<a id="dk-speakup-readme-' . $petition->id . '" class="dk-speakup-readme" rel="' . $petition->id . '"><span>' . __( 'Read the petition', 'dk-speakup' ) . '</span></a>
+						<a id="dk-speakup-readme-' . $petition->id . '" class="dk-speakup-readme" rel="' . $petition->id . '" style="display: none;"><span>' . __( 'Read the petition', 'dk-speakup' ) . '</span></a>
 						<div class="dk-speakup-response"></div>
 						<form class="dk-speakup-petition">
 							<input type="hidden" id="dk-speakup-posttitle-' . $petition->id . '" value="' . esc_attr( urlencode( stripslashes( $petition->title ) ) ) .'" />
@@ -165,6 +165,7 @@ function dk_speakup_emailpetition_shortcode( $attr ) {
 				}
 				$petition_form .= '
 							<div class="dk-speakup-submit-wrap">
+								<div id="dk-speakup-ajaxloader-' . $petition->id . '" class="dk-speakup-ajaxloader" style="visibility: hidden;">&nbsp;</div>
 								<a name="' . $petition->id . '" class="dk-speakup-submit"><span>' . stripslashes( esc_html( $options['button_text'] ) ) . '</span></a>
 							</div>
 						</form>';

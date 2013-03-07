@@ -25,7 +25,8 @@ jQuery( document ).ready( function( $ ) {
 			country        = $( '#dk-speakup-country-' + id ).val(),
 			custom_field   = $( '#dk-speakup-custom-field-' + id ).val(),
 			custom_message = $( '.dk-speakup-message-' + id ).val(),
-			optin          = '';
+			optin          = '',
+			ajaxloader     = $( '#dk-speakup-ajaxloader-' + id );
 
 		// toggle use of .text() / .val() to read from edited textarea properly on Firefox
 		if ( $( '#dk-speakup-textval-' + id ).val() === 'text' ) {
@@ -86,6 +87,9 @@ jQuery( document ).ready( function( $ ) {
 				lang:           lang
 			};
 
+			// display AJAX loading animation
+			ajaxloader.css({ 'visibility' : 'visible'});
+
 			// submit form data and handle ajax response
 			$.post( dk_speakup_js.ajaxurl, data,
 				function( response ) {
@@ -96,6 +100,7 @@ jQuery( document ).ready( function( $ ) {
 					$( '#dk-speakup-petition-' + id + ' .dk-speakup-petition' ).fadeTo( 400, 0.35 );
 					$( '#dk-speakup-petition-' + id + ' .dk-speakup-response' ).addClass( response_class );
 					$( '#dk-speakup-petition-' + id + ' .dk-speakup-response' ).fadeIn().html( response.message );
+					ajaxloader.css({ 'visibility' : 'hidden'});
 				}, 'json'
 			);
 		}
@@ -210,6 +215,36 @@ jQuery( document ).ready( function( $ ) {
 			}
 		});
 
+	});
+
+/*
+	Toggle form labels depending on input field focus
+	Leaving this in for now to support older custom themes
+	But it will be removed in future updates
+ */
+
+	$( '.dk-speakup-petition-wrap input[type=text]' ).focus( function( e ) {
+		var label = $( this ).siblings( 'label' );
+		if ( $( this ).val() === '' ) {
+			$( this ).siblings( 'label' ).addClass( 'dk-speakup-focus' ).removeClass( 'dk-speakup-blur' );
+		}
+		$( this ).blur( function(){
+			if ( this.value === '' ) {
+				label.addClass( 'dk-speakup-blur' ).removeClass( 'dk-speakup-focus' );
+			}
+		}).focus( function() {
+			label.addClass( 'dk-speakup-focus' ).removeClass( 'dk-speakup-blur' );
+		}).keydown( function( e ) {
+			label.addClass( 'dk-speakup-focus' ).removeClass( 'dk-speakup-blur' );
+			$( this ).unbind( e );
+		});
+	});
+
+	// hide labels on filled input fields when page is reloaded
+	$( '.dk-speakup-petition-wrap input[type=text]' ).each( function() {
+		if ( $( this ).val() !== '' ) {
+			$( this ).siblings( 'label' ).addClass( 'dk-speakup-focus' );
+		}
 	});
 
 });
