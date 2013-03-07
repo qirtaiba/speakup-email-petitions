@@ -67,7 +67,8 @@ jQuery( document ).ready( function( $ ) {
 				country        = $( '#dk-speakup-widget-country-' + id ).val(),
 				custom_field   = $( '#dk-speakup-widget-custom-field-' + id ).val(),
 				custom_message = $( 'textarea#dk-speakup-widget-message-' + id ).val(),
-				optin          = '';
+				optin          = '',
+				ajaxloader     = $( '#dk-speakup-widget-ajaxloader-' + id );
 
 			if ( share_url === '' ) {
 				share_url = current_url.split('#')[0];
@@ -127,6 +128,9 @@ jQuery( document ).ready( function( $ ) {
 					lang:           lang
 				};
 
+				// display AJAX loading animation
+				ajaxloader.css({ 'visibility' : 'visible'});
+
 				// submit form data and handle ajax response
 				$.post( dk_speakup_widget_js.ajaxurl, data,
 					function( response ) {
@@ -148,6 +152,7 @@ jQuery( document ).ready( function( $ ) {
 						$( '.dk-speakup-widget-twitter' ).click( function() {
 							var url = 'http://twitter.com/share?url=' + share_url + '&text=' + tweet;
 							window.open( url, 'twitter', 'height=420,width=550,left=100,top=100,resizable=yes,location=no,status=no,toolbar=no' );
+							ajaxloader.css({ 'visibility' : 'hidden'});
 						});
 					}, 'json'
 				);

@@ -286,6 +286,7 @@ class dk_speakup_petition_widget extends WP_Widget {
 				}
 				$petition_widget .= '
 							<div class="dk-speakup-widget-submit-wrap">
+								<div id="dk-speakup-widget-ajaxloader-' . $petition->id . '" class="dk-speakup-widget-ajaxloader" style="visibility: hidden;">&nbsp;</div>
 								<a name="' . $petition->id . '" class="dk-speakup-widget-submit"><span>' . stripslashes( esc_html( $options['button_text'] ) ) . '</span></a>
 							</div>
 						</form>
