@@ -19,19 +19,20 @@
 @progressheight  : 12px;
 
 .dk-speakup-widget-wrap {
-	background-color : lighten( @basecolor, 12% );
-	border-radius    : @radius ;
-	border           : 1px solid @headercolor;
-	box-shadow       : @boxshadow;
-	clear            : both;
-	font-family      : @fontstack;
-	font-size        : 13px !important;
-	line-height      : 1.25em !important;
-	line-height      : 1.2em;
-	margin-bottom    : 1em;
-	padding          : 0;
-	position         : relative;
-	text-shadow      : @textshadowlight;
+	-webkit-font-smoothing : antialiased;
+	background-color       : lighten( @basecolor, 12% );
+	border                 : 1px solid @headercolor;
+	border-radius          : @radius ;
+	box-shadow             : @boxshadow;
+	clear                  : both;
+	font-family            : @fontstack;
+	font-size              : 13px !important;
+	line-height            : 1.25em !important;
+	line-height            : 1.2em;
+	margin-bottom          : 1em;
+	padding                : 0;
+	position               : relative;
+	text-shadow            : @textshadowlight;
 
 	a {
 		outline         : none;
@@ -171,17 +172,18 @@
 
 /* Pop-up window */
 .dk-speakup-widget-popup-wrap {
-	background-color : lighten( @basecolor, 12% );
-	border           : 1px solid #111;
-	border-radius    : @radius;
-	box-shadow       : 0 5px 20px rgba( 0, 0 , 0, 0.8);
-	display          : none;
-	font             : 15px/1.4em @fontstack !important;
-	line-height      : 1.2em;
-	position         : fixed;
-	text-shadow      : @textshadowlight;
-	width            : 760px;
-	z-index          : 200002;
+	-webkit-font-smoothing : antialiased;
+	background-color       : lighten( @basecolor, 12% );
+	border                 : 1px solid #111;
+	border-radius          : @radius;
+	box-shadow             : 0 5px 20px rgba( 0, 0 , 0, 0.8);
+	display                : none;
+	font                   : 15px/1.4em @fontstack !important;
+	line-height            : 1.2em;
+	position               : fixed;
+	text-shadow            : @textshadowlight;
+	width                  : 760px;
+	z-index                : 200002;
 }
 .dk-speakup-widget-popup-wrap a {
 	outline         : none;
