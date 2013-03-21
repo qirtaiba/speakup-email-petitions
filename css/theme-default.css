@@ -239,6 +239,9 @@
   padding: 0 2% .5em 2%;
   text-align: center;
 }
+.dk-speakup-share p {
+  margin: 0 0 0 !important;
+}
 .dk-speakup-signature-count {
   display: inline-block;
   margin: .5em 0 .5em 0;
