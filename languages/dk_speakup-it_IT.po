@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SpeakUp! Email Petitions\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-05 21:44-0700\n"
-"PO-Revision-Date: 2013-03-05 21:45-0700\n"
+"POT-Creation-Date: 2013-03-20 07:20-0700\n"
+"PO-Revision-Date: 2013-03-20 07:21-0700\n"
 "Last-Translator: Kreg <Wallace>\n"
 "Language-Team: Macitaly <macitaly@gmail.com>\n"
 "Language: it_IT\n"
@@ -70,7 +70,7 @@ msgstr "Errore: correggere i campi evidenziati."
 msgid "Enter title here"
 msgstr "Inserisci il titolo qui"
 
-#: includes/addnew.view.php:71 includes/emailpetition.php:221
+#: includes/addnew.view.php:71 includes/emailpetition.php:223
 #: includes/help.php:33 includes/petitions.view.php:17
 #: includes/petitions.view.php:26 includes/signatures.php:69
 #: includes/signatures.php:106 includes/signatures.view.php:46
@@ -111,116 +111,120 @@ msgstr "Opzioni delle petizioni"
 msgid "Confirm signatures"
 msgstr "Conferma firme"
 
-#: includes/addnew.view.php:129 includes/help.php:18
+#: includes/addnew.view.php:124
+msgid "Return URL"
+msgstr "URL di ritorno"
+
+#: includes/addnew.view.php:133 includes/help.php:18
 msgid "Allow custom messages"
 msgstr "Permetti messaggi personalizzati"
 
-#: includes/addnew.view.php:137 includes/help.php:19
+#: includes/addnew.view.php:141 includes/help.php:19
 msgid "Set signature goal"
 msgstr "Quante firme vuoi raggiungere"
 
-#: includes/addnew.view.php:140 includes/petitions.view.php:20
+#: includes/addnew.view.php:144 includes/petitions.view.php:20
 #: includes/petitions.view.php:29
 msgid "Goal"
 msgstr "Obiettivo"
 
-#: includes/addnew.view.php:149 includes/help.php:20
+#: includes/addnew.view.php:153 includes/help.php:20
 msgid "Set expiration date"
 msgstr "Specifica la data di scadenza"
 
-#: includes/addnew.view.php:153
+#: includes/addnew.view.php:157
 msgid "Jan"
 msgstr "Gen"
 
-#: includes/addnew.view.php:154
+#: includes/addnew.view.php:158
 msgid "Feb"
 msgstr "Feb"
 
-#: includes/addnew.view.php:155
+#: includes/addnew.view.php:159
 msgid "Mar"
 msgstr "Mar"
 
-#: includes/addnew.view.php:156
+#: includes/addnew.view.php:160
 msgid "Apr"
 msgstr "Apr"
 
-#: includes/addnew.view.php:157
+#: includes/addnew.view.php:161
 msgid "May"
 msgstr "Mag"
 
-#: includes/addnew.view.php:158
+#: includes/addnew.view.php:162
 msgid "Jun"
 msgstr "Giu"
 
-#: includes/addnew.view.php:159
+#: includes/addnew.view.php:163
 msgid "Jul"
 msgstr "Lug"
 
-#: includes/addnew.view.php:160
+#: includes/addnew.view.php:164
 msgid "Aug"
 msgstr "Ago"
 
-#: includes/addnew.view.php:161
+#: includes/addnew.view.php:165
 msgid "Sep"
 msgstr "Set"
 
-#: includes/addnew.view.php:162
+#: includes/addnew.view.php:166
 msgid "Oct"
 msgstr "Ott"
 
-#: includes/addnew.view.php:163
+#: includes/addnew.view.php:167
 msgid "Nov"
 msgstr "Nov"
 
-#: includes/addnew.view.php:164
+#: includes/addnew.view.php:168
 msgid "Dec"
 msgstr "Dic"
 
-#: includes/addnew.view.php:186 includes/help.php:48
+#: includes/addnew.view.php:190 includes/help.php:48
 msgid "Display Options"
 msgstr "Mostra le opzioni"
 
-#: includes/addnew.view.php:195 includes/help.php:23
+#: includes/addnew.view.php:199 includes/help.php:23
 msgid "Display address fields"
 msgstr "Mostra campi di indirizzo"
 
-#: includes/addnew.view.php:199 includes/emailpetition.php:95
+#: includes/addnew.view.php:203 includes/emailpetition.php:96
 #: includes/widget.php:234
 msgid "Street"
 msgstr "Strada"
 
-#: includes/addnew.view.php:202 includes/csv.php:47
-#: includes/emailpetition.php:103 includes/settings.view.php:98
+#: includes/addnew.view.php:206 includes/csv.php:47
+#: includes/emailpetition.php:104 includes/settings.view.php:98
 #: includes/widget.php:241
 msgid "City"
 msgstr "Città"
 
-#: includes/addnew.view.php:205 includes/emailpetition.php:110
+#: includes/addnew.view.php:209 includes/emailpetition.php:111
 #: includes/settings.view.php:101 includes/widget.php:248
 msgid "State / Province"
 msgstr "Stato / Provincia"
 
-#: includes/addnew.view.php:208 includes/csv.php:49
-#: includes/emailpetition.php:120 includes/settings.view.php:104
+#: includes/addnew.view.php:212 includes/csv.php:49
+#: includes/emailpetition.php:121 includes/settings.view.php:104
 #: includes/widget.php:258
 msgid "Post Code"
 msgstr "Codice Postale"
 
-#: includes/addnew.view.php:211 includes/csv.php:50
-#: includes/emailpetition.php:127 includes/settings.view.php:107
+#: includes/addnew.view.php:215 includes/csv.php:50
+#: includes/emailpetition.php:128 includes/settings.view.php:107
 #: includes/widget.php:265
 msgid "Country"
 msgstr "Paese"
 
-#: includes/addnew.view.php:219 includes/help.php:24
+#: includes/addnew.view.php:223 includes/help.php:24
 msgid "Display custom field"
 msgstr "Mostra campo personalizzato"
 
-#: includes/addnew.view.php:222 includes/addnew.view.php:234
+#: includes/addnew.view.php:226 includes/addnew.view.php:238
 msgid "Label"
 msgstr "Etichetta"
 
-#: includes/addnew.view.php:231 includes/help.php:25
+#: includes/addnew.view.php:235 includes/help.php:25
 msgid "Display opt-in checkbox"
 msgstr "Mostra opzione di iscrizione"
 
@@ -246,7 +250,7 @@ msgstr "Configurazione emails delle petizioni"
 msgid "Settings"
 msgstr "Configurazioni"
 
-#: includes/class.petition.php:183
+#: includes/class.petition.php:185
 msgid "No Title"
 msgstr "Nessun titolo"
 
@@ -286,11 +290,11 @@ msgstr "Privilegi insufficienti: devi essere almeno editore per fare questo."
 msgid "No signatures found."
 msgstr "Nessuna sottoscrizione trovata."
 
-#: includes/csv.php:43 includes/emailpetition.php:74 includes/widget.php:213
+#: includes/csv.php:43 includes/emailpetition.php:75 includes/widget.php:213
 msgid "First Name"
 msgstr "Nome"
 
-#: includes/csv.php:44 includes/emailpetition.php:78 includes/widget.php:217
+#: includes/csv.php:44 includes/emailpetition.php:79 includes/widget.php:217
 msgid "Last Name"
 msgstr "Cognome"
 
@@ -359,34 +363,34 @@ msgstr "no"
 msgid "Read the petition"
 msgstr "Leggi la petizione"
 
-#: includes/emailpetition.php:82 includes/signatures.view.php:45
+#: includes/emailpetition.php:83 includes/signatures.view.php:45
 #: includes/signatures.view.php:57 includes/widget.php:221
 msgid "Email"
 msgstr "Email"
 
-#: includes/emailpetition.php:88 includes/widget.php:227
+#: includes/emailpetition.php:89 includes/widget.php:227
 msgid "Confirm Email"
 msgstr "Conferma email"
 
-#: includes/emailpetition.php:147 includes/emailpetition.php:154
-#: includes/emailpetition.php:174 includes/emailpetition.php:203
+#: includes/emailpetition.php:148 includes/emailpetition.php:155
+#: includes/emailpetition.php:176 includes/emailpetition.php:205
 #: includes/widget.php:161 includes/widget.php:178 includes/widget.php:187
 msgid "signature"
 msgstr "firma"
 
-#: includes/emailpetition.php:193 includes/widget.php:207
+#: includes/emailpetition.php:195 includes/widget.php:207
 msgid "Signature goal"
 msgstr "Obiettivo per le sottoscrizioni"
 
-#: includes/emailpetition.php:198 includes/widget.php:203
+#: includes/emailpetition.php:200 includes/widget.php:203
 msgid "End date"
 msgstr "Data di scadenza"
 
-#: includes/emailpetition.php:199 includes/widget.php:204
+#: includes/emailpetition.php:201 includes/widget.php:204
 msgid "Signatures collected"
 msgstr "Firme raccolte"
 
-#: includes/emailpetition.php:223
+#: includes/emailpetition.php:225
 msgid "Error: You must include a valid id."
 msgstr "Errore: devi inserire un ID valido."
 
@@ -721,49 +725,49 @@ msgstr "Emails di conferma"
 msgid "Admin Display"
 msgstr "Mostra amministrazione"
 
-#: includes/install.php:63
+#: includes/install.php:64
 msgid "Sign Now"
 msgstr "Iscriviti Ora"
 
-#: includes/install.php:64
+#: includes/install.php:65
 msgid "This petition is now closed."
 msgstr "Questa petizione è chiusa"
 
-#: includes/install.php:65
+#: includes/install.php:66
 msgid "Thank you"
 msgstr "Grazie"
 
-#: includes/install.php:65
+#: includes/install.php:66
 msgid "Your signature has been added."
 msgstr "La tua sottoscrizione è stata aggiunta."
 
-#: includes/install.php:66
+#: includes/install.php:67
 msgid "This petition has already been signed using your email address."
 msgstr ""
 "Questa petizione è già stata sottoscritta usando questo indirizzo email."
 
-#: includes/install.php:67
+#: includes/install.php:68
 msgid "Share this with your friends:"
 msgstr "Condividi con i tuoi amici:"
 
-#: includes/install.php:68 includes/install.php:188
+#: includes/install.php:69 includes/install.php:189
 msgid "Please confirm your email address"
 msgstr "Si prega di confermare il tuo indirizzo email"
 
-#: includes/install.php:69 includes/install.php:191
+#: includes/install.php:70 includes/install.php:192
 msgid "Hello"
 msgstr "Ciao"
 
-#: includes/install.php:69 includes/install.php:191
+#: includes/install.php:70 includes/install.php:192
 msgid "Thank you for singing our petition"
 msgstr "Grazie per il canto la nostra petizione"
 
-#: includes/install.php:69 includes/install.php:191
+#: includes/install.php:70 includes/install.php:192
 msgid "Please confirm your email address by clicking the link below:"
 msgstr ""
 "Si prega di confermare il tuo indirizzo email cliccando sul link qui  sotto:"
 
-#: includes/install.php:74 includes/install.php:197
+#: includes/install.php:75 includes/install.php:198
 msgid "Latest Signatures"
 msgstr "Ultime sottoscrizioni"
 
