@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: petition, activism, community, email, social media
 Requires at least: 3.1
 Tested up to: 3.5.1
-Stable tag: 2.4
+Stable tag: 2.4.1
 
 SpeakUp! Email Petitions makes it easy to add petitions to your website and rally your community to support a cause.
 
@@ -21,6 +21,7 @@ Signatures are stored in the database and can be easily exported to CSV format f
 * Italian **it_IT** ([MacItaly](http://wordpress.org/support/profile/macitaly))
 * Slovenian **sl_SI** ([MA-SEO](http://ma-seo.com))
 * German **de_DE** (Hannes Heller, Armin Vasilico, Andreas Kumlehn)
+* Russian **ru_RU** ([Teplitsa](te-st.ru))
 * Dutch **nl_NL** (Kris Zanders)
 * Hebrew **he_IL** (Oren L)
 * Polish **pl_PL** (Damian Dzieduch)
@@ -93,6 +94,11 @@ If the CSV file looks scrambled, try changing its filename extension from .csv t
 8. Email confirmation screen
 
 == Changelog ==
+
+= 2.4.1 =
+* Added Return URL option for setting the page that users are redirected to from the email confirmation screen
+* Added Russian Localization (thanks to [Teplitsa](te-st.ru))
+* Tweaked CSS to improve font rendering on Webkit browsers and correct paragraph margins for users of the Twenty Twelve theme
 
 = 2.4 =
 * Reworked the CSS themes (if you're using a custom theme, check to ensure that it still works as expected)
@@ -296,8 +302,10 @@ If the CSV file looks scrambled, try changing its filename extension from .csv t
 
 == Upgrade Notice ==
 
-= 2.4 =
-* This update includes several changes that affect CSS theming. If you are using a custom theme, please test to ensure that it is still displaying as expected after update.
+= 2.4.1 =
+* Added Return URL option for setting the page that users are redirected to from the email confirmation screen
+* Added Russian Localization
+* Minor CSS imporvements
 
 [More information](http://speakup.designkode.com/2012/10/speakup-2-3/)
 
