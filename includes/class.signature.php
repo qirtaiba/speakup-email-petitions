@@ -252,38 +252,38 @@ class dk_speakup_Signature
 	 */
 	public function poppulate_from_post()
 	{
-		$this->petitions_id = $_POST['id'];
-		$this->first_name   = $_POST['first_name'];
-		$this->last_name    = $_POST['last_name'];
-		$this->email        = $_POST['email'];
+		$this->petitions_id = strip_tags( $_POST['id'] );
+		$this->first_name   = strip_tags( $_POST['first_name'] );
+		$this->last_name    = strip_tags( $_POST['last_name'] );
+		$this->email        = strip_tags( $_POST['email'] );
 		$this->date         = current_time( 'mysql', 0 );
 
 		if ( isset( $_POST['custom_message'] ) ) {
-			$this->submitted_message = $_POST['custom_message'];
+			$this->submitted_message = strip_tags( $_POST['custom_message'] );
 		}
 		if ( isset( $_POST['street'] ) ) {
-			$this->street_address = $_POST['street'];
+			$this->street_address = strip_tags( $_POST['street'] );
 		}
 		if ( isset( $_POST['city'] ) ) {
-			$this->city = $_POST['city'];
+			$this->city = strip_tags( $_POST['city'] );
 		}
 		if ( isset( $_POST['state'] ) ) {
-			$this->state = $_POST['state'];
+			$this->state = strip_tags( $_POST['state'] );
 		}
 		if ( isset( $_POST['postcode'] ) ) {
-			$this->postcode = $_POST['postcode'];
+			$this->postcode = strip_tags( $_POST['postcode'] );
 		}
 		if ( isset( $_POST['country'] ) ) {
-			$this->country = $_POST['country'];
+			$this->country = strip_tags( $_POST['country'] );
 		}
 		if ( isset( $_POST['custom_field'] ) ) {
-			$this->custom_field = $_POST['custom_field'];
+			$this->custom_field = strip_tags( $_POST['custom_field'] );
 		}
 		if ( isset( $_POST['optin'] ) && $_POST['optin'] == 'on' ) {
 			$this->optin = 1;
 		}
 		if ( isset( $_POST['lang'] ) ) {
-			$this->language = $_POST['lang'];
+			$this->language = strip_tags( $_POST['lang'] );
 		}
 	}
 
