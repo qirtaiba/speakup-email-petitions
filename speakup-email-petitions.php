@@ -3,7 +3,7 @@
 Plugin Name: SpeakUp! Email Petitions
 Plugin URI: http://speakup.designkode.com/
 Description: Create custom email petition forms and include them on your site via shortcode or widget. Signatures are saved in the database and can be exported to CSV.
-Version: 2.4.1
+Version: 2.4.2
 Author: Kreg Wallace
 Author URI: http://speakup.designkode.com/kreg-wallace
 License: GPL2
@@ -12,7 +12,7 @@ License: GPL2
 global $wpdb, $db_petitions, $db_signatures, $dk_speakup_version;
 $db_petitions  = $wpdb->prefix . 'dk_speakup_petitions';
 $db_signatures = $wpdb->prefix . 'dk_speakup_signatures';
-$dk_speakup_version = '2.4.1';
+$dk_speakup_version = '2.4.2';
 
 // enable localizations
 add_action( 'init', 'dk_speakup_translate' );

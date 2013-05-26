@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: petition, activism, community, email, social media
 Requires at least: 3.1
 Tested up to: 3.5.1
-Stable tag: 2.4.1
+Stable tag: 2.4.2
 
 SpeakUp! Email Petitions makes it easy to add petitions to your website and rally your community to support a cause.
 
@@ -95,6 +95,9 @@ If the CSV file looks scrambled, try changing its filename extension from .csv t
 
 == Changelog ==
 
+= 2.4.2 =
+* Security update: all users are advised to update
+
 = 2.4.1 =
 * Added Return URL option for setting the page that users are redirected to from the email confirmation screen
 * Added Russian Localization (thanks to [Teplitsa](te-st.ru))
@@ -142,7 +145,6 @@ If the CSV file looks scrambled, try changing its filename extension from .csv t
 * Fixed problem with default petition theme not being applied on new installs
 * Added Polish localization (Thanks to Damian Dzieduch)
 * Disabled petition form submit button when clicked to prevent duplicate submissions
-
 
 = 2.0.4 =
 * Fixed problem with spaces not appearing between first and last names on email signatures
@@ -302,10 +304,8 @@ If the CSV file looks scrambled, try changing its filename extension from .csv t
 
 == Upgrade Notice ==
 
-= 2.4.1 =
-* Added Return URL option for setting the page that users are redirected to from the email confirmation screen
-* Added Russian Localization
-* Minor CSS imporvements
+= 2.4.2 =
+* Security update: all users are advised to update
 
 [More information](http://speakup.designkode.com/2012/10/speakup-2-3/)
 
