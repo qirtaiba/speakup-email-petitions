@@ -38,7 +38,8 @@ function dk_speakup_signatures_shortcode( $attr ) {
 	wp_enqueue_script( 'dk_speakup_signaturelist_js', plugins_url( 'speakup-email-petitions/js/signaturelist.js' ), array( 'jquery' ) );
 	wp_localize_script( 'dk_speakup_signaturelist_js', 'dk_speakup_signaturelist_js', $params );
 
-	$table_html = dk_speakup_Signaturelist::table( $id, 0, $rows, 'shortcode', $dateformat, $nextbuttontext, $prevbuttontext );
+	$table_html = dk_speakup_Signaturelist::tableOrg( $id, 0, $rows, 'shortcode', $dateformat, $nextbuttontext, $prevbuttontext, '1' );
+    $table_html .= dk_speakup_Signaturelist::table( $id, 0, $rows, 'shortcode', $dateformat, $nextbuttontext, $prevbuttontext, '0' );
 	return $table_html;
 }
 
