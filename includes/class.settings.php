@@ -22,6 +22,7 @@ class dk_speakup_Settings
 	public $csv_signatures;
 	public $signaturelist_theme;
 	public $signaturelist_header;
+	public $signaturelist_header_org;
 	public $signaturelist_rows;
 	public $signaturelist_columns;
 	public $sig_city = 0;
@@ -55,6 +56,7 @@ class dk_speakup_Settings
 		$this->csv_signatures         = $options['csv_signatures'];
 		$this->signaturelist_theme    = $options['signaturelist_theme'];
 		$this->signaturelist_header   = $options['signaturelist_header'];
+		$this->signaturelist_header_org   = $options['signaturelist_header_org'];
 		$this->signaturelist_rows     = $options['signaturelist_rows'];
 		$this->signaturelist_columns  = $options['signaturelist_columns'];
 
@@ -86,6 +88,7 @@ class dk_speakup_Settings
 			'csv_signatures'         => $this->csv_signatures,
 			'signaturelist_theme'    => $this->signaturelist_theme,
 			'signaturelist_header'   => $this->signaturelist_header,
+			'signaturelist_header_org'   => $this->signaturelist_header_org,
 			'signaturelist_rows'     => $this->signaturelist_rows,
 			'signaturelist_columns'  => $this->signaturelist_columns
 		);
@@ -133,6 +136,7 @@ class dk_speakup_Settings
 		$this->csv_signatures         = $_POST['csv_signatures'];
 		$this->signaturelist_theme    = $_POST['signaturelist_theme'];
 		$this->signaturelist_header   = esc_html( stripslashes( $_POST['signaturelist_header'] ) );
+		$this->signaturelist_header_org   = esc_html( stripslashes( $_POST['signaturelist_header_org'] ) );
 		$this->signaturelist_rows     = absint( $_POST['signaturelist_rows'] );
 		$this->signaturelist_columns  = $signaturelist_columns;
 	}
