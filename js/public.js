@@ -55,13 +55,18 @@ jQuery( document ).ready( function( $ ) {
 			$( '#dk-speakup-email-' + id ).addClass( 'dk-speakup-error' );
 			errors ++;
 		}
-		if ( firstname === '' ) {
-			$( '#dk-speakup-first-name-' + id ).addClass( 'dk-speakup-error' );
-			errors ++;
-		}
-		if ( lastname === '' ) {
-			$( '#dk-speakup-last-name-' + id ).addClass( 'dk-speakup-error' );
-			errors ++;
+
+		if (firstname === '' && lastname === '' && custom_field === '') {
+            $( '#dk-speakup-custom-field-' + id ).addClass( 'dk-speakup-error' );
+            $( '#dk-speakup-first-name-' + id ).addClass( 'dk-speakup-error' );
+            $( '#dk-speakup-last-name-' + id ).addClass( 'dk-speakup-error' );
+            errors ++;
+		} else if (firstname === '' && lastname != '' && custom_field === '') {
+		    $( '#dk-speakup-first-name-' + id ).addClass( 'dk-speakup-error' );
+		    errors ++;
+		} else if (lastname === '' && firstname != '' && custom_field === '') {
+		    $( '#dk-speakup-last-name-' + id ).addClass( 'dk-speakup-error' );
+		    errors ++;
 		}
 
 		// if no errors found, submit the data via ajax
