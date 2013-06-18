@@ -33,9 +33,19 @@ class dk_speakup_Signature
 	 * @param $context (string) optional: context the method is being called from ('csv' or 'signaturelist')
 	 * @return (object) query results
 	 */
-	public function all( $petition_id, $start = 0, $limit = 0, $context = '' )
+	public function all( $petition_id, $start = 0, $limit = 0, $context = '', $org = '' )
 	{
 		global $wpdb, $db_petitions, $db_signatures;
+		
+		$sql_org = '';
+        
+        	if($org == '1') {
+            		$sql_org = "AND $db_signatures.custom_field != ''";
+        	}
+        
+        	if($org == '0') {
+            		$sql_org = "AND $db_signatures.custom_field = ''";
+        	}
 
 		// restrict query results to signatures from a single petition?
 		$sql_petition_filter = '';
@@ -70,6 +80,7 @@ class dk_speakup_Signature
 			SELECT $db_signatures.*, $db_petitions.title, $db_petitions.custom_field_label
 			FROM `$db_signatures`, `$db_petitions`
 			WHERE $db_signatures.petitions_id = $db_petitions.id
+			$sql_org
 			$sql_petition_filter
 			$sql_context_filter
 			ORDER BY $db_signatures.id DESC $sql_limit
@@ -133,9 +144,19 @@ class dk_speakup_Signature
 	 * @param $petition_id (int) optional: unique 'id' of a petition, used to limit results to a single petition
 	 * @return (int) the number of signatures found in the database
 	 */
-	public function count( $petition_id, $context = '' )
+	public function count( $petition_id, $context = '', $org = '' )
 	{
 		global $wpdb, $db_signatures;
+		
+		$sql_org = '';
+        
+        	if($org == '1') {
+            		$sql_org = "AND $db_signatures.custom_field != ''";
+        	}
+        
+        	if($org == '0') {
+            		$sql_org = "AND $db_signatures.custom_field = ''";
+        	}
 
 		// count number of signatures in db
 		// add WHERE clause if counting signatures from a single petition
@@ -154,6 +175,7 @@ class dk_speakup_Signature
 			SELECT `id`
 			FROM `$db_signatures`
 			$sql_where
+			$sql_org
 			$sql_context_filter
 		";
 		$query_results = $wpdb->get_results( $sql );
