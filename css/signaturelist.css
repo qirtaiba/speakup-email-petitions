@@ -1,4 +1,4 @@
-table.dk-speakup-signaturelist {
+table.dk-speakup-signaturelist, table.dk-speakup-signaturelist-org {
 	border-collapse: collapse;
 	border-top: 2px solid #999;
 	clear: both;
@@ -7,15 +7,15 @@ table.dk-speakup-signaturelist {
 	margin-bottom: 1em;
 	width: 100%;
 }
-.dk-speakup-signaturelist caption {
+.dk-speakup-signaturelist caption, .dk-speakup-signaturelist-org caption {
 	font-weight: bold;
 	line-height: 2em;
 	text-align: left;
 }
-table.dk-speakup-signaturelist {
+table.dk-speakup-signaturelist, table.dk-speakup-signaturelist-org {
 	border-bottom: none;
 }
-table.dk-speakup-signaturelist td {
+table.dk-speakup-signaturelist td, table.dk-speakup-signaturelist-org td {
 	border-bottom: 1px solid #ccc;
 	padding: 3px 10px;
 	vertical-align: top;
@@ -23,13 +23,17 @@ table.dk-speakup-signaturelist td {
 td.dk-speakup-signaturelist-name,
 td.dk-speakup-signaturelist-city,
 td.dk-speakup-signaturelist-state,
-td.dk-speakup-signaturelist-country {
+td.dk-speakup-signaturelist-country,
+td.dk-speakup-signaturelist-org-name,
+td.dk-speakup-signaturelist-org-city,
+td.dk-speakup-signaturelist-org-state,
+td.dk-speakup-signaturelist-org-country {
 	text-transform: capitalize;
 }
-td.dk-speakup-signaturelist-count {
+td.dk-speakup-signaturelist-count, td.dk-speakup-signaturelist-org-count {
 	text-align: right;
 }
-td.dk-speakup-signaturelist-name {
+td.dk-speakup-signaturelist-name, td.dk-speakup-signaturelist-org-name {
 	font-weight: bold;
 }
 tr.dk-speakup-even {
@@ -39,13 +43,15 @@ tr.dk-speakup-odd {
 	background: transparent;
 }
 
-table.dk-speakup-signaturelist tr.dk-speakup-signaturelist-pagelinks td {
+table.dk-speakup-signaturelist tr.dk-speakup-signaturelist-pagelinks td, table.dk-speakup-signaturelist-org tr.dk-speakup-signaturelist-org-pagelinks td {
 	border-bottom: none;
 	padding: 8px 0 0 0;
 	text-align: right;
 }
 a.dk-speakup-signaturelist-prev,
-a.dk-speakup-signaturelist-next {
+a.dk-speakup-signaturelist-next,
+a.dk-speakup-signaturelist-org-prev,
+a.dk-speakup-signaturelist-org-next {
 	background: #dedede url(../images/bg-pagination-button.png) repeat-x top left;
 	border-radius: 4px;
 	border: 1px solid #ccc;
@@ -63,19 +69,23 @@ a.dk-speakup-signaturelist-next {
 	text-shadow: 0 1px 0 rgba( 255, 255, 255, 0.7 );
 }
 a.dk-speakup-signaturelist-prev:hover,
-a.dk-speakup-signaturelist-next:hover {
+a.dk-speakup-signaturelist-next:hover,
+a.dk-speakup-signaturelist-org-prev:hover,
+a.dk-speakup-signaturelist-org-next:hover {
 	color: #444;
 }
 a.dk-speakup-signaturelist-prev:active,
-a.dk-speakup-signaturelist-next:active {
+a.dk-speakup-signaturelist-next:active,
+a.dk-speakup-signaturelist-org-prev:active,
+a.dk-speakup-signaturelist-org-next:active {
 	box-shadow: none;
 	position: relative;
 	top: 1px;
 }
-a.dk-speakup-signaturelist-prev:hover {
+a.dk-speakup-signaturelist-prev:hover, a.dk-speakup-signaturelist-org-prev:hover {
 	text-decoration: none;
 }
-.dk-speakup-signaturelist-disabled {
+.dk-speakup-signaturelist-disabled, .dk-speakup-signaturelist-org-disabled {
 	cursor: default !important;
 	opacity: 0.3;
 }
