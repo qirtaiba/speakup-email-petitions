@@ -81,6 +81,10 @@
 					<th scope="row"><label for="signaturelist_header"><?php _e( 'Title', 'dk_speakup' ); ?></label></th>
 					<td><input value="<?php echo esc_attr( $the_settings->signaturelist_header ); ?>" name="signaturelist_header" id="signaturelist_header" type="text" class="regular-text" /></td>
 				</tr>
+				<tr valign="top">
+					<th scope="row"><label for="signaturelist_header_org"><?php _e( 'Title Organizations', 'dk_speakup' ); ?></label></th>
+					<td><input value="<?php echo esc_attr( $the_settings->signaturelist_header_org ); ?>" name="signaturelist_header_org" id="signaturelist_header_org" type="text" class="regular-text" /></td>
+				</tr>
 				<th scope="row"><?php _e( 'Theme', 'dk_speakup' ); ?></th>
 					<td>
 						<label for="signaturelist_theme-default"><input type="radio" name="signaturelist_theme" id="signaturelist_theme-default" value="default" <?php if ( $the_settings->signaturelist_theme == 'default' ) echo 'checked="checked"'; ?> /> <?php _e( 'Default', 'dk_speakup' ); ?></label>
