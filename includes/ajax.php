@@ -94,4 +94,15 @@ function dk_speakup_paginate_signaturelist() {
 	die();
 }
 
+add_action( 'wp_ajax_dk_speakup_paginate_signaturelist_org', 'dk_speakup_paginate_signaturelist_org' );
+add_action( 'wp_ajax_nopriv_dk_speakup_paginate_signaturelist_org', 'dk_speakup_paginate_signaturelist_org' );
+function dk_speakup_paginate_signaturelist_org() {
+	include_once( 'class.signaturelist.php' );
+	$list = new dk_speakup_Signaturelist();
+	$table = $list->tableOrg( $_POST['id'], $_POST['start'], $_POST['limit'], 'ajax', $_POST['dateformat'] );
+	echo $table;
+	// end AJAX processing
+	die();
+}
+
 ?>
