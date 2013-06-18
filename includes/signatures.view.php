@@ -42,6 +42,7 @@
 			<tr>
 				<th></th>
 				<th><?php _e( 'Name', 'dk_speakup' ); ?></th>
+				<th><?php _e( 'Organization', 'dk_speakup' ); ?></th>
 				<th><?php _e( 'Email', 'dk_speakup' ); ?></th>
 				<th><?php _e( 'Petition', 'dk_speakup' ); ?></th>
 				<th><?php _e( 'Confirmed', 'dk_speakup' ); ?></th>
@@ -54,6 +55,7 @@
 			<tr>
 				<th></th>
 				<th><?php _e( 'Name', 'dk_speakup' ); ?></th>
+				<th><?php _e( 'Organization', 'dk_speakup' ); ?></th>
 				<th><?php _e( 'Email', 'dk_speakup' ); ?></th>
 				<th><?php _e( 'Petition', 'dk_speakup' ); ?></th>
 				<th><?php _e( 'Confirmed', 'dk_speakup' ); ?></th>
@@ -90,6 +92,7 @@
 			<tr class="dk-speakup-tablerow">
 				<td class="dk-speakup-right"><?php echo number_format( $current_row, 0, '.', ',' ); ?></td>
 				<td><?php echo stripslashes( esc_html( $signature->first_name . ' ' . $signature->last_name ) ); ?></td>
+				<td><?php echo stripslashes( esc_html( $signature->custom_field ) ); ?></td>
 				<td><?php echo stripslashes( esc_html( $signature->email ) ); ?></td>
 				<td><?php echo stripslashes( esc_html( $signature->title ) ); ?></td>
 				<td><?php echo $confirmed; ?></td>
